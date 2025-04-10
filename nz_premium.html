@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-2125586648357270">
+    <title>Notes Zone Premium - Exclusive Handwritten Notes</title>
+    <meta name="description" content="Access premium handwritten notes for CBSE, college exams, and competitive exams. Exclusive content for premium members.">
+    <meta name="keywords" content="premium notes, CBSE notes, college notes, exclusive notes, handwritten notes">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="logo.ico.ico" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        premium: {
+                            gold: '#D4AF37',
+                            darkgold: '#B8860B',
+                            black: '#111111',
+                            darkblack: '#0A0A0A',
+                            gray: '#333333'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        /* Premium Theme Styles */
+        body {
+            background-color: #111111;
+            color: #D4AF37;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Gold gradient animations */
+        @keyframes goldShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(90deg, #D4AF37, #FFC107, #B8860B, #D4AF37);
+            background-size: 300% 300%;
+            animation: goldShimmer 5s infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        
+        .premium-card {
+            background: #1A1A1A;
+            border: 1px solid #D4AF37;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .premium-card:hover {
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        .premium-button {
+            background: linear-gradient(90deg, #D4AF37, #B8860B);
+            color: #111111;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .premium-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Navigation styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        /* Nav link hover effects */
+        .nav-link {
+            position: relative;
+            color: #D4AF37;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #D4AF37, #B8860B);
+            transition: width 0.3s, left 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-premium-black text-premium-gold">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 bg-premium-black flex items-center justify-center z-50 hidden">
+        <video autoplay loop muted playsinline class="h-32 w-32">
+            <source src="logowebm.webm" type="video/webm">
+            <source src="logogif.gif" type="video/mp4">
+            <img src="logo.png" alt="Loading..." class="h-32 w-32">
+        </video>
+    </div>
+
+    <!-- Premium Header -->
+    <header class="py-2 px-8 sticky top-0 z-50 shadow-lg border-b border-premium-gold/20">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="logo.png" alt="Notes Zone Logo" class="h-10 w-auto hover:scale-105 transition-transform">
+                <span class="ml-2 text-lg font-bold gold-gradient">PREMIUM</span>
+            </a>
+            
+            <!-- Centered Navigation Links -->
+            <nav id="navLinks" class="hidden sm:flex space-x-8 text-lg font-medium mx-auto">
+                <a href="#features" class="nav-link hover:text-yellow-400">
+                    Premium Features
+                </a>
+                <a href="#pricing" class="nav-link hover:text-yellow-400">
+                    Pricing
+                </a>
+                <a href="contact.html" class="nav-link hover:text-yellow-400">
+                    Contact
+                </a>
+            </nav>
+            
+            <!-- Right-aligned Member Login -->
+            <div class="flex items-center">
+                <a href="login_sign.html" class="nav-link hover:text-yellow-400 flex items-center">
+                    <i class="fas fa-crown mr-2"></i> Member Login
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Icon -->
+            <button id="menuToggle" class="sm:hidden text-2xl text-premium-gold focus:outline-none">
+                ☰
+            </button>
+        </div>
+        
+        <!-- Mobile Dropdown Menu -->
+        <nav id="mobileMenu" class="sm:hidden absolute left-0 top-16 w-full bg-premium-black/90 backdrop-blur-md text-premium-gold shadow-lg rounded-lg transition-transform">
+            <div class="close-btn text-premium-gold" id="closeMenu">✕</div>
+            <ul class="flex flex-col space-y-4 p-6">
+                <!-- Logo in Mobile Menu -->
+                <a href="#">
+                    <div class="menu-logo flex justify-center items-center">
+                        <img src="logo.png" alt="Notes Zone Logo" class="h-10 w-auto">
+                        <span class="ml-2 text-lg font-bold gold-gradient">PREMIUM</span>
+                    </div>
+                </a>
+                
+                <li><a href="#features" class="block nav-link hover:text-yellow-400">Premium Features</a></li>
+                <li><a href="#pricing" class="block nav-link hover:text-yellow-400">Pricing</a></li>
+                <li><a href="contact.html" class="block nav-link hover:text-yellow-400">Contact</a></li>
+                <li><a href="login_sign.html" class="block nav-link hover:text-yellow-400 flex items-center">
+                    <i class="fas fa-crown mr-2"></i> Member Login
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Premium Hero Section -->
+    <section class="hero flex items-center justify-center text-center py-28 px-4 min-h-[80vh] bg-gradient-to-r from-gray-900 to-black relative overflow-hidden">
+        <!-- Gold particles/glitter overlay -->
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://assets.codepen.io/1462889/pat.svg" alt="" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 relative z-10">
+            <!-- Left Column: Text -->
+            <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                    <span class="gold-gradient">Premium Notes</span><br>
+                    <span class="text-white">Exclusive Content</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
+                    Unlock your academic potential with our premium handwritten notes. Curated by top educators for maximum results.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#pricing" class="premium-button px-8 py-3 rounded-full text-lg shadow-lg">
+                        Get Premium Access
+                    </a>
+                    <a href="#features" class="border border-premium-gold text-premium-gold hover:bg-premium-gold/10 px-8 py-3 rounded-full text-lg transition">
+                        Explore Features
+                    </a>
+                </div> 
+            </div>
+            
+            <!-- Right Column: Premium Image -->
+            <div class="flex justify-center items-center">
+                <div class="relative">
+                    <!-- Main image -->
+                    <img src="nz_pre20.png" alt="Premium Notes" class="w-full max-w-md h-auto drop-shadow-[0_0_25px_rgba(212,175,55,0.3)] rounded-lg transform rotate-2">
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-premium-gold/70 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Premium Features Section -->
+    <section id="features" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 inline-block gold-gradient">Premium Features</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-yellow-600 to-yellow-400 mx-auto mb-8"></div>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Experience the ultimate learning advantage with our premium handwritten notes and exclusive resources.
+                </p>
+            </div>
+            
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="premium-card rounded-xl overflow-hidden">
+                    <div class="p-1 bg-gradient-to-r from-yellow-600 to-yellow-400">
+                        <div class="bg-gray-900 p-6 h-full">
+                            <div class="text-premium-gold text-4xl mb-4">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-white">Premium CBSE Notes</h3>
+                            <p class="text-gray-400 mb-4">
+                                Access comprehensive handwritten notes with diagrams, highlighted key points, and exam-focused content.
+                            </p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-premium-gold mr-2"></i>
+                                    Color-coded diagrams
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-premium-gold mr-2"></i>
+                                    Exam tips and tricks
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-premium-gold mr-2"></i>
+                                    Practice questions included
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature Card 2 -->
+                <div class="premium-card rounded-xl overflow-hidden">
+                    <div class="p-1 bg-gradient-to-r from-yellow-600 to-yellow-400">
+                        <div class="bg-gray-900 p-6 h-full">
+                            <div class="text-premium-gold text-4xl mb-4">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-white">Expert College Notes</h3>
+                            <p class="text-gray-400 mb-4">
+                                Get access to specialized notes created by top university students and professors.
+                            </p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-premium-gold mr-2"></i>
+                                    University-specific content
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-premium-gold mr-2"></i>
+                                    Advanced topic explanations
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-premium-gold mr-2"></i>
+                                    Reference materials included
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature Card 3 -->
+                <div class="premium-card rounded-xl overflow-hidden">
+                    <div class="p-1 bg-gradient-to-r from-yellow-600 to-yellow-400">
+                        <div class="bg-gray-900 p-6 h-full">
+                            <div class="text-premium-gold text-4xl mb-4">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-white">Competition Edge</h3>
+                            <p class="text-gray-400 mb-4">
+                                Prepare for competitive exams with specialized notes designed for entrance test success.
+                            </p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-premium-gold mr-2"></i>
+                                    Shortcut techniques
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-premium-gold mr-2"></i>
+                                    Previous year analysis
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-premium-gold mr-2"></i>
+                                    Mock test materials
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Features -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Left column -->
+                <div class="bg-gray-900/80 border border-premium-gold/20 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-white">Premium Membership Benefits</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-premium-gold/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-download text-premium-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">Unlimited Downloads</h4>
+                                <p class="text-gray-400">Download all premium notes without any restrictions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-premium-gold/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-sync-alt text-premium-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">Regular Updates</h4>
+                                <p class="text-gray-400">Get the latest content as soon as it's available.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-premium-gold/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-ban text-premium-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">Ad-Free Website</h4>
+                                <p class="text-gray-400">Enjoy distraction-free studying with no advertisements.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-premium-gold/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-bolt text-premium-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white">Instant Assignment</h4>
+                                <p class="text-gray-400">Get quick help with assignments and homework.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right column -->
+                <div class="bg-gray-900/80 border border-premium-gold/20 rounded-lg p-8 relative overflow-hidden">
+                    <!-- Background pattern -->
+                    <div class="absolute top-0 right-0 h-32 w-32 opacity-10">
+                        <i class="fas fa-crown text-9xl text-premium-gold"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-6 text-white">What Premium Users Say</h3>
+                    <div class="space-y-6">
+                        <!-- Testimonial 1 -->
+                        <div class="bg-black/40 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-600 to-yellow-400 flex items-center justify-center text-black font-bold mr-3">
+                                    R
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-white">Rishabh Mishra</h5>
+                                    <div class="text-premium-gold text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm italic">
+                                "The premium notes helped me score 95% in my CBSE board exams. The diagrams and highlighted points made revision so much easier."
+                            </p>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="bg-black/40 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-600 to-yellow-400 flex items-center justify-center text-black font-bold mr-3">
+                                    A
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-white">Raghuveer Singh</h5>
+                                    <div class="text-premium-gold text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm italic">
+                                "Premium college notes were a lifesaver during my semester exams. The expert explanations made complex topics easy to understand."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-black">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 inline-block gold-gradient">Premium Plans</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-yellow-600 to-yellow-400 mx-auto mb-8"></div>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Choose the plan that best fits your academic needs and goals.
+                </p>
+            </div>
+            
+            <!-- Pricing Plans -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="premium-card rounded-xl overflow-hidden transform transition-all hover:scale-105">
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-2 text-white">Monthly Premium</h3>
+                        <div class="flex items-end mb-6">
+                            <span class="text-4xl font-bold text-premium-gold">₹69</span>
+                            <span class="text-gray-400 ml-2">/month</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                <span class="text-gray-300">Access to all premium notes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                <span class="text-gray-300">Download up to 30 notes per month</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                <span class="text-gray-300">Basic email support</span>
+                            </li>
+                            <li class="flex items-start text-gray-500">
+                                <i class="fas fa-times mt-1 mr-3"></i>
+                                <span>Expert consultation</span>
+                            </li>
+                            <li class="flex items-start text-gray-500">
+                                <i class="fas fa-times mt-1 mr-3"></i>
+                                <span>Premium webinars access</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="https://rzp.io/rzp/KmKlWevJ" class="block w-full py-3 text-center border border-premium-gold text-premium-gold rounded-lg hover:bg-premium-gold/10 transition">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Popular Plan (Highlighted) -->
+                <div class="premium-card rounded-xl overflow-hidden transform transition-all hover:scale-105 relative">
+                    <!-- Popular badge -->
+                    <div class="absolute top-0 right-0">
+                        <div class="bg-premium-gold text-black text-xs font-bold px-3 py-1 rounded-bl-lg">
+                            MOST POPULAR
+                        </div>
+                    </div>
+                    
+                    <!-- Gold border highlight -->
+                    <div class="p-1 bg-gradient-to-r from-yellow-600 to-yellow-400">
+                        <div class="bg-gray-900 p-7">
+                            <h3 class="text-xl font-bold mb-2 text-white">Yearly Premium</h3>
+                            <div class="flex items-end mb-2">
+                                <span class="text-4xl font-bold text-premium-gold">₹99</span>
+                                <span class="text-gray-400 ml-2">/year</span>
+                            </div>
+                  
+                            
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Access to all premium notes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Unlimited downloads</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Priority email support</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                    <span class="text-gray-300">Monthly expert consultation</span>
+                                </li>
+                                <li class="flex items-start text-gray-500">
+                                    <i class="fas fa-times mt-1 mr-3"></i>
+                                    <span>Premium webinars access</span>
+                                </li>
+                            </ul>
+                            
+                            <a href="https://rzp.io/rzp/hdjb6oy3" class="block w-full py-3 text-center premium-button rounded-lg">
+                                Get Started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Elite Plan -->
+                <div class="premium-card rounded-xl overflow-hidden transform transition-all hover:scale-105">
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-2 text-white">Elite Premium</h3>
+                        <div class="flex items-end mb-6">
+                            <span class="text-4xl font-bold text-premium-gold">₹199</span>
+                            <span class="text-gray-400 ml-2">/year</span>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                <span class="text-gray-300">Access to all premium notes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                <span class="text-gray-300">Unlimited downloads</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                <span class="text-gray-300">24/7 priority support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                <span class="text-gray-300">Weekly expert consultation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-premium-gold mt-1 mr-3"></i>
+                                <span class="text-gray-300">Premium webinars access</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="https://rzp.io/rzp/EVw40LEg" class="block w-full py-3 text-center border border-premium-gold text-premium-gold rounded-lg hover:bg-premium-gold/10 transition">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Call to Action Section -->
+<section class="py-16 bg-gradient-to-r from-gray-900 to-black">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-premium-black border border-premium-gold/30 rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+            <!-- Background decorative elements -->
+            <div class="absolute top-0 left-0 w-full h-full">
+                <div class="absolute top-0 right-0 opacity-20">
+                    <i class="fas fa-crown text-premium-gold text-9xl"></i>
+                </div>
+                <div class="absolute bottom-0 left-0 opacity-10">
+                    <i class="fas fa-graduation-cap text-premium-gold text-9xl"></i>
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 gold-gradient">
+                        Unlock Your Academic Potential
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6 max-w-2xl">
+                        Join thousands of successful students who have improved their grades with Notes Zone Premium. Get access to exclusive handwritten notes today.
+                    </p>
+                    <ul class="flex flex-wrap gap-4 text-sm text-gray-400 mb-8 justify-center md:justify-start">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-premium-gold mr-2"></i>
+                            Instant Access
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-premium-gold mr-2"></i>
+                            30-Day Money Back
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-premium-gold mr-2"></i>
+                            Secure Payment
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <a href="#pricing" class="premium-button px-8 py-4 rounded-full text-lg shadow-lg flex items-center">
+                        <span>Start Premium Trial</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-black">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4 inline-block gold-gradient">
+                Frequently Asked Questions
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-yellow-600 to-yellow-400 mx-auto mb-8"></div>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                Everything you need to know about Notes Zone Premium membership.
+            </p>
+        </div>
+        
+        <!-- FAQ Items -->
+        <div class="max-w-3xl mx-auto divide-y divide-gray-800">
+            <!-- FAQ Item 1 -->
+            <div class="py-5">
+                <details class="group">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-white">
+                        <span>What makes Notes Zone Premium different?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-premium-gold"></i>
+                        </span>
+                    </summary>
+                    <p class="text-gray-400 mt-3 pl-4">
+                        Notes Zone Premium offers exclusive handwritten notes created by top educators and students. Our notes include detailed explanations, color-coded diagrams, exam tips, and practice questions that aren't available in the free version.
+                    </p>
+                </details>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="py-5">
+                <details class="group">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-white">
+                        <span>How can I access notes after subscribing?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-premium-gold"></i>
+                        </span>
+                    </summary>
+                    <p class="text-gray-400 mt-3 pl-4">
+                        After subscribing, you'll receive immediate access to your premium account. Simply log in with your credentials and you'll have full access to download all premium notes based on your subscription plan.
+                    </p>
+                </details>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="py-5">
+                <details class="group">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-white">
+                        <span>Can I cancel my subscription anytime?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-premium-gold"></i>
+                        </span>
+                    </summary>
+                    <p class="text-gray-400 mt-3 pl-4">
+                        Yes, you can cancel your subscription at any time from your account settings. If you cancel within the first 30 days, you're eligible for our money-back guarantee.
+                    </p>
+                </details>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="py-5">
+                <details class="group">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-white">
+                        <span>What subjects do you cover?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-premium-gold"></i>
+                        </span>
+                    </summary>
+                    <p class="text-gray-400 mt-3 pl-4">
+                        We cover all major subjects for CBSE classes 9-12, popular undergraduate courses, and competitive exams like JEE, NEET, UPSC, and more. Our collection is constantly expanding to include more subjects and courses.
+                    </p>
+                </details>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="py-5">
+                <details class="group">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-white">
+                        <span>What payment methods do you accept?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-premium-gold"></i>
+                        </span>
+                    </summary>
+                    <p class="text-gray-400 mt-3 pl-4">
+                        We accept all major credit/debit cards, UPI, net banking, and popular wallets like PayTM and PhonePe. All payments are processed securely through our payment gateway.
+                    </p>
+                </details>
+            </div>
+        </div>
+        
+        <!-- More Questions -->
+        <div class="text-center mt-10">
+            <p class="text-gray-400">
+                Still have questions? Contact our support team for assistance.
+            </p>
+            <a href="contact.html" class="inline-block mt-4 text-premium-gold hover:underline">
+                Contact Support <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-premium-darkblack py-12 border-t border-premium-gold/20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+            <!-- Logo and Description -->
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center mb-4">
+                    <img src="logo.png" alt="Notes Zone Logo" class="h-10 w-auto">
+                    <span class="ml-2 text-lg font-bold gold-gradient">PREMIUM</span>
+                </div>
+                <p class="text-gray-400 text-sm mb-6">
+                    Premium handwritten notes for students aiming for academic excellence.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-premium-gold">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-premium-gold">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-premium-gold">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-premium-gold">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="col-span-1">
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#features" class="text-gray-400 hover:text-premium-gold">
+                            Premium Features
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#pricing" class="text-gray-400 hover:text-premium-gold">
+                            Pricing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login_sign.html" class="text-gray-400 hover:text-premium-gold">
+                            Login / Sign Up
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="text-gray-400 hover:text-premium-gold">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Resources -->
+            <div class="col-span-1">
+                <h4 class="text-white font-semibold mb-4">Resources</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-premium-gold">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-premium-gold">
+                            Study Tips
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-premium-gold">
+                            Free Resources
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-400 hover:text-premium-gold">
+                            Success Stories
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div class="col-span-1">
+                <h4 class="text-white font-semibold mb-4">Contact Us</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope text-premium-gold mt-1 mr-3"></i>
+                        <span class="text-gray-400">support@noteszone.in</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone text-premium-gold mt-1 mr-3"></i>
+                        <span class="text-gray-400">+91 98765 43210</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-premium-gold mt-1 mr-3"></i>
+                        <span class="text-gray-400">123 Education Street, Knowledge City, India</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Bottom Footer -->
+        <div class="mt-10 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                © 2025 Notes Zone Premium. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-500 hover:text-premium-gold text-sm">
+                    Terms of Service
+                </a>
+                <a href="#" class="text-gray-500 hover:text-premium-gold text-sm">
+                    Privacy Policy
+                </a>
+                <a href="#" class="text-gray-500 hover:text-premium-gold text-sm">
+                    Refund Policy
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="fixed bottom-8 right-8 bg-premium-gold text-black p-3 rounded-full shadow-lg opacity-0 invisible transition-all">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- JavaScript -->
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    // Initially hide mobile menu
+    mobileMenu.classList.add('hidden');
+    
+    menuToggle.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex', 'flex-col');
+        } else {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex', 'flex-col');
+        }
+    });
+    
+    closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex', 'flex-col');
+    });
+    
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex', 'flex-col');
+        });
+    });
+    
+    // Loading Screen
+    window.addEventListener('load', () => {
+        const loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.classList.remove('hidden');
+        
+        setTimeout(() => {
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 500);
+        }, 1000);
+    });
+    
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopButton.classList.add('opacity-0', 'invisible');
+            backToTopButton.classList.remove('opacity-100', 'visible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // Adjust for header height
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Details element animation for FAQ
+    document.querySelectorAll('details').forEach(detail => {
+        detail.addEventListener('toggle', function() {
+            if (this.open) {
+                const content = this.querySelector('p');
+                content.style.maxHeight = '0';
+                setTimeout(() => {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }, 10);
+            }
+        });
+    });
+</script>
+</body>
+</html>
