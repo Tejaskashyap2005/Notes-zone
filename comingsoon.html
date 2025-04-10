@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon - Notes Zone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #1e3a8a, #38bdf8);
+      color: white;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .countdown-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      width: 100px;
+    }
+    .countdown-item span {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .countdown-item small {
+      font-size: 0.875rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+  <!-- Logo -->
+  <img src="logo.png" alt="Notes Zone Logo" class="h-16 w-auto mb-8">
+
+  <!-- Heading -->
+  <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4">
+    Something Awesome is Coming Soon!
+  </h1>
+
+  <!-- Subheading -->
+  <p class="text-lg sm:text-xl text-center mb-8 max-w-2xl">
+    We're working hard to bring you an amazing experience. Stay tuned for updates and be the first to know when we launch!
+  </p>
+
+  <!-- Countdown Timer -->
+  <div class="countdown mb-8">
+    <div class="countdown-item">
+      <span id="days">00</span>
+      <small>Days</small>
+    </div>
+    <div class="countdown-item">
+      <span id="hours">00</span>
+      <small>Hours</small>
+    </div>
+    <div class="countdown-item">
+      <span id="minutes">00</span>
+      <small>Minutes</small>
+    </div>
+    <div class="countdown-item">
+      <span id="seconds">00</span>
+      <small>Seconds</small>
+    </div>
+  </div>
+
+  <!-- Subscription Form -->
+  <form class="w-full max-w-md mb-8">
+    <div class="flex flex-col sm:flex-row gap-2">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        class="flex-1 p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-white/50"
+        required
+      >
+      <button
+        type="submit"
+        class="p-3 bg-yellow-400 text-blue-900 font-bold rounded-lg hover:bg-yellow-500 transition"
+      >
+        Notify Me
+      </button>
+    </div>
+  </form>
+
+  <!-- Social Media Links -->
+  <div class="flex space-x-4">
+    <a href="https://www.linkedin.com/company/notes-zone/" target="_blank" class="text-white hover:text-yellow-400 transition">
+      <i class="fab fa-linkedin fa-2x"></i>
+    </a>
+    <a href="https://youtube.com/@noteszonebotservice?feature=shared" target="_blank" class="text-white hover:text-yellow-400 transition">
+      <i class="fab fa-youtube fa-2x"></i>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-8 text-center text-sm opacity-80">
+    &copy; <span id="currentYear"></span> Notes Zone. All rights reserved.
+  </footer>
+
+  <!-- JavaScript for Countdown Timer -->
+  <script>
+    // Set the launch date to February 25, 2025 (YYYY, MM-1, DD, HH, MM, SS)
+    const launchDate = new Date(2025, 4, 15, 0, 0, 0).getTime();
+
+    // Update the countdown every second
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const timeLeft = launchDate - now;
+
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      // Display the countdown
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+      // If the countdown is over, display a message
+      if (timeLeft < 0) {
+        clearInterval(timer);
+        document.querySelector('.countdown').innerHTML = '<div class="text-2xl font-bold">We\'re Live!</div>';
+      }
+    }, 1000);
+
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
