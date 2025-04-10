@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="img/logo.ico.ico" type="image/x-icon">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Container -->
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="max-w-md w-full space-y-8 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg relative overflow-hidden">
+            <!-- Background Effects -->
+            <div class="absolute inset-0 bg-gradient-to-br from-sky-100/50 to-transparent dark:from-sky-900/30 z-0"></div>
+            <div class="absolute inset-0 backdrop-blur-3xl z-0"></div>
+
+            <!-- Content -->`
+            <div class="relative z-10">
+                <!-- Logo -->
+                <div class="text-center mb-8">
+                    <img src="logo.png" alt="Logo" class="h-16 mx-auto mb-4">
+                    <h2 id="formTitle" class="text-2xl font-bold text-gray-900 dark:text-white">Create an account</h2>
+                    <p id="formSubtitle" class="mt-2 text-gray-600 dark:text-gray-400">Join us today</p>
+                </div>
+
+                <!-- Sign Up Form -->
+                <form id="signupForm" class="space-y-6" action="#" method="POST">
+                    <!-- Message Div -->
+                    <div id="signUpMessage" class="hidden bg-purple-800 text-white p-3 rounded-lg text-sm mb-4"></div>
+
+                    <!-- First Name -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First Name</label>
+                        <div class="relative">
+                            <input type="text" id="fName" required 
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all">
+                            <span class="absolute right-3 top-2.5 text-gray-400">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last Name</label>
+                        <div class="relative">
+                            <input type="text" id="lName" required 
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all">
+                            <span class="absolute right-3 top-2.5 text-gray-400">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                        <div class="relative">
+                            <input type="email" id="rEmail" required 
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all">
+                            <span class="absolute right-3 top-2.5 text-gray-400">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+                        <div class="relative">
+                            <input type="password" id="rPassword" required 
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all">
+                            <span class="absolute right-3 top-2.5 text-gray-400 cursor-pointer hover:text-gray-600 dark:hover:text-gray-300">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input type="checkbox" required class="rounded border-gray-300 text-yellow-400 focus:ring-yellow-400">
+                        </div>
+                        <div class="ml-3">
+                            <label class="text-sm text-gray-600 dark:text-gray-400">
+                                I agree to the <a href="#" class="text-yellow-500 hover:text-yellow-600">Terms of Service</a> and 
+                                <a href="#" class="text-yellow-500 hover:text-yellow-600">Privacy Policy</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Sign Up Button -->
+                    <button type="submit" id="submitSignUp"
+                        class="w-full py-2 px-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-medium rounded-lg hover:shadow-lg transform hover:scale-[1.02] transition-all">
+                        Create Account
+                    </button>
+
+                    <!-- Social Sign Up -->
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white dark:bg-gray-800 text-gray-500">Or sign up with</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="h-5 w-5">
+                        </button>
+                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                            <i class="fab fa-facebook text-blue-600 text-xl"></i>
+                        </button>
+                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                            <i class="fab fa-apple text-gray-900 dark:text-white text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Login Link -->
+                    <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+                        Already have an account? 
+                        <button id="signInButton" class="text-yellow-500 hover:text-yellow-600 dark:hover:text-yellow-400 font-medium">Sign In</button>
+                    </p>
+                </form>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="space-y-6 hidden" action="#" method="POST">
+                    <!-- Message Div -->
+                    <div id="signInMessage" class="hidden bg-purple-800 text-white p-3 rounded-lg text-sm mb-4"></div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                        <div class="relative">
+                            <input type="email" id="email" required 
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all">
+                            <span class="absolute right-3 top-2.5 text-gray-400">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+                        <div class="relative">
+                            <input type="password" id="password" required 
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all">
+                            <span class="absolute right-3 top-2.5 text-gray-400 cursor-pointer hover:text-gray-600 dark:hover:text-gray-300">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Remember & Forgot -->
+                    <div class="flex items-center justify-between text-sm">
+                        <label class="flex items-center text-gray-600 dark:text-gray-400">
+                            <input type="checkbox" class="rounded border-gray-300 text-yellow-400 focus:ring-yellow-400 mr-2">
+                            Remember me
+                        </label>
+                        <a href="#" class="text-yellow-500 hover:text-yellow-600 dark:hover:text-yellow-400">Forgot password?</a>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" id="submitSignIn"
+                        class="w-full py-2 px-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-medium rounded-lg hover:shadow-lg transform hover:scale-[1.02] transition-all">
+                        Sign In
+                    </button>
+
+                    <!-- Social Login -->
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white dark:bg-gray-800 text-gray-500">Or continue with</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="h-5 w-5">
+                        </button>
+                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                            <i class="fab fa-facebook text-blue-600 text-xl"></i>
+                        </button>
+                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                            <i class="fab fa-apple text-gray-900 dark:text-white text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Sign Up Link -->
+                    <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+                        Don't have an account? 
+                        <button id="signUpButton" class="text-yellow-500 hover:text-yellow-600 dark:hover:text-yellow-400 font-medium">Sign Up</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Auth Script -->
+    <script type="module" src="firebaseauth.js"></script>
+
+    <script>
+        // Toggle between Sign Up and Login forms
+        const signupForm = document.getElementById('signupForm');
+        const loginForm = document.getElementById('loginForm');
+        const formTitle = document.getElementById('formTitle');
+        const formSubtitle = document.getElementById('formSubtitle');
+        const signInButton = document.getElementById('signInButton');
+        const signUpButton = document.getElementById('signUpButton');
+
+        signInButton.addEventListener('click', () => {
+            signupForm.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            formTitle.textContent = 'Welcome back!';
+            formSubtitle.textContent = 'Please sign in to your account';
+        });
+
+        signUpButton.addEventListener('click', () => {
+            loginForm.classList.add('hidden');
+            signupForm.classList.remove('hidden');
+            formTitle.textContent = 'Create an account';
+            formSubtitle.textContent = 'Join us today';
+        });
+
+        // Toggle password visibility
+        document.querySelectorAll('.fa-eye').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const input = this.closest('div').querySelector('input');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
