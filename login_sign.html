@@ -108,13 +108,13 @@
                     </div>
 
                     <div class="grid grid-cols-3 gap-3">
-                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                        <button type="button" id="googleSignIn" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
                             <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="h-5 w-5">
                         </button>
-                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                        <button type="button" id="facebookSignIn" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
                             <i class="fab fa-facebook text-blue-600 text-xl"></i>
                         </button>
-                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                        <button type="button" id="appleSignIn" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
                             <i class="fab fa-apple text-gray-900 dark:text-white text-xl"></i>
                         </button>
                     </div>
@@ -181,13 +181,13 @@
                     </div>
 
                     <div class="grid grid-cols-3 gap-3">
-                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                        <button type="button" id="googleSignIn" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
                             <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="h-5 w-5">
                         </button>
-                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                        <button type="button" id="facebookSignIn" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
                             <i class="fab fa-facebook text-blue-600 text-xl"></i>
                         </button>
-                        <button type="button" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                        <button type="button" id="appleSignIn" class="flex justify-center items-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
                             <i class="fab fa-apple text-gray-900 dark:text-white text-xl"></i>
                         </button>
                     </div>
@@ -243,6 +243,71 @@
                 }
             });
         });
+
+        // Social Sign-In Buttons (both on signup and login forms)
+        document.querySelectorAll('#googleSignIn').forEach(button => {
+            button.addEventListener('click', () => {
+                // The actual implementation is in firebaseauth.js
+                if (typeof signInWithGoogle === 'function') {
+                    signInWithGoogle();
+                } else {
+                    console.error('Google sign-in function not available');
+                    showMessage('Google sign-in is currently unavailable', 'error');
+                }
+            });
+        });
+
+        document.querySelectorAll('#facebookSignIn').forEach(button => {
+            button.addEventListener('click', () => {
+                // The actual implementation is in firebaseauth.js
+                if (typeof signInWithFacebook === 'function') {
+                    signInWithFacebook();
+                } else {
+                    console.error('Facebook sign-in function not available');
+                    showMessage('Facebook sign-in is currently unavailable', 'error');
+                }
+            });
+        });
+
+        document.querySelectorAll('#appleSignIn').forEach(button => {
+            button.addEventListener('click', () => {
+                // The actual implementation is in firebaseauth.js
+                if (typeof signInWithApple === 'function') {
+                    signInWithApple();
+                } else {
+                    console.error('Apple sign-in function not available');
+                    showMessage('Apple sign-in is currently unavailable', 'error');
+                }
+            });
+        });
+
+        // Helper function to show messages
+        function showMessage(message, type = 'info') {
+            const signUpMessage = document.getElementById('signUpMessage');
+            const signInMessage = document.getElementById('signInMessage');
+            
+            // Determine which message div to use based on which form is visible
+            const messageDiv = loginForm.classList.contains('hidden') ? signUpMessage : signInMessage;
+            
+            messageDiv.textContent = message;
+            messageDiv.classList.remove('hidden');
+            
+            // Apply different styles based on message type
+            messageDiv.className = 'p-3 rounded-lg text-sm mb-4';
+            
+            if (type === 'error') {
+                messageDiv.classList.add('bg-red-600', 'text-white');
+            } else if (type === 'success') {
+                messageDiv.classList.add('bg-green-600', 'text-white');
+            } else {
+                messageDiv.classList.add('bg-purple-800', 'text-white');
+            }
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                messageDiv.classList.add('hidden');
+            }, 5000);
+        }
     </script>
 </body>
 </html>
