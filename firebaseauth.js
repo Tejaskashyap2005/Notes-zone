@@ -1,8 +1,15 @@
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+import { 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    FacebookAuthProvider,
+    OAuthProvider,
+    signInWithPopup
+} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -92,3 +99,139 @@ signIn.addEventListener('click', (e) => {
             }
         });
 });
+
+// Social Sign-In Functions
+// Google Sign-In
+window.signInWithGoogle = function() {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    provider.addScope('profile');
+    provider.addScope('email');
+    
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // Google sign-in succeeded
+            const user = result.user;
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            
+            // Store user data in Firestore
+            const db = getFirestore();
+            const userData = {
+                email: user.email,
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+                provider: 'google'
+            };
+            
+            setDoc(doc(db, "users", user.uid), userData, { merge: true })
+                .then(() => {
+                    localStorage.setItem('loggedInUser', user.uid);
+                    window.location.href = 'index.html';
+                })
+                .catch((error) => {
+                    console.error("Error writing document:", error);
+                    showMessage(error.message, loginForm.classList.contains('hidden') ? 'signUpMessage' : 'signInMessage');
+                });
+        })
+        .catch((error) => {
+            // Handle errors
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData?.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            
+            console.error("Google Sign-In Error:", errorCode, errorMessage);
+            showMessage(`Sign-in error: ${errorMessage}`, loginForm.classList.contains('hidden') ? 'signUpMessage' : 'signInMessage');
+        });
+};
+
+// Facebook Sign-In
+window.signInWithFacebook = function() {
+    const auth = getAuth();
+    const provider = new FacebookAuthProvider();
+    provider.addScope('email');
+    provider.addScope('public_profile');
+    
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // Facebook sign-in succeeded
+            const user = result.user;
+            const credential = FacebookAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            
+            // Store user data in Firestore
+            const db = getFirestore();
+            const userData = {
+                email: user.email,
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+                provider: 'facebook'
+            };
+            
+            setDoc(doc(db, "users", user.uid), userData, { merge: true })
+                .then(() => {
+                    localStorage.setItem('loggedInUser', user.uid);
+                    window.location.href = 'index.html';
+                })
+                .catch((error) => {
+                    console.error("Error writing document:", error);
+                    showMessage(error.message, loginForm.classList.contains('hidden') ? 'signUpMessage' : 'signInMessage');
+                });
+        })
+        .catch((error) => {
+            // Handle errors
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData?.email;
+            const credential = FacebookAuthProvider.credentialFromError(error);
+            
+            console.error("Facebook Sign-In Error:", errorCode, errorMessage);
+            showMessage(`Sign-in error: ${errorMessage}`, loginForm.classList.contains('hidden') ? 'signUpMessage' : 'signInMessage');
+        });
+};
+
+// Apple Sign-In
+window.signInWithApple = function() {
+    const auth = getAuth();
+    const provider = new OAuthProvider('apple.com');
+    provider.addScope('email');
+    provider.addScope('name');
+    
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // Apple sign-in succeeded
+            const user = result.user;
+            const credential = OAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            
+            // Store user data in Firestore
+            const db = getFirestore();
+            const userData = {
+                email: user.email,
+                displayName: user.displayName || "Apple User", // Apple might not provide displayName
+                photoURL: user.photoURL,
+                provider: 'apple'
+            };
+            
+            setDoc(doc(db, "users", user.uid), userData, { merge: true })
+                .then(() => {
+                    localStorage.setItem('loggedInUser', user.uid);
+                    window.location.href = 'index.html';
+                })
+                .catch((error) => {
+                    console.error("Error writing document:", error);
+                    showMessage(error.message, loginForm.classList.contains('hidden') ? 'signUpMessage' : 'signInMessage');
+                });
+        })
+        .catch((error) => {
+            // Handle errors
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData?.email;
+            const credential = OAuthProvider.credentialFromError(error);
+            
+            console.error("Apple Sign-In Error:", errorCode, errorMessage);
+            showMessage(`Sign-in error: ${errorMessage}`, loginForm.classList.contains('hidden') ? 'signUpMessage' : 'signInMessage');
+        });
+};
