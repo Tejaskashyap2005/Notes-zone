@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-2125586648357270">
+    <title>Thank You For Your Purchase - Notes Zone</title>
+    <meta name="description" content="Thank you for purchasing from Notes Zone. Your order has been confirmed and you will receive access to your content shortly.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="logo.ico.ico" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        premium: {
+                            gold: '#D4AF37',
+                            darkgold: '#B8860B',
+                            black: '#111111',
+                            darkblack: '#0A0A0A',
+                            gray: '#333333'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        /* Premium Theme Styles */
+        body {
+            background-color: #111111;
+            color: #D4AF37;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Gold gradient animations */
+        @keyframes goldShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(90deg, #D4AF37, #FFC107, #B8860B, #D4AF37);
+            background-size: 300% 300%;
+            animation: goldShimmer 5s infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        
+        .premium-button {
+            background: linear-gradient(90deg, #D4AF37, #B8860B);
+            color: #111111;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .premium-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* Confetti Animation */
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(100vh)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--color);
+            opacity: 0;
+            top: -20px;
+            animation: confetti-fall linear forwards;
+        }
+        
+        /* Success checkmark animation */
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .checkmark-circle {
+            animation: checkmark 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-premium-black text-premium-gold">
+    <!-- Confetti Container (will be populated by JavaScript) -->
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none z-10"></div>
+    
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="py-2 px-8 shadow-lg border-b border-premium-gold/20">
+            <div class="container mx-auto flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center">
+                    <img src="logo.png" alt="Notes Zone Logo" class="h-10 w-auto hover:scale-105 transition-transform">
+                    <span class="ml-2 text-lg font-bold gold-gradient">Premium</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow flex items-center justify-center p-4">
+            <div class="max-w-3xl w-full">
+                <!-- Thank You Card -->
+                <div class="bg-gray-900 border border-premium-gold/30 rounded-2xl p-8 md:p-12 shadow-xl text-center">
+                    <!-- Success Icon -->
+                    <div class="flex justify-center mb-8">
+                        <div class="checkmark-circle bg-premium-gold/20 rounded-full w-24 h-24 flex items-center justify-center">
+                            <i class="fas fa-check-circle text-premium-gold text-5xl"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Thank You Message -->
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        <span class="gold-gradient">Thank You for Your Purchase!</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                        Your order has been confirmed and is being processed. You will receive an email with access instructions shortly.
+                    </p>
+                    
+                    <!-- Order Details -->
+                    <div class="bg-premium-black/50 border border-premium-gold/20 rounded-xl p-6 mb-8 text-left">
+                        <h2 class="text-2xl font-semibold mb-4 text-center text-white">Order Information</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-400 text-sm">Order ID:</p>
+                                <p class="text-white font-medium" id="order-id">NZ-<span id="random-order-id">123456</span></p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Date:</p>
+                                <p class="text-white font-medium" id="order-date">Today</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Payment Status:</p>
+                                <p class="text-green-400 font-medium">Successful</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Payment Method:</p>
+                                <p class="text-white font-medium">Razorpay</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- What's Next Section -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4 text-white">What's Next?</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                            <div class="flex flex-col items-center bg-premium-black/30 p-6 rounded-lg">
+                                <div class="w-12 h-12 rounded-full bg-premium-gold/20 flex items-center justify-center mb-4">
+                                    <i class="fas fa-envelope text-premium-gold"></i>
+                                </div>
+                                <h4 class="text-white text-lg font-medium mb-2">Check Your Email</h4>
+                                <p class="text-gray-400 text-center">We've sent access instructions to your email address.</p>
+                            </div>
+                            
+                            <div class="flex flex-col items-center bg-premium-black/30 p-6 rounded-lg">
+                                <div class="w-12 h-12 rounded-full bg-premium-gold/20 flex items-center justify-center mb-4">
+                                    <i class="fas fa-user text-premium-gold"></i>
+                                </div>
+                                <h4 class="text-white text-lg font-medium mb-2">Access Your Account</h4>
+                                <p class="text-gray-400 text-center">Login to your account to access your purchased notes.</p>
+                            </div>
+                            
+                            <div class="flex flex-col items-center bg-premium-black/30 p-6 rounded-lg">
+                                <div class="w-12 h-12 rounded-full bg-premium-gold/20 flex items-center justify-center mb-4">
+                                    <i class="fas fa-download text-premium-gold"></i>
+                                </div>
+                                <h4 class="text-white text-lg font-medium mb-2">Download Notes</h4>
+                                <p class="text-gray-400 text-center">Start downloading and studying your premium notes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="index.html" class="premium-button px-8 py-3 rounded-full text-lg shadow-lg flex items-center">
+                            <i class="fas fa-home mr-2"></i>
+                            <span>Back to Home</span>
+                        </a>
+                        
+                        <a href="login_sign.html" class="border border-premium-gold text-premium-gold hover:bg-premium-gold/10 px-8 py-3 rounded-full text-lg transition flex items-center">
+                            <i class="fas fa-sign-in-alt mr-2"></i>
+                            <span>Go to Login</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Customer Support -->
+                    <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                        <p class="text-gray-400 mb-3">
+                            Need help with your purchase?
+                        </p>
+                        <p class="text-premium-gold font-medium">
+                            Contact us at <a href="mailto:support@noteszone.in" class="underline hover:no-underline">noteszone.service@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-6 bg-premium-darkblack border-t border-premium-gold/20 text-center">
+            <div class="container mx-auto">
+                <p class="text-gray-500 text-sm">
+                    © 2024 Notes Zone. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Set current date
+        const orderDate = document.getElementById('order-date');
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        orderDate.textContent = new Date().toLocaleDateString('en-US', options);
+        
+        // Generate random order ID
+        const randomOrderId = document.getElementById('random-order-id');
+        randomOrderId.textContent = Math.floor(100000 + Math.random() * 900000);
+        
+        // Create confetti
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti-container');
+            const colors = ['#D4AF37', '#FFC107', '#B8860B', '#E5BE01', '#FFD700', '#FEF9E7'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Random position
+                const startPositionX = Math.random() * window.innerWidth;
+                
+                // Random color
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random shape
+                const shape = Math.random() > 0.5 ? '50%' : '0%';
+                
+                // Random size
+                const size = Math.random() * 10 + 5;
+                
+                // Random duration
+                const duration = Math.random() * 3 + 2;
+                
+                // Random delay
+                const delay = Math.random() * 2;
+                
+                // Set styles
+                confetti.style.setProperty('--color', color);
+                confetti.style.left = `${startPositionX}px`;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.borderRadius = shape;
+                confetti.style.animationDuration = `${duration}s`;
+                confetti.style.animationDelay = `${delay}s`;
+                
+                confettiContainer.appendChild(confetti);
+                
+                // Remove after animation is complete
+                setTimeout(() => {
+                    confetti.remove();
+                }, (duration + delay) * 1000);
+            }
+        }
+        
+        // Run the confetti animation on page load
+        window.addEventListener('load', createConfetti);
+    </script>
+</body>
+</html>
