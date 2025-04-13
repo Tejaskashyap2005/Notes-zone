@@ -108,74 +108,7 @@
                         
                     </div>
 
-                    <button onclick="scrollToBuyForm()" class="buy-button flex items-center gap-2 text-lg">
-                        <span>Buy Now</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Buy Form -->
-        <section id="buyForm" class="mt-10 hidden">
-            <h2 class="text-3xl font-bold text-center mb-5">Complete Your Purchase</h2>
-            <form action="https://formspree.io/f/xannbwzb" method="POST" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-xl mx-auto">
-                <div class="mb-4">
-                    <label for="productName" class="block text-gray-700 dark:text-gray-300">Product</label>
-                    <input type="text" id="productName" name="productName" value="Notes Zone Keychain" readonly class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-2 mt-2" />
-                </div>
-                <div class="mb-4">
-                    <label for="price" class="block text-gray-700 dark:text-gray-300">Price</label>
-                    <input type="text" id="price" name="price" value="₹199" readonly class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-2 mt-2" />
-                </div>
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 dark:text-gray-300">Your Name</label>
-                    <input type="text" id="name" name="name" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-2 mt-2" placeholder="Enter your name" required />
-                </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700 dark:text-gray-300">Email</label>
-                    <input type="email" id="email" name="email" class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-2 mt-2" placeholder="Enter your email" required />
-                </div>
-                <div class="mb-4">
-                    <label for="payment" class="block text-gray-700 dark:text-gray-300">Payment Method</label>
-                    <input type="text" id="payment" name="payment" value="Online Payment (Prepaid)" readonly class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-2 mt-2" />
-                </div>
-                <div class="mb-4">
-                    <label for="address" class="block text-gray-700 dark:text-gray-300">Address</label>
-                    <input type="text" id="address" name="address" value="Christ University, Delhi NCR (On Campus Delivery)" readonly class="w-full bg-gray-100 dark:bg-gray-700 rounded-lg p-2 mt-2" />
-                </div>
-                
-            <!-- New QR Code Section -->
-            <div id="qrSection" class="mb-4 hidden">
-                <label class="block text-gray-700 dark:text-gray-300 mb-2">Scan QR to Pay</label>
-                <div class="flex flex-col items-center space-y-4">
-                    <img src="qr code.jpg" alt="Payment QR Code" class="w-64 h-64 object-contain">
-                    <p class="text-sm text-gray-600 dark:text-gray-400">After payment, click "Submit Order" to complete your purchase</p>
-                </div>
-            </div>
-
-            <button type="button" onclick="showQRCode()" class="w-full bg-blue-600 text-white py-2 px-5 rounded-lg hover:bg-blue-700 mb-3">Show Payment QR</button>
-            <button type="submit" class="w-full bg-green-600 text-white py-2 px-5 rounded-lg hover:bg-green-700">Submit Order</button>
-        </form>
-        </section>
-    </main>
-
-    <script>
-        // Add this new function for QR code display
-    function showQRCode() {
-        const qrSection = document.getElementById('qrSection');
-        qrSection.classList.remove('hidden');
-    }
-        // Function to show the buy form and scroll to it
-        function scrollToBuyForm() {
-            const buyFormSection = document.getElementById('buyForm');
-            buyFormSection.classList.remove('hidden');
-            buyFormSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-
-    <!-- Include your existing scripts -->
+                    <a href="https://rzp.io/rzp/0j02Tpv" class="buy-button group relative inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30">
+                        <span class="relative z-10">Buy Now</span>
 </body>
 </html> 
