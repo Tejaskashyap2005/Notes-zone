@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-2125586648357270">
+    <title>Thank You - Notes Zone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="logo.ico.ico" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        };
+    </script>
+    <style>
+        /* Smooth transitions */
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            transition: background-color 0.3s;
+        }
+
+        /* Custom styling for the navigation links */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #facc15; /* Yellow underline */
+            transition: width 0.3s, left 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Hero section responsiveness */
+        @media (max-width: 640px) {
+            .hero {
+                min-height: 70vh;
+            }
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2125586648357270"
+     crossorigin="anonymous"></script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6V7LPEC5P4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6V7LPEC5P4');
+</script>
+
+<body class="bg-gradient-to-b from-sky-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 relative">
+    <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-2125586648357270">
+</amp-auto-ads>
+    <!-- Enhanced Grid Overlay -->
+    <div class="fixed inset-0 pointer-events-none">
+        <!-- Primary Grid -->
+        <div class="hero-grid absolute inset-0 opacity-30 dark:opacity-20"></div>
+        <!-- Secondary Grid -->
+        <div class="hero-grid-secondary absolute inset-0 opacity-15 dark:opacity-10"></div>
+    </div>
+
+    <!-- Loading Logo -->
+<div id="loadingScreen" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50 hidden">
+  <video autoplay loop muted playsinline class="h-32 w-32">
+      <source src="logowebm.webm" type="video/webm">
+      <source src="logogif.gif" type="video/mp4">
+      <img src="logo.png" alt="Loading..." class="h-32 w-32">
+      Your browser does not support the video tag.
+  </video>
+</div>
+
+<!-- Navigation Bar -->
+<header class="py-1 px-8 sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg dark:bg-gray-800/80 dark:text-gray-100 transition-all">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html">
+            <img src="logo.png" alt="Notes Zone Logo" class="h-12 w-auto">
+        </a>
+        <!-- Navigation Links -->
+        <nav id="navLinks" class="hidden sm:flex space-x-8 text-lg font-medium">
+            <a href="#features" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
+                Features
+            </a>
+            <a href="contact.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
+                Contact
+            </a>
+            <a href="developer.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
+                Developer
+            </a>
+            <a href="contribute.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
+                Contribute
+            </a>
+        </nav>
+        <!-- Mobile Menu Icon -->
+        <button id="menuToggle" class="sm:hidden text-2xl text-gray-800 dark:text-gray-200 focus:outline-none">
+            ☰
+        </button>
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="ml-6 text-xl sm:text-2xl focus:outline-none">
+            🌙
+        </button>
+    </div>
+    <!-- Mobile Dropdown Menu -->
+    <nav id="mobileMenu" class="hidden sm:hidden absolute left-0 top-16 w-full bg-white/80 backdrop-blur-md dark:bg-gray-800/80 text-gray-800 dark:text-gray-200 shadow-lg rounded-lg transition-all">
+        <ul class="flex flex-col space-y-4 p-6">
+            <li><a href="#features" class="block nav-link hover:text-yellow-500 transition">Features</a></li>
+            <li><a href="contact.html" class="block nav-link hover:text-yellow-500 transition">Contact</a></li>
+            <li><a href="developer.html" class="block nav-link hover:text-yellow-500 transition">Developer</a></li>
+            <li><a href="contribute.html" class="block nav-link hover:text-yellow-500 transition">Contribute</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Thank You Section -->
+<section class="min-h-screen flex items-center justify-center py-12 px-4">
+    <div class="container mx-auto text-center">
+        <!-- Decorative Elements -->
+        <div class="thank-you-decoration absolute inset-0 pointer-events-none">
+            <div class="thank-you-dot" style="top: 20%; left: 15%;"></div>
+            <div class="thank-you-dot" style="top: 40%; right: 20%;"></div>
+            <div class="thank-you-dot" style="bottom: 30%; left: 25%;"></div>
+            <div class="thank-you-dot" style="bottom: 15%; right: 30%;"></div>
+            <!-- Additional Floating Elements -->
+            <div class="floating-heart" style="top: 25%; right: 15%;">❤️</div>
+            <div class="floating-star" style="top: 35%; left: 20%;">⭐</div>
+            <div class="floating-sparkle" style="bottom: 25%; right: 25%;">✨</div>
+        </div>
+
+        <!-- Thank You Card -->
+        <div class="thank-you-card relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 max-w-2xl mx-auto shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <!-- Card Background Pattern -->
+            <div class="card-pattern absolute inset-0 rounded-2xl overflow-hidden opacity-10">
+                <div class="pattern-dot"></div>
+                <div class="pattern-dot"></div>
+                <div class="pattern-dot"></div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="relative z-10">
+                <!-- Success Animation -->
+                <div class="success-container mx-auto mb-8">
+                    <div class="success-circle"></div>
+                    <div class="success-icon"></div>
+                    <div class="success-particles">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                </div>
+
+                <h1 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600 dark:from-sky-400 dark:to-blue-400 animate-text">
+                    Thank You for Your Support!
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 animate-fade-in">
+                    Your contribution helps us continue providing quality educational resources to students worldwide.
+                </p>
+                <p class="text-lg text-gray-500 dark:text-gray-400 mb-8 animate-fade-in-delay">
+                    We truly appreciate your generosity and support for our mission.
+                </p>
+
+                <!-- Enhanced Return Home Button -->
+                <a href="index.html"
+                   class="return-btn inline-flex items-center px-8 py-4 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all group text-xl relative overflow-hidden">
+                    <span class="relative z-10">Return to Home</span>
+                    <i class="fas fa-home ml-3 transform group-hover:translate-x-1 transition-transform relative z-10"></i>
+                    <div class="return-btn-shine absolute inset-0"></div>
+                    <div class="return-btn-particles absolute inset-0"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Primary Grid - Larger Lines */
+    .hero-grid {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px);
+        background-size: 80px 80px;
+        background-attachment: fixed;
+        z-index: -1;
+    }
+
+    /* Secondary Grid - Smaller Lines */
+    .hero-grid-secondary {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.2) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-attachment: fixed;
+        z-index: -1;
+    }
+
+    /* Thank You Section Styles */
+    .thank-you-decoration {
+        z-index: 0;
+    }
+
+    .thank-you-dot {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: linear-gradient(45deg, #3b82f6, #60a5fa);
+        border-radius: 50%;
+        animation: thankYouFloat 4s ease-in-out infinite;
+        opacity: 0.6;
+    }
+
+    .thank-you-dot:nth-child(2n) {
+        animation-delay: 1s;
+    }
+
+    .thank-you-dot:nth-child(3n) {
+        animation-delay: 2s;
+    }
+
+    .thank-you-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-pattern {
+        background: 
+            radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+    }
+
+    .pattern-dot {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
+    }
+
+    .pattern-dot:nth-child(1) {
+        top: -50px;
+        left: -50px;
+    }
+
+    .pattern-dot:nth-child(2) {
+        bottom: -50px;
+        right: -50px;
+    }
+
+    .pattern-dot:nth-child(3) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Success Animation */
+    .success-container {
+        width: 120px;
+        height: 120px;
+        position: relative;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .success-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        position: absolute;
+        background: conic-gradient(
+            from 0deg,
+            #ff6b6b 0%,
+            #ff8787 25%,
+            #ffa8a8 50%,
+            #ffc9c9 75%,
+            #ff6b6b 100%
+        );
+        animation: rotate 2s linear infinite;
+        z-index: 1;
+    }
+
+    .success-circle::before {
+        content: '';
+        position: absolute;
+        inset: 4px;
+        background: white;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    .success-icon {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        z-index: 3;
+        animation: scale 0.5s ease-out forwards;
+        opacity: 0;
+    }
+
+    .success-icon::before {
+        content: '❤️';
+        font-size: 60px;
+        display: block;
+        animation: heartbeat 1.2s ease-in-out infinite;
+        filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.4));
+    }
+
+    .success-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 4;
+    }
+
+    .particle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #ff6b6b;
+        border-radius: 50%;
+        animation: particle 1s ease-out forwards;
+    }
+
+    .particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0.2s; }
+    .particle:nth-child(2) { top: 20%; right: 20%; animation-delay: 0.4s; }
+    .particle:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 0.6s; }
+    .particle:nth-child(4) { bottom: 20%; right: 20%; animation-delay: 0.8s; }
+    .particle:nth-child(5) { top: 50%; left: 20%; animation-delay: 1s; }
+    .particle:nth-child(6) { top: 50%; right: 20%; animation-delay: 1.2s; }
+
+    /* Animation Keyframes */
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes scale {
+        0% { transform: scale(0); opacity: 0; }
+        50% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-10px) scale(1.1); }
+    }
+
+    @keyframes particle {
+        0% { transform: scale(0); opacity: 0; }
+        50% { transform: scale(1.5); opacity: 1; }
+        100% { transform: scale(0); opacity: 0; }
+    }
+
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        25% { transform: scale(1.1); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.2); }
+    }
+
+    /* Dark Mode Adjustments */
+    .dark .success-circle::before {
+        background: #1f2937;
+    }
+
+    .dark .particle {
+        background: #ff8787;
+    }
+
+    .dark .success-icon::before {
+        filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
+    }
+
+    /* Floating Elements */
+    .floating-heart, .floating-star, .floating-sparkle {
+        position: absolute;
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+        opacity: 0.8;
+    }
+
+    .floating-heart { animation-delay: 0.5s; }
+    .floating-star { animation-delay: 1s; }
+    .floating-sparkle { animation-delay: 1.5s; }
+
+    /* Enhanced Animations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @keyframes animate-text {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes animate-fade-in {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes animate-fade-in-delay {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-text {
+        animation: animate-text 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in {
+        animation: animate-fade-in 0.8s ease-out 0.3s forwards;
+        opacity: 0;
+    }
+
+    .animate-fade-in-delay {
+        animation: animate-fade-in 0.8s ease-out 0.6s forwards;
+        opacity: 0;
+    }
+
+    /* Enhanced Button Effects */
+    .return-btn-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .return-btn-particles::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        animation: particle-pulse 2s ease-out infinite;
+    }
+
+    @keyframes particle-pulse {
+        0% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 0; }
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    // Mobile Navigation Toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const htmlElement = document.documentElement;
+
+    darkModeToggle.addEventListener("click", () => {
+        if (htmlElement.classList.contains("dark")) {
+            htmlElement.classList.remove("dark");
+            darkModeToggle.textContent = "🌙"; // Light mode icon
+        } else {
+            htmlElement.classList.add("dark");
+            darkModeToggle.textContent = "☀️"; // Dark mode icon
+        }
+    });
+
+    // Loading Screen
+    const links = document.querySelectorAll('a');
+    const loadingScreen = document.getElementById('loadingScreen');
+
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            const href = link.getAttribute('href');
+            
+            if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+                event.preventDefault();
+                loadingScreen.style.display = 'flex';
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 1000);
+            }
+        });
+    });
+
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            loadingScreen.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
