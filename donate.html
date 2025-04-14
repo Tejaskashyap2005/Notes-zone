@@ -4,20 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-2125586648357270">
-    <title>Donate Us</title>
+    <title>Support Us - Notes Zone</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="logo.ico.ico" type="image/x-icon">
     <script>
         tailwind.config = {
             darkMode: 'class',
         };
     </script>
+    <style>
+        /* Smooth transitions */
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            transition: background-color 0.3s;
+        }
+
+        /* Custom styling for the navigation links */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #facc15; /* Yellow underline */
+            transition: width 0.3s, left 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Hero section responsiveness */
+        @media (max-width: 640px) {
+            .hero {
+                min-height: 70vh;
+            }
+        }
+    </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2125586648357270"
      crossorigin="anonymous"></script>
     <script async custom-element="amp-auto-ads"
         src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
 </script>
 </head>
-    <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6V7LPEC5P4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -27,11 +67,19 @@
   gtag('config', 'G-6V7LPEC5P4');
 </script>
 
-<body class="bg-gray-200 text-blue-900 min-h-screen dark:bg-gray-900 dark:text-gray-200">
+<body class="bg-gradient-to-b from-sky-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 relative">
     <amp-auto-ads type="adsense"
         data-ad-client="ca-pub-2125586648357270">
 </amp-auto-ads>
-<!-- Loading Logo -->
+    <!-- Enhanced Grid Overlay -->
+    <div class="fixed inset-0 pointer-events-none">
+        <!-- Primary Grid -->
+        <div class="hero-grid absolute inset-0 opacity-30 dark:opacity-20"></div>
+        <!-- Secondary Grid -->
+        <div class="hero-grid-secondary absolute inset-0 opacity-15 dark:opacity-10"></div>
+    </div>
+
+    <!-- Loading Logo -->
 <div id="loadingScreen" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50 hidden">
   <video autoplay loop muted playsinline class="h-32 w-32">
       <source src="logowebm.webm" type="video/webm">
@@ -40,161 +88,348 @@
       Your browser does not support the video tag.
   </video>
 </div>
+
 <!-- Navigation Bar -->
-    <header class="py-1 px-8 sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg dark:bg-gray-800/80 dark:text-gray-100 transition-all">
-        <div class="container mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <a href="index.html">
-                <img src="logo.png" alt="Notes Zone Logo" class="h-12 w-auto">
+<header class="py-1 px-8 sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg dark:bg-gray-800/80 dark:text-gray-100 transition-all">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html">
+            <img src="logo.png" alt="Notes Zone Logo" class="h-12 w-auto">
+        </a>
+        <!-- Navigation Links -->
+        <nav id="navLinks" class="hidden sm:flex space-x-8 text-lg font-medium">
+            <a href="#features" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
+                Features
             </a>
-            <!-- Navigation Links -->
-            <nav id="navLinks" class="hidden sm:flex space-x-8 text-lg font-medium">
-                <a href="#features" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
-                    Features
-                </a>
-                <a href="contact.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
-                    Contact
-                </a>
-                <a href="developer.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
-                    Developer
-                </a>
-                <a href="contribute.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
-                    Contribute
-                </a>
-            </nav>
-            <!-- Mobile Menu Icon -->
-            <button id="menuToggle" class="sm:hidden text-2xl text-gray-800 dark:text-gray-200 focus:outline-none">
-                ☰
-            </button>
-            <!-- Dark Mode Toggle -->
-            <button id="darkModeToggle" class="ml-6 text-xl sm:text-2xl focus:outline-none">
-                🌙
-            </button>
-        </div>
-        <!-- Mobile Dropdown Menu -->
-        <nav id="mobileMenu" class="hidden sm:hidden absolute left-0 top-16 w-full bg-white/80 backdrop-blur-md dark:bg-gray-800/80 text-gray-800 dark:text-gray-200 shadow-lg rounded-lg transition-all">
-            <ul class="flex flex-col space-y-4 p-6">
-                <li><a href="#features" class="block nav-link hover:text-yellow-500 transition">Features</a></li>
-                <li><a href="contact.html" class="block nav-link hover:text-yellow-500 transition">Contact</a></li>
-                <li><a href="developer.html" class="block nav-link hover:text-yellow-500 transition">Developer</a></li>
-                <li><a href="contribute.html" class="block nav-link hover:text-yellow-500 transition">Contribute</a></li>
-            </ul>
+            <a href="contact.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
+                Contact
+            </a>
+            <a href="developer.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
+                Developer
+            </a>
+            <a href="contribute.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
+                Contribute
+            </a>
         </nav>
-    </header>
+        <!-- Mobile Menu Icon -->
+        <button id="menuToggle" class="sm:hidden text-2xl text-gray-800 dark:text-gray-200 focus:outline-none">
+            ☰
+        </button>
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="ml-6 text-xl sm:text-2xl focus:outline-none">
+            🌙
+        </button>
+    </div>
+    <!-- Mobile Dropdown Menu -->
+    <nav id="mobileMenu" class="hidden sm:hidden absolute left-0 top-16 w-full bg-white/80 backdrop-blur-md dark:bg-gray-800/80 text-gray-800 dark:text-gray-200 shadow-lg rounded-lg transition-all">
+        <ul class="flex flex-col space-y-4 p-6">
+            <li><a href="#features" class="block nav-link hover:text-yellow-500 transition">Features</a></li>
+            <li><a href="contact.html" class="block nav-link hover:text-yellow-500 transition">Contact</a></li>
+            <li><a href="developer.html" class="block nav-link hover:text-yellow-500 transition">Developer</a></li>
+            <li><a href="contribute.html" class="block nav-link hover:text-yellow-500 transition">Contribute</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Donate Section -->
-    <section class="py-20 px-4">
-        <div class="container mx-auto text-center bg-white shadow-lg rounded-lg p-10 max-w-3xl dark:bg-gray-800">
-            <!-- Section Title -->
-            <h2 class="text-4xl font-bold mb-6 text-blue-800 dark:text-yellow-300">Support Notes Zone</h2>
-            <p class="mb-8 text-lg text-blue-700 dark:text-gray-300 leading-relaxed">
-                Your donations help us grow and provide better resources for students worldwide. 
-                Scan the QR code or use the UPI ID below to donate.
-            </p>
+<!-- Hero Section -->
+<header class="relative py-8 overflow-hidden">
+    <!-- Enhanced Background Elements -->
+    <div class="floating-elements absolute inset-0">
+        <!-- Educational Icons -->
+        <i class="fas fa-book floating-icon" style="top: 8%; left: 15%;"></i>
+        <i class="fas fa-lightbulb floating-icon" style="top: 12%; left: 75%;"></i>
+        <i class="fas fa-graduation-cap floating-icon" style="top: 35%; left: 28%;"></i>
+        <i class="fas fa-atom floating-icon" style="top: 20%; right: 25%;"></i>
+        <i class="fas fa-flask floating-icon" style="bottom: 25%; left: 40%;"></i>
+        <i class="fas fa-microscope floating-icon" style="top: 45%; right: 15%;"></i>
+        
+        <!-- Mathematical Symbols -->
+        <span class="math-symbol" style="top: 30%; left: 65%;">π</span>
+        <span class="math-symbol" style="bottom: 40%; right: 35%;">∑</span>
+        <span class="math-symbol" style="top: 60%; left: 20%;">∞</span>
+        
+        <!-- Decorative Dots -->
+        <div class="floating-dot" style="top: 15%; left: 45%;"></div>
+        <div class="floating-dot" style="top: 55%; right: 25%;"></div>
+        <div class="floating-dot" style="bottom: 35%; left: 30%;"></div>
+    </div>
 
-            <!-- QR Code -->
-            <div class="flex justify-center mb-6">
-                <img src="qr code.jpeg" alt="Donate QR Code" 
-                     class="rounded-lg shadow-md transform hover:scale-105 transition duration-300 w-64 h-64">
+    <!-- Hero Content -->
+    <div class="container mx-auto px-4 relative z-10 mb-2">
+        <h1 class="text-5xl md:text-7xl font-extrabold text-center mb-2 bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400">
+            Support Notes Zone
+        </h1>
+        <p class="text-lg md:text-xl text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-4">
+            Your support helps us grow and provide better resources for students worldwide 🚀
+        </p>
+    </div>
+</header>
+
+<!-- Support Section -->
+<section class="py-8 px-4">
+    <div class="container mx-auto text-center">
+        <!-- Decorative Elements -->
+        <div class="support-decoration absolute inset-0 pointer-events-none">
+            <div class="support-dot" style="top: 20%; left: 15%;"></div>
+            <div class="support-dot" style="top: 40%; right: 20%;"></div>
+            <div class="support-dot" style="bottom: 30%; left: 25%;"></div>
+            <div class="support-dot" style="bottom: 15%; right: 30%;"></div>
+        </div>
+
+        <!-- Support Card -->
+        <div class="support-card relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 max-w-2xl mx-auto shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+            <!-- Card Background Pattern -->
+            <div class="card-pattern absolute inset-0 rounded-2xl overflow-hidden opacity-10">
+                <div class="pattern-dot"></div>
+                <div class="pattern-dot"></div>
+                <div class="pattern-dot"></div>
             </div>
-            <p class="text-lg font-medium mb-6 text-blue-600 dark:text-gray-300">Scan this QR Code with your preferred UPI app to donate.</p>
 
-            <!-- UPI ID -->
-            <div class="mb-6">
-                <h3 class="text-xl font-bold mb-2 text-blue-700 dark:text-yellow-400">UPI ID</h3>
-                <p class="text-lg bg-gray-100 dark:bg-gray-700 p-3 rounded-lg border border-gray-300 dark:border-gray-700 font-mono inline-block">
-                    9380459851@upi
+            <!-- Card Content -->
+            <div class="relative z-10">
+                <h2 class="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600 dark:from-sky-400 dark:to-blue-400">
+                    Support Our Mission
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                    Help us continue providing quality educational resources to students worldwide
                 </p>
-            </div>
-            <p class="text-sm text-gray-600 dark:text-gray-400">* Ensure that you verify the UPI ID before completing your transaction.</p>
 
-            <!-- UPI Payment Button -->
-            <div class="mt-6">
-                <a href=https://rzp.io/rzp/RCM1P9ux
-                   class="bg-blue-600 text-white text-lg font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 inline-block"
-                   target="_blank">
-                    Donate Us
+                <!-- Support Button -->
+                <a href="https://rzp.io/rzp/RCM1P9ux"
+                   class="support-btn inline-flex items-center px-8 py-4 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all group text-xl relative overflow-hidden">
+                    <span class="relative z-10">Support Us</span>
+                    <i class="fas fa-heart ml-3 transform group-hover:scale-110 transition-transform relative z-10"></i>
+                    <div class="support-btn-shine absolute inset-0"></div>
                 </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- JavaScript -->
-    <script>
-        // Mobile Navigation Toggle
-        const menuToggle = document.getElementById("menuToggle");
-        const mobileMenu = document.getElementById("mobileMenu");
+<style>
+    /* Primary Grid - Larger Lines */
+    .hero-grid {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px);
+        background-size: 80px 80px;
+        background-attachment: fixed;
+        z-index: -1;
+    }
 
-        menuToggle.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
+    /* Secondary Grid - Smaller Lines */
+    .hero-grid-secondary {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.2) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-attachment: fixed;
+        z-index: -1;
+    }
 
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        const htmlElement = document.documentElement;
+    /* Enhanced Floating Elements */
+    .floating-icon {
+        font-size: 2.5rem;
+        color: rgba(56, 189, 248, 0.3);
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+        transition: color 0.3s ease;
+    }
 
-        darkModeToggle.addEventListener("click", () => {
-            if (htmlElement.classList.contains("dark")) {
-                htmlElement.classList.remove("dark");
-                darkModeToggle.textContent = "🌙"; // Light mode icon
-            } else {
-                htmlElement.classList.add("dark");
-                darkModeToggle.textContent = "☀️"; // Dark mode icon
-            }
-        });
+    .floating-icon:hover {
+        color: rgba(56, 189, 248, 0.6);
+    }
 
-    </script>
+    .math-symbol {
+        font-size: 3rem;
+        font-family: 'Times New Roman', serif;
+        color: rgba(56, 189, 248, 0.3);
+        position: absolute;
+        animation: mathFloat 8s ease-in-out infinite;
+    }
 
-    <script>
-    
-    // Select all navigation links and the loading screen
+    /* Decorative Dots */
+    .floating-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: rgba(56, 189, 248, 0.4);
+        border-radius: 50%;
+        animation: dotFloat 7s ease-in-out infinite;
+    }
+
+    /* Multiple Animation Variations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @keyframes mathFloat {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-15px) scale(1.1); }
+    }
+
+    @keyframes dotFloat {
+        0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+        50% { transform: translate(10px, -10px); opacity: 0.8; }
+    }
+
+    /* Support Section Styles */
+    .support-decoration {
+        z-index: 0;
+    }
+
+    .support-dot {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: linear-gradient(45deg, #3b82f6, #60a5fa);
+        border-radius: 50%;
+        animation: supportFloat 4s ease-in-out infinite;
+        opacity: 0.6;
+    }
+
+    .support-dot:nth-child(2n) {
+        animation-delay: 1s;
+    }
+
+    .support-dot:nth-child(3n) {
+        animation-delay: 2s;
+    }
+
+    .support-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-pattern {
+        background: 
+            radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+    }
+
+    .pattern-dot {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
+    }
+
+    .pattern-dot:nth-child(1) {
+        top: -50px;
+        left: -50px;
+    }
+
+    .pattern-dot:nth-child(2) {
+        bottom: -50px;
+        right: -50px;
+    }
+
+    .pattern-dot:nth-child(3) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .support-btn {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .support-btn-shine {
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+        );
+        animation: shine 2s linear infinite;
+    }
+
+    @keyframes supportFloat {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-10px) scale(1.1); }
+    }
+
+    @keyframes shine {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+
+    /* Enhanced Button Hover Effects */
+    .support-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+    }
+
+    .support-btn:active {
+        transform: translateY(0);
+    }
+
+    /* Dark Mode Adjustments */
+    .dark .support-card {
+        background: rgba(31, 41, 55, 0.8);
+    }
+
+    .dark .support-dot {
+        background: linear-gradient(45deg, #60a5fa, #93c5fd);
+    }
+
+    .dark .card-pattern {
+        opacity: 0.15;
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    // Mobile Navigation Toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const htmlElement = document.documentElement;
+
+    darkModeToggle.addEventListener("click", () => {
+        if (htmlElement.classList.contains("dark")) {
+            htmlElement.classList.remove("dark");
+            darkModeToggle.textContent = "🌙"; // Light mode icon
+        } else {
+            htmlElement.classList.add("dark");
+            darkModeToggle.textContent = "☀️"; // Dark mode icon
+        }
+    });
+
+    // Loading Screen
     const links = document.querySelectorAll('a');
     const loadingScreen = document.getElementById('loadingScreen');
 
-    // Show the loader when any link is clicked
     links.forEach(link => {
         link.addEventListener('click', (event) => {
             const href = link.getAttribute('href');
             
-            // Ensure the link is internal
             if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-                event.preventDefault(); // Prevent immediate navigation
-                loadingScreen.style.display = 'flex'; // Show the loading screen
+                event.preventDefault();
+                loadingScreen.style.display = 'flex';
 
-                // Simulate a delay, then navigate (remove the setTimeout for real navigation)
                 setTimeout(() => {
-                    window.location.href = href; // Navigate to the clicked link
-                }, 1000); // Simulate a 1-second delay
+                    window.location.href = href;
+                }, 1000);
             }
         });
     });
 
-   // Optional: Hide loader on page load and handle back/forward navigation
-window.addEventListener('pageshow', (event) => {
-    // Check if the navigation type is "back_forward" (i.e., browser's back/forward button)
-    if (event.persisted) {
-        loadingScreen.style.display = 'none'; // Ensure the loading screen is hidden
-    }
-});
-
-// Show the loader when any link is clicked
-links.forEach(link => {
-    link.addEventListener('click', (event) => {
-        const href = link.getAttribute('href');
-        
-        // Ensure the link is internal
-        if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-            event.preventDefault(); // Prevent immediate navigation
-            loadingScreen.style.display = 'flex'; // Show the loading screen
-
-            // Simulate a delay, then navigate (remove the setTimeout for real navigation)
-            setTimeout(() => {
-                window.location.href = href; // Navigate to the clicked link
-            }, 1000); // Simulate a 1-second delay
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            loadingScreen.style.display = 'none';
         }
     });
-});
-
 </script>
 
 </body>
