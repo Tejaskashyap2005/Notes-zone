@@ -17,6 +17,9 @@
     /* Smooth transitions */
     body {
         transition: background-color 0.3s, color 0.3s;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-behavior: smooth;
     }
 
     header {
@@ -50,7 +53,280 @@
             min-height: 70vh;
         }
     }
-</style>
+
+    /* Grid Overlay */
+    .hero-grid {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px);
+        background-size: 80px 80px;
+        background-attachment: fixed;
+        z-index: -1;
+    }
+
+    .hero-grid-secondary {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.2) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-attachment: fixed;
+        z-index: -1;
+    }
+
+    /* Dark mode adjustments */
+    .dark .hero-grid {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px);
+    }
+
+    .dark .hero-grid-secondary {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    }
+
+    /* Floating Elements */
+    .floating-icon {
+        font-size: 2.5rem;
+        color: rgba(56, 189, 248, 0.3);
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+        transition: color 0.3s ease;
+    }
+
+    .floating-icon:hover {
+        color: rgba(56, 189, 248, 0.6);
+    }
+
+    .math-symbol {
+        font-size: 3rem;
+        font-family: 'Times New Roman', serif;
+        color: rgba(56, 189, 248, 0.3);
+        position: absolute;
+        animation: mathFloat 8s ease-in-out infinite;
+    }
+
+    .floating-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: rgba(56, 189, 248, 0.4);
+        border-radius: 50%;
+        animation: dotFloat 7s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @keyframes mathFloat {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-15px) scale(1.1); }
+    }
+
+    @keyframes dotFloat {
+        0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+        50% { transform: translate(10px, -10px); opacity: 0.8; }
+    }
+
+    /* Enhanced Animations */
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.8); }
+      100% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.5); }
+    }
+
+    /* Enhanced Card Styles */
+    .contributor-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .contributor-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(56, 189, 248, 0.1), rgba(37, 99, 235, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .contributor-card:hover::before {
+      opacity: 1;
+    }
+
+    .contributor-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    /* Enhanced Button Styles */
+    .join-button {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .join-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.5s ease;
+    }
+
+    .join-button:hover::before {
+      left: 100%;
+    }
+
+    /* Enhanced Perks Section */
+    .perks-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .perks-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .perks-card:hover::after {
+      opacity: 1;
+    }
+
+    /* Enhanced Social Links */
+    .social-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .social-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      transition: width 0.3s ease;
+    }
+
+    .social-link:hover::after {
+      width: 100%;
+    }
+
+    /* Enhanced Floating Elements */
+    .floating-element {
+      position: absolute;
+      animation: floatUp 6s ease-in-out infinite;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+
+    .floating-element:hover {
+      opacity: 1;
+      animation-play-state: paused;
+    }
+
+    /* Enhanced Grid Overlay */
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: 
+        linear-gradient(to right, rgba(56, 189, 248, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.3;
+    }
+
+    /* Enhanced Dark Mode */
+    .dark .grid-overlay {
+      background-image: 
+        linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    }
+
+    /* Enhanced Loading Screen */
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+
+    .dark .loading-screen {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.8));
+    }
+
+    /* Confetti Animation */
+    @keyframes confetti-fall {
+        0% {
+            transform: translateY(-100px) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(calc(100vh)) rotate(360deg);
+            opacity: 0;
+        }
+    }
+    
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background-color: var(--color);
+        opacity: 0;
+        top: -20px;
+        animation: confetti-fall linear forwards;
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    /* Welcome Animation */
+    @keyframes welcome-fade-in {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .welcome-animation {
+        animation: welcome-fade-in 1s ease-out forwards;
+    }
+  </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2125586648357270"
      crossorigin="anonymous"></script>
   <script async custom-element="amp-auto-ads"
@@ -67,10 +343,13 @@
    gtag('config', 'G-6V7LPEC5P4');
  </script>
 
-<body class="bg-white text-blue-900 dark:bg-gray-900 dark:text-white">
+<body class="bg-gradient-to-b from-sky-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 relative">
   <amp-auto-ads type="adsense"
         data-ad-client="ca-pub-2125586648357270">
 </amp-auto-ads>
+  <!-- Enhanced Grid Overlay -->
+  <div class="grid-overlay"></div>
+
   <!-- Loading Logo -->
 <div id="loadingScreen" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50 hidden">
     <video autoplay loop muted playsinline class="h-32 w-32">
@@ -118,67 +397,197 @@
     </nav>
   </header>
   
-  <!-- Contributors of the Week Section -->
-  <section class="py-20 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900">
-    <div class="container mx-auto text-center">
-      <!-- Decreased font size to text-3xl -->
-      <h1 class="text-3xl font-bold mb-10 text-blue-900 dark:text-yellow-400">
-        Thanks to the Valued Contributors of the Week!
+  <!-- Enhanced Hero Section -->
+  <section class="relative py-8 md:py-16 px-4 overflow-hidden">
+    <div class="floating-elements absolute inset-0">
+      <!-- Enhanced Floating Elements -->
+      <div class="floating-element" style="top: 10%; left: 15%;">
+        <i class="fas fa-book text-4xl text-sky-500"></i>
+      </div>
+      <div class="floating-element" style="top: 20%; right: 20%;">
+        <i class="fas fa-lightbulb text-4xl text-yellow-500"></i>
+      </div>
+      <div class="floating-element" style="top: 40%; left: 25%;">
+        <i class="fas fa-graduation-cap text-4xl text-blue-500"></i>
+      </div>
+      <div class="floating-element" style="top: 30%; right: 30%;">
+        <i class="fas fa-atom text-4xl text-purple-500"></i>
+      </div>
+      <div class="floating-element" style="bottom: 20%; left: 35%;">
+        <i class="fas fa-flask text-4xl text-green-500"></i>
+      </div>
+      <div class="floating-element" style="top: 50%; right: 15%;">
+        <i class="fas fa-microscope text-4xl text-red-500"></i>
+      </div>
+    </div>
+
+    <div class="container mx-auto text-center relative z-10">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-sky-600 via-blue-600 to-purple-600 dark:from-sky-400 dark:via-blue-400 dark:to-purple-400 animate-pulse">
+        Thanks to the Valued Contributors!
       </h1>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-12">
-        <!-- Contributor Cards -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2 p-6">
-          <img src="https://media.licdn.com/dms/image/v2/D4E03AQFuvVzHUB4Ehg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1725828268360?e=2147483647&v=beta&t=V8BF6QpNYGp5LDl0Bb_DsRYMlfw8w2XiZFpX5DEU9ow" alt="Contributor 1" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg">
-          <h3 class="font-bold text-xl text-blue-900 dark:text-yellow-300">Hiten Mandhyan</h3>
-          <p class="text-md text-gray-600 dark:text-gray-400">2BCA A</p>
+      <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+        Meet our amazing contributors who help make Notes Zone better every day! 🚀
+      </p>
+    </div>
+  </section>
+  
+  
+  <!-- Enhanced Contributors Grid -->
+  <section class="py-4 md:py-8 px-4">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <!-- Enhanced Contributor Cards -->
+        <div class="contributor-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg">
+          <div class="p-4 sm:p-6 md:p-8 relative">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto mb-4 sm:mb-6 rounded-full overflow-hidden border-4 border-sky-500 shadow-lg">
+              <img src="https://media.licdn.com/dms/image/v2/D4E03AQE4PVcVsBTHoQ/profile-displayphoto-shrink_400_400/B4EZYQDfWKHcAg-/0/1744026074054?e=1749686400&v=beta&t=fFIBwFKz1IlpnwCd9Xuiy6cX1y3a3H8r41HX9cALQ_8" 
+                   alt="Contributor 1" 
+                   class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 text-center mb-1 sm:mb-2">Hiten Mandhyan</h3>
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 text-center mb-3 sm:mb-6">2BCA A</p>
+            <div class="flex justify-center space-x-4 sm:space-x-6">
+              <a href="#" class="social-link text-sky-500 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="social-link text-gray-800 dark:text-gray-200 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2 p-6">
-          <img src="https://media.licdn.com/dms/image/v2/D4E03AQE4PVcVsBTHoQ/profile-displayphoto-shrink_400_400/B4EZYQDfWKHcAg-/0/1744026074054?e=1749686400&v=beta&t=fFIBwFKz1IlpnwCd9Xuiy6cX1y3a3H8r41HX9cALQ_8" alt="Contributor 2" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg">
-          <h3 class="font-bold text-xl text-blue-900 dark:text-yellow-300">Naman Jiwnani</h3>
-          <p class="text-md text-gray-600 dark:text-gray-400">2BCA A</p>
+        <div class="contributor-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg">
+          <div class="p-4 sm:p-6 md:p-8 relative">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto mb-4 sm:mb-6 rounded-full overflow-hidden border-4 border-sky-500 shadow-lg">
+              <img src="https://media.licdn.com/dms/image/v2/D4E03AQHEj888ADSDCQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1731069809910?e=2147483647&v=beta&t=-Sik1bNFT6sz4WVWWyMkCxb5yA09mf3OWc3oyofFMg0" 
+                   alt="Contributor 2" 
+                   class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 text-center mb-1 sm:mb-2">Naman Jiwnani</h3>
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 text-center mb-3 sm:mb-6">2BCA A</p>
+            <div class="flex justify-center space-x-4 sm:space-x-6">
+              <a href="#" class="social-link text-sky-500 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="social-link text-gray-800 dark:text-gray-200 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2 p-6">
-          <img src="https://media.licdn.com/dms/image/v2/D4E03AQHNGjLf1OBDiQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727120018979?e=2147483647&v=beta&t=WF7hhfwhX00WHWuB8FUlpIR5GjiwaSAG-MclDlzepUQ" alt="Contributor 3" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg">
-          <h3 class="font-bold text-xl text-blue-900 dark:text-yellow-300">Vaibhavi Sengar</h3>
-          <p class="text-md text-gray-600 dark:text-gray-400">2BCA A</p>
+        <div class="contributor-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg">
+          <div class="p-4 sm:p-6 md:p-8 relative">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto mb-4 sm:mb-6 rounded-full overflow-hidden border-4 border-sky-500 shadow-lg">
+              <img src="https://media.licdn.com/dms/image/v2/D4D03AQH61KgaJPIIyw/profile-displayphoto-shrink_800_800/B4DZTp_S.YHIAg-/0/1739092472425?e=1749081600&v=beta&t=0q80OmQtw8OsVyH7LfJO1h-5llAmVsgTwB2o_b3CEIQ" 
+                   alt="Contributor 3" 
+                   class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 text-center mb-1 sm:mb-2">Harsh Bhateja</h3>
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 text-center mb-3 sm:mb-6">2BBA FMA</p>
+            <div class="flex justify-center space-x-4 sm:space-x-6">
+              <a href="#" class="social-link text-sky-500 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="social-link text-gray-800 dark:text-gray-200 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2 p-6">
-          <img src="shashwatjpg.jpg" alt="Contributor 4" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg">
-          <h3 class="font-bold text-xl text-blue-900 dark:text-yellow-300">Shashwat Bhardwaj</h3>
-          <p class="text-md text-gray-600 dark:text-gray-400">2BCA A</p>
+        <div class="contributor-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg">
+          <div class="p-4 sm:p-6 md:p-8 relative">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto mb-4 sm:mb-6 rounded-full overflow-hidden border-4 border-sky-500 shadow-lg">
+              <img src="shashwatjpg.jpg" 
+                   alt="Contributor 4" 
+                   class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 text-center mb-1 sm:mb-2">Shashwat Bhardwaj</h3>
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 text-center mb-3 sm:mb-6">2BCA A</p>
+            <div class="flex justify-center space-x-4 sm:space-x-6">
+              <a href="#" class="social-link text-sky-500 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="social-link text-gray-800 dark:text-gray-200 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2 p-6">
-          <img src="https://media.licdn.com/dms/image/v2/D4D03AQH61KgaJPIIyw/profile-displayphoto-shrink_800_800/B4DZTp_S.YHIAg-/0/1739092472425?e=1749081600&v=beta&t=0q80OmQtw8OsVyH7LfJO1h-5llAmVsgTwB2o_b3CEIQ" alt="Contributor 5" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg">
-          <h3 class="font-bold text-xl text-blue-900 dark:text-yellow-300">Harsh Bhateja</h3>
-          <p class="text-md text-gray-600 dark:text-gray-400">2BBA FMA</p>
+        <div class="contributor-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg">
+          <div class="p-4 sm:p-6 md:p-8 relative">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto mb-4 sm:mb-6 rounded-full overflow-hidden border-4 border-sky-500 shadow-lg">
+              <img src="https://media.licdn.com/dms/image/v2/D4E03AQHNGjLf1OBDiQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727120018979?e=2147483647&v=beta&t=WF7hhfwhX00WHWuB8FUlpIR5GjiwaSAG-MclDlzepUQ" 
+                   alt="Contributor 5" 
+                   class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 text-center mb-1 sm:mb-2">Vaibhavi Sengar</h3>
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 text-center mb-3 sm:mb-6">2BCA A</p>
+            <div class="flex justify-center space-x-4 sm:space-x-6">
+              <a href="#" class="social-link text-sky-500 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="social-link text-gray-800 dark:text-gray-200 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2 p-6">
-          <img src="https://media.licdn.com/dms/image/v2/D4D03AQFe9RqgC68Efw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722691741272?e=1749081600&v=beta&t=gbE8gRE2yYE7RqU_zyxfBMErHpbuLondYbNbc5nq3jQ" alt="Contributor 6" class="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg">
-          <h3 class="font-bold text-xl text-blue-900 dark:text-yellow-300">Tejas Kashyap</h3>
-          <p class="text-md text-gray-600 dark:text-gray-400">2BCA A</p>
+        <div class="contributor-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg">
+          <div class="p-4 sm:p-6 md:p-8 relative">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto mb-4 sm:mb-6 rounded-full overflow-hidden border-4 border-sky-500 shadow-lg">
+              <img src="https://media.licdn.com/dms/image/v2/D4D03AQFe9RqgC68Efw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722691741272?e=1749081600&v=beta&t=gbE8gRE2yYE7RqU_zyxfBMErHpbuLondYbNbc5nq3jQ" 
+                   alt="Contributor 6" 
+                   class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 text-center mb-1 sm:mb-2">Tejas Kashyap</h3>
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 text-center mb-3 sm:mb-6">2BCA A</p>
+            <div class="flex justify-center space-x-4 sm:space-x-6">
+              <a href="#" class="social-link text-sky-500 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="social-link text-gray-800 dark:text-gray-200 hover:text-sky-600 text-xl sm:text-2xl">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
   
   
-  <!-- Want to be a Contributor Section -->
-  <section class="py-20 px-4 bg-white dark:bg-gray-900">
-    <div class="container mx-auto text-center">
-      <h1 class="text-3xl font-bold mb-6 text-blue-900 dark:text-yellow-400">Want to be a Contributor?</h1>
-      <p class="max-w-2xl mx-auto mb-6 text-lg">
+  <!-- Enhanced Want to be a Contributor Section -->
+  <section class="py-32 px-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <div class="container mx-auto text-center relative z-10">
+      <h2 class="text-5xl font-bold mb-8 text-blue-900 dark:text-yellow-400">
+        Want to be a Contributor?
+      </h2>
+      <p class="max-w-3xl mx-auto mb-12 text-xl text-gray-700 dark:text-gray-300">
         Are you someone who loves helping others succeed? Here's your chance! Help us grow our collection and support fellow students!
       </p>
       
-      <div class="bg-blue-100 dark:bg-gray-800 py-6 px-8 rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold mb-4 text-blue-700 dark:text-yellow-300">Perks:</h2>
-        <ul class="list-disc list-inside text-left mx-auto max-w-md text-gray-700 dark:text-gray-300">
-          <li>Get featured on our website as a valued Contributor! 🤩</li>
-          
+      <div class="perks-card rounded-2xl p-8 max-w-3xl mx-auto mb-12">
+        <h3 class="text-3xl font-bold mb-8 text-blue-700 dark:text-yellow-300">Perks:</h3>
+        <ul class="text-left space-y-6 text-gray-700 dark:text-gray-300">
+          <li class="flex items-center text-xl">
+            <i class="fas fa-star text-yellow-500 mr-4 text-2xl"></i>
+            Get featured on our website as a valued Contributor! 🤩
+          </li>
+          <li class="flex items-center text-xl">
+            <i class="fas fa-star text-yellow-500 mr-4 text-2xl"></i>
+            Build your professional portfolio
+          </li>
+          <li class="flex items-center text-xl">
+            <i class="fas fa-star text-yellow-500 mr-4 text-2xl"></i>
+            Help thousands of students succeed
+          </li>
         </ul>
       </div>
-      <a href="https://chat.whatsapp.com/HqPOPsFFybTCoBXtsPbmxU" class="mt-8 inline-block bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold shadow-md hover:bg-blue-600 transition-all">
-        Become a Contributor Now
+
+      <a href="https://chat.whatsapp.com/HqPOPsFFybTCoBXtsPbmxU" 
+         class="join-button inline-flex items-center px-12 py-6 bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xl font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all group">
+        <span>Join Our Community</span>
+        <i class="fas fa-arrow-right ml-4 transform group-hover:translate-x-2 transition-transform"></i>
       </a>
     </div>
   </section>
@@ -200,10 +609,10 @@
     darkModeToggle.addEventListener("click", () => {
       if (htmlElement.classList.contains("dark")) {
         htmlElement.classList.remove("dark");
-        darkModeToggle.textContent = "🌙"; // Light mode icon
+        darkModeToggle.textContent = "🌙";
       } else {
         htmlElement.classList.add("dark");
-        darkModeToggle.textContent = "☀️"; // Dark mode icon
+        darkModeToggle.textContent = "☀️";
       }
     });
     </script>
@@ -259,6 +668,73 @@ links.forEach(link => {
 });
 
 </script>
-  
+
+    <!-- Confetti Container -->
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
+
+    <script>
+        // Create confetti
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti-container');
+            const colors = ['#60A5FA', '#3B82F6', '#2563EB', '#FCD34D', '#F59E0B', '#D97706'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Random position
+                const startPositionX = Math.random() * window.innerWidth;
+                
+                // Random color
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random shape
+                const shape = Math.random() > 0.5 ? '50%' : '0%';
+                
+                // Random size
+                const size = Math.random() * 10 + 5;
+                
+                // Random duration
+                const duration = Math.random() * 3 + 2;
+                
+                // Random delay
+                const delay = Math.random() * 2;
+                
+                // Set styles
+                confetti.style.setProperty('--color', color);
+                confetti.style.left = `${startPositionX}px`;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.borderRadius = shape;
+                confetti.style.animationDuration = `${duration}s`;
+                confetti.style.animationDelay = `${delay}s`;
+                
+                confettiContainer.appendChild(confetti);
+                
+                // Remove after animation is complete
+                setTimeout(() => {
+                    confetti.remove();
+                }, (duration + delay) * 1000);
+            }
+        }
+
+        // Run the confetti animation immediately when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, creating confetti...');
+            createConfetti();
+            
+            // Add welcome animation to the heading
+            const heading = document.querySelector('h1');
+            if (heading) {
+                heading.classList.add('welcome-animation');
+            }
+        });
+
+        // Create confetti again when clicking the heading (for testing)
+        document.querySelector('h1')?.addEventListener('click', function() {
+            console.log('Heading clicked, creating more confetti...');
+            createConfetti();
+        });
+    </script>
 </body>
 </html>
