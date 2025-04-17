@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Notes Zone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="img/logo.ico.ico" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        };
+    </script>
+    <style>
+        /* Smooth transitions */
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Primary Grid */
+        .hero-grid {
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px);
+            background-size: 80px 80px;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        /* Secondary Grid */
+        .hero-grid-secondary {
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        /* Dark mode grid adjustments */
+        .dark .hero-grid {
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px);
+        }
+
+        .dark .hero-grid-secondary {
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+        }
+
+        /* Glass effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .glass-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navigation link effects */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #facc15;
+            transition: width 0.3s, left 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-sky-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 min-h-screen">
+    <!-- Grid Overlay -->
+    <div class="fixed inset-0 pointer-events-none">
+        <div class="hero-grid absolute inset-0 opacity-30 dark:opacity-20"></div>
+        <div class="hero-grid-secondary absolute inset-0 opacity-15 dark:opacity-10"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="logo.png" alt="NotesZone Logo" class="h-10 w-auto">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-yellow-500 transition">Home</a>
+                <a href="dsa.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-yellow-500 transition">DSA Notes</a>
+                <a href="profile.html" class="nav-link text-yellow-500">Profile</a>
+                <button id="darkModeToggle" class="text-2xl focus:outline-none">🌙</button>
+            </nav>
+            <button id="menuToggle" class="md:hidden text-2xl">☰</button>
+        </div>
+        <!-- Mobile Menu -->
+        <nav id="mobileMenu" class="hidden md:hidden bg-white/80 dark:bg-gray-800/80 backdrop-blur-md">
+            <div class="container mx-auto px-4 py-3 space-y-4">
+                <a href="index.html" class="block nav-link text-gray-700 dark:text-gray-300 hover:text-yellow-500">Home</a>
+                <a href="dsa.html" class="block nav-link text-gray-700 dark:text-gray-300 hover:text-yellow-500">DSA Notes</a>
+                <a href="profile.html" class="block nav-link text-yellow-500">Profile</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- Profile Header -->
+        <div class="glass-card rounded-2xl p-8 mb-8">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="relative group">
+                    <div class="w-32 h-32 rounded-full overflow-hidden ring-4 ring-sky-500/30 dark:ring-sky-400/30">
+                        <img id="profile-image" alt="Profile Picture" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Upload Button Overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <label for="profile-upload" class="cursor-pointer p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors">
+                            <i class="fas fa-camera text-xl"></i>
+                        </label>
+                        <input type="file" id="profile-upload" accept="image/*" class="hidden">
+                    </div>
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <!-- Editable Name Section -->
+                    <div class="relative group">
+                        <h1 id="user-name" class="text-3xl font-bold mb-2 group-hover:opacity-50 transition-opacity">Loading...</h1>
+                        <button id="edit-name-btn" class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-edit text-sky-500"></i>
+                        </button>
+                    </div>
+                    <div class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <p id="user-email-display" class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fas fa-envelope"></i>
+                            <span>Loading...</span>
+                        </p>
+                        <p id="user-joined-display" class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Loading...</span>
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 mt-4 justify-center md:justify-start" id="user-roles">
+                        <!-- Roles will be dynamically populated -->
+                    </div>
+                </div>
+                <button id="logout-btn" class="px-6 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all flex items-center gap-2">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Name Edit Modal -->
+        <div id="name-edit-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-md">
+                <h2 class="text-2xl font-bold mb-4">Edit Name</h2>
+                <form id="name-edit-form" class="space-y-4">
+                    <div>
+                        <label for="new-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                            New Name
+                        </label>
+                        <input type="text" id="new-name" 
+                               class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                      bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                      focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+                               placeholder="Enter your name">
+                    </div>
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" id="cancel-edit-name" 
+                                class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                            Cancel
+                        </button>
+                        <button type="submit" 
+                                class="px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors">
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl">
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="animate-spin rounded-full h-8 w-8 border-4 border-sky-500 border-t-transparent"></div>
+                    <span id="loading-text" class="text-lg">Compressing image...</span>
+                    <div class="w-48 h-1 bg-gray-200 rounded-full overflow-hidden">
+                        <div id="upload-progress" class="h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Details Section -->
+        <div class="glass-card rounded-2xl p-8 mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold bg-gradient-to-r from-yellow-500 to-yellow-600 text-transparent bg-clip-text">Profile Details</h2>
+                <button id="edit-profile-btn" class="px-4 py-2 text-yellow-500 hover:text-yellow-600 transition-colors">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+
+            <!-- Roles Section -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-lg font-semibold">Roles</h3>
+                    <button class="edit-field-btn text-yellow-500 hover:text-yellow-600" data-field="roles">
+                        <i class="fas fa-pen text-sm"></i>
+                    </button>
+                </div>
+                <div id="roles-container" class="flex flex-wrap gap-2">
+                    <!-- Roles will be dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Bio Section -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-lg font-semibold">Bio</h3>
+                    <button class="edit-field-btn text-yellow-500 hover:text-yellow-600" data-field="bio">
+                        <i class="fas fa-pen text-sm"></i>
+                    </button>
+                </div>
+                <p id="bio-text" class="text-gray-600 dark:text-gray-400">Add a bio to tell others about yourself...</p>
+            </div>
+
+            <!-- Education Section -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-lg font-semibold">Education</h3>
+                    <button class="edit-field-btn text-yellow-500 hover:text-yellow-600" data-field="education">
+                        <i class="fas fa-pen text-sm"></i>
+                    </button>
+                </div>
+                <div id="education-details">
+                    <p class="text-gray-600 dark:text-gray-400">Christ University</p>
+                    <p class="text-sm text-gray-500">Computer Science • 2021-2025</p>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-lg font-semibold">Skills</h3>
+                    <button class="edit-field-btn text-yellow-500 hover:text-yellow-600" data-field="skills">
+                        <i class="fas fa-plus text-sm"></i>
+                    </button>
+                </div>
+                <div id="skills-container" class="flex flex-wrap gap-2">
+                    <span class="skill-tag px-3 py-1 rounded-full text-sm bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300">
+                        DSA
+                        <button class="ml-2 text-yellow-600 hover:text-yellow-700">&times;</button>
+                    </span>
+                    <span class="skill-tag px-3 py-1 rounded-full text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300">
+                        C++
+                        <button class="ml-2 text-purple-600 hover:text-purple-700">&times;</button>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-lg font-semibold">Social Links</h3>
+                    <button class="edit-field-btn text-yellow-500 hover:text-yellow-600" data-field="social">
+                        <i class="fas fa-plus text-sm"></i>
+                    </button>
+                </div>
+                <div id="social-links" class="space-y-3">
+                    <a href="#" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Field Modal -->
+        <div id="edit-field-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden backdrop-blur-sm">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-md transform transition-all scale-95 opacity-0">
+                <h2 id="modal-title" class="text-2xl font-bold mb-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-transparent bg-clip-text">Edit Field</h2>
+                <form id="edit-field-form" class="space-y-4">
+                    <div id="modal-content">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" id="cancel-edit-field" 
+                                class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                            Cancel
+                        </button>
+                        <button type="submit" 
+                                class="px-4 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-lg hover-effect">
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Note Upload Modal -->
+        <div id="note-upload-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden backdrop-blur-sm">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-md transform transition-all scale-95 opacity-0">
+                <h2 class="text-2xl font-bold mb-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-transparent bg-clip-text">Upload Note</h2>
+                <form id="note-upload-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Title</label>
+                        <input type="text" id="note-title" required 
+                               class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                      bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                      focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Description</label>
+                        <textarea id="note-description" rows="3" 
+                                  class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                         bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                         focus:ring-2 focus:ring-yellow-500 focus:border-transparent"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tags (comma separated)</label>
+                        <input type="text" id="note-tags" 
+                               class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                      bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                      focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                               placeholder="e.g. DSA, Arrays, Sorting">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">File</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="flex text-sm text-gray-600 dark:text-gray-400">
+                                    <label for="note-file" class="relative cursor-pointer rounded-md font-medium text-yellow-500 hover:text-yellow-600">
+                                        <span>Upload a file</span>
+                                        <input id="note-file" type="file" class="sr-only" accept=".pdf,.doc,.docx,.txt,.md">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">PDF, DOC, TXT up to 10MB</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" id="cancel-upload" 
+                                class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                            Cancel
+                        </button>
+                        <button type="submit" 
+                                class="px-4 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-lg hover:shadow-lg transition-all">
+                            Upload Note
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Notes Section with Grid View -->
+        <div class="glass-card rounded-2xl p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">My Notes</h2>
+                <button id="create-note-btn" class="px-4 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2">
+                    <i class="fas fa-plus"></i>
+                    Create Note
+                </button>
+            </div>
+            
+            <!-- Search and Filter -->
+            <div class="flex flex-wrap gap-4 mb-6">
+                <div class="flex-1">
+                    <input type="text" id="search-notes" placeholder="Search notes..." 
+                           class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                  bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                  focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                </div>
+                <select id="sort-notes" 
+                        class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                               bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                               focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="name">Name</option>
+                </select>
+            </div>
+
+            <!-- Notes Grid -->
+            <div id="notes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Notes will be dynamically added here -->
+                <div class="flex items-center justify-center text-gray-500 dark:text-gray-400 p-8">
+                    <p>No notes yet. Create your first note!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this before your Firebase scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/browser-image-compression/2.0.1/browser-image-compression.min.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
+    <!-- Firebase Config -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyB-XawiwFbCOxyLpgNUIoW7MySWblx5zI8",
+            authDomain: "notes-zone-2005.firebaseapp.com",
+            projectId: "notes-zone-2005",
+            storageBucket: "notes-zone-2005.firebasestorage.app",
+            messagingSenderId: "729445577922",
+            appId: "1:729445577922:web:4d87e4f19c37c32b13775b",
+            measurementId: "G-9TER2ZYDCN"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+    </script>
+
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userNameDisplay = document.getElementById('user-name');
+            const userEmailDisplay = document.getElementById('user-email-display').querySelector('span');
+            const userJoinedDisplay = document.getElementById('user-joined-display').querySelector('span');
+            const profileImage = document.getElementById('profile-image');
+            const profileUpload = document.getElementById('profile-upload');
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const loadingText = document.getElementById('loading-text');
+            const uploadProgress = document.getElementById('upload-progress');
+            const editNameBtn = document.getElementById('edit-name-btn');
+            const nameEditModal = document.getElementById('name-edit-modal');
+            const nameEditForm = document.getElementById('name-edit-form');
+            const newNameInput = document.getElementById('new-name');
+            const cancelEditName = document.getElementById('cancel-edit-name');
+            const logoutBtn = document.getElementById('logout-btn');
+            const notesGrid = document.getElementById('notes-grid');
+            const editFieldModal = document.getElementById('edit-field-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalTitle = document.getElementById('modal-title');
+            const editFieldForm = document.getElementById('edit-field-form');
+            const cancelEditField = document.getElementById('cancel-edit-field');
+
+            // Default profile image
+            const DEFAULT_PROFILE_IMAGE = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y';
+
+            // List of emojis for random profile pictures
+            const PROFILE_EMOJIS = [
+                '👨‍💻', '👩‍💻', '🧑‍💻', '🚀', '💡', '🎯', '🎨', '🎮', '📚', '🎵',
+                '🌟', '🦁', '🐯', '🐼', '🐨', '🐸', '🦊', '🐱', '🐰', '🦉',
+                '🦄', '🐲', '🌈', '⭐️', '🍀', '🎪', '🎭', '🎪', '🎡', '🎢'
+            ];
+
+            // Get random emoji for profile
+            const getRandomEmoji = () => {
+                const randomIndex = Math.floor(Math.random() * PROFILE_EMOJIS.length);
+                return PROFILE_EMOJIS[randomIndex];
+            };
+
+            // Generate emoji profile picture URL
+            const generateEmojiProfilePicture = (emoji) => {
+                // Create canvas
+                const canvas = document.createElement('canvas');
+                canvas.width = 200;
+                canvas.height = 200;
+                const ctx = canvas.getContext('2d');
+
+                // Set background with gradient
+                const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                const hue = Math.random() * 360;
+                gradient.addColorStop(0, `hsl(${hue}, 70%, 80%)`);
+                gradient.addColorStop(1, `hsl(${hue + 30}, 70%, 70%)`);
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Add emoji with shadow
+                ctx.save();
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+                ctx.shadowBlur = 10;
+                ctx.font = '120px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = 'white';
+                ctx.fillText(emoji, canvas.width / 2, canvas.height / 2);
+                ctx.restore();
+
+                return canvas.toDataURL('image/png');
+            };
+
+            // Format date without time
+            const formatDate = (date) => {
+                if (!date) return 'Unknown';
+                return new Date(date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            };
+
+            // Create note card
+            const createNoteCard = (note) => {
+                const card = document.createElement('div');
+                card.className = 'glass-card p-6 rounded-xl hover:transform hover:-translate-y-1 transition-all';
+                card.innerHTML = `
+                    <h3 class="text-xl font-semibold mb-2">${note.title || 'Untitled Note'}</h3>
+                    <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+                        <span>${formatDate(note.createdAt)}</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                `;
+                return card;
+            };
+
+            // Initialize profile image with emoji if needed
+            const initializeProfileImage = async () => {
+                console.log('Initializing profile image...');
+                const user = auth.currentUser;
+                
+                try {
+                    if (!user) {
+                        console.error('No user found during profile image initialization');
+                        profileImage.src = DEFAULT_PROFILE_IMAGE;
+                        return;
+                    }
+
+                    // Check Firestore first
+                    const userDoc = await db.collection('users').doc(user.uid).get();
+                    const userData = userDoc.data();
+
+                    if (user.photoURL) {
+                        console.log('Using existing photo URL:', user.photoURL);
+                        profileImage.src = user.photoURL;
+                    } else if (userData && userData.profileImage) {
+                        console.log('Using profile image from Firestore:', userData.profileImage);
+                        profileImage.src = userData.profileImage;
+                    } else {
+                        console.log('Generating new emoji profile picture...');
+                        const emoji = getRandomEmoji();
+                        console.log('Selected emoji:', emoji);
+                        const emojiProfileUrl = generateEmojiProfilePicture(emoji);
+                        console.log('Generated emoji profile URL');
+
+                        // Update Firebase profile
+                        await user.updateProfile({
+                            photoURL: emojiProfileUrl
+                        });
+                        console.log('Updated Firebase Auth profile');
+
+                        // Update Firestore
+                        await db.collection('users').doc(user.uid).update({
+                            profileImage: emojiProfileUrl,
+                            lastUpdated: new Date().toISOString()
+                        });
+                        console.log('Updated Firestore document');
+
+                        // Update UI
+                        profileImage.src = emojiProfileUrl;
+                        console.log('Updated profile image in UI');
+                    }
+                } catch (error) {
+                    console.error('Error in profile image initialization:', error);
+                    profileImage.src = DEFAULT_PROFILE_IMAGE;
+                }
+
+                // Add error handler
+                profileImage.onerror = () => {
+                    console.error('Failed to load profile image, using default');
+                    profileImage.src = DEFAULT_PROFILE_IMAGE;
+                };
+            };
+
+            // Initialize user data
+            const initializeUserData = async (user) => {
+                try {
+                    console.log('Initializing user data...');
+                    // Check if user document exists
+                    const userDoc = await db.collection('users').doc(user.uid).get();
+                    
+                    if (!userDoc.exists) {
+                        console.log('Creating new user document...');
+                        // Create new user document if it doesn't exist
+                        const userData = {
+                            name: user.displayName || 'Anonymous User',
+                            email: user.email,
+                            firstLoginDate: new Date().toISOString(),
+                            createdAt: new Date().toISOString(),
+                            profileImage: user.photoURL || null,
+                            roles: [
+                                {
+                                    name: 'Notes Creator',
+                                    icon: 'book',
+                                    color: 'sky'
+                                },
+                                {
+                                    name: 'DSA Learner',
+                                    icon: 'code',
+                                    color: 'purple'
+                                }
+                            ]
+                        };
+                        
+                        await db.collection('users').doc(user.uid).set(userData);
+                        console.log('Created new user document with roles');
+                        return await db.collection('users').doc(user.uid).get();
+                    }
+                    
+                    return userDoc;
+                } catch (error) {
+                    console.error('Error initializing user data:', error);
+                    throw error;
+                }
+            };
+
+            // Create role badge element
+            const createRoleBadge = (role) => {
+                return `
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-${role.color}-100 dark:bg-${role.color}-900 text-${role.color}-700 dark:text-${role.color}-300">
+                        <i class="fas fa-${role.icon} mr-2"></i>${role.name}
+                    </span>
+                `;
+            };
+
+            // Update roles display
+            const updateRolesDisplay = (roles) => {
+                const userRoles = document.getElementById('user-roles');
+                const rolesContainer = document.getElementById('roles-container');
+                
+                // Update header roles
+                userRoles.innerHTML = roles.map(role => createRoleBadge(role)).join('');
+                
+                // Update roles in profile details
+                rolesContainer.innerHTML = roles.map(role => createRoleBadge(role)).join('');
+            };
+
+            // Load user data
+            const loadUserData = async (user) => {
+                try {
+                    console.log('Loading user data for:', user.uid);
+                    
+                    // Initialize user data first
+                    const userDoc = await initializeUserData(user);
+                    const userData = userDoc.data();
+                    console.log('User data loaded:', userData);
+
+                    // Update roles display
+                    if (userData.roles) {
+                        updateRolesDisplay(userData.roles);
+                    }
+
+                    // Update display name
+                    const displayName = user.displayName || userData.name || 'Anonymous User';
+                    userNameDisplay.textContent = displayName;
+                    newNameInput.value = displayName;
+
+                    // Update email and join date with first login date
+                    userEmailDisplay.textContent = user.email || userData.email;
+                    const firstLoginDate = userData.firstLoginDate || userData.createdAt;
+                    userJoinedDisplay.textContent = `First joined ${formatDate(firstLoginDate)}`;
+
+                    // Initialize profile image
+                    await initializeProfileImage();
+
+                    // Load user's notes
+                    const notesSnapshot = await db.collection('users').doc(user.uid)
+                        .collection('notes')
+                        .orderBy('createdAt', 'desc')
+                        .get();
+
+                    // Clear existing notes
+                    notesGrid.innerHTML = '';
+                    
+                    if (notesSnapshot.empty) {
+                        notesGrid.innerHTML = `
+                            <div class="col-span-full text-center py-8 text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-notebook mb-2 text-2xl"></i>
+                                <p>No notes yet. Create your first note!</p>
+                            </div>
+                        `;
+                    } else {
+                        notesSnapshot.forEach(doc => {
+                            const note = { id: doc.id, ...doc.data() };
+                            const noteCard = createNoteCard(note);
+                            notesGrid.appendChild(noteCard);
+                        });
+                    }
+
+                } catch (error) {
+                    console.error('Error loading user data:', error);
+                    showNotification('Failed to load user data. Please refresh the page.', 'error');
+                }
+            };
+
+            // Show notification
+            const showNotification = (message, type = 'success') => {
+                const notification = document.createElement('div');
+                notification.className = `fixed bottom-4 right-4 p-4 rounded-lg shadow-lg ${
+                    type === 'success' ? 'bg-green-500' : 'bg-red-500'
+                } text-white z-50 transition-opacity duration-500`;
+                notification.textContent = message;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    setTimeout(() => notification.remove(), 500);
+                }, 3000);
+            };
+
+            // Auth state observer
+            auth.onAuthStateChanged(async (user) => {
+                if (user) {
+                    console.log('User authenticated:', user.uid);
+                    try {
+                        await loadUserData(user);
+                    } catch (error) {
+                        console.error('Error in auth state change:', error);
+                        showNotification('Failed to load user data', 'error');
+                    }
+                } else {
+                    console.log('No user authenticated, redirecting to auth page');
+                    window.location.href = 'auth.html';
+                }
+            });
+
+            // Handle logout
+            logoutBtn.addEventListener('click', async () => {
+                try {
+                    await auth.signOut();
+                    window.location.href = 'auth.html';
+                } catch (error) {
+                    console.error('Error signing out:', error);
+                    showNotification('Failed to sign out. Please try again.', 'error');
+                }
+            });
+
+            // Update name function
+            const updateUserName = async (newName) => {
+                try {
+                    const user = auth.currentUser;
+                    if (!user) throw new Error('No user logged in');
+
+                    loadingOverlay.classList.remove('hidden');
+                    loadingText.textContent = 'Updating name...';
+
+                    // Update Firebase Auth profile
+                    await user.updateProfile({
+                        displayName: newName
+                    });
+
+                    // Update Firestore document
+                    await db.collection('users').doc(user.uid).update({
+                        name: newName,
+                        lastUpdated: new Date().toISOString()
+                    });
+
+                    // Update UI
+                    userNameDisplay.textContent = newName;
+                    showNotification('Name updated successfully!', 'success');
+
+                } catch (error) {
+                    console.error('Error updating name:', error);
+                    showNotification('Failed to update name. Please try again.', 'error');
+                    throw error;
+                } finally {
+                    loadingOverlay.classList.add('hidden');
+                    nameEditModal.classList.add('hidden');
+                }
+            };
+
+            // Event Listeners for name editing
+            editNameBtn.addEventListener('click', () => {
+                nameEditModal.classList.remove('hidden');
+                newNameInput.focus();
+            });
+
+            cancelEditName.addEventListener('click', () => {
+                nameEditModal.classList.add('hidden');
+            });
+
+            nameEditForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const newName = newNameInput.value.trim();
+                
+                if (!newName) {
+                    showNotification('Please enter a valid name', 'error');
+                    return;
+                }
+
+                if (newName.length > 50) {
+                    showNotification('Name is too long (maximum 50 characters)', 'error');
+                    return;
+                }
+
+                try {
+                    await updateUserName(newName);
+                } catch (error) {
+                    console.error('Error in form submission:', error);
+                }
+            });
+
+            // Close modal on outside click
+            nameEditModal.addEventListener('click', (e) => {
+                if (e.target === nameEditModal) {
+                    nameEditModal.classList.add('hidden');
+                }
+            });
+
+            // Close modal on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !nameEditModal.classList.contains('hidden')) {
+                    nameEditModal.classList.add('hidden');
+                }
+            });
+
+            // Handle profile picture upload
+            const handleProfileUpload = async (file) => {
+                if (!file) return;
+                
+                try {
+                    loadingOverlay.classList.remove('hidden');
+                    loadingText.textContent = 'Compressing image...';
+                    uploadProgress.style.width = '0%';
+
+                    // Compress image before upload
+                    const options = {
+                        maxSizeMB: 1,
+                        maxWidthOrHeight: 1000,
+                        useWebWorker: true
+                    };
+                    
+                    const compressedFile = await imageCompression(file, options);
+                    loadingText.textContent = 'Uploading image...';
+
+                    const user = auth.currentUser;
+                    if (!user) throw new Error('No user logged in');
+
+                    // Create a reference to the file in Firebase Storage
+                    const storageRef = storage.ref();
+                    const timestamp = new Date().getTime();
+                    const profileRef = storageRef.child(`profile-pictures/${user.uid}/profile_${timestamp}.jpg`);
+
+                    // Create upload task
+                    const uploadTask = profileRef.put(compressedFile);
+
+                    // Monitor upload progress
+                    uploadTask.on('state_changed',
+                        (snapshot) => {
+                            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                            uploadProgress.style.width = progress + '%';
+                        },
+                        (error) => {
+                            console.error('Upload error:', error);
+                            showNotification('Failed to upload image. Please try again.', 'error');
+                            loadingOverlay.classList.add('hidden');
+                        },
+                        async () => {
+                            try {
+                                // Get the download URL
+                                const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
+
+                                // Update user profile
+                                await user.updateProfile({
+                                    photoURL: downloadURL
+                                });
+
+                                // Update Firestore document
+                                await db.collection('users').doc(user.uid).update({
+                                    profileImage: downloadURL,
+                                    lastUpdated: new Date().toISOString()
+                                });
+
+                                // Update UI
+                                profileImage.src = downloadURL;
+                                showNotification('Profile picture updated successfully!', 'success');
+                            } catch (error) {
+                                console.error('Error updating profile:', error);
+                                showNotification('Failed to update profile. Please try again.', 'error');
+                            } finally {
+                                loadingOverlay.classList.add('hidden');
+                            }
+                        }
+                    );
+
+                } catch (error) {
+                    console.error('Error handling profile upload:', error);
+                    showNotification('Failed to process image. Please try again.', 'error');
+                    loadingOverlay.classList.add('hidden');
+                }
+            };
+
+            // Profile picture upload event listener
+            profileUpload.addEventListener('change', async (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    if (!file.type.startsWith('image/')) {
+                        showNotification('Please select an image file', 'error');
+                        return;
+                    }
+                    
+                    if (file.size > 10 * 1024 * 1024) { // Increased to 10MB since we'll compress it
+                        showNotification('Image size should be less than 10MB', 'error');
+                        return;
+                    }
+
+                    await handleProfileUpload(file);
+                }
+            });
+
+            // Initialize user data in Firestore
+            async function initializeUserProfile(user) {
+                try {
+                    const userDoc = await db.collection('users').doc(user.uid).get();
+                    
+                    if (!userDoc.exists) {
+                        // Create initial profile data
+                        await db.collection('users').doc(user.uid).set({
+                            name: user.displayName || 'Anonymous User',
+                            email: user.email,
+                            createdAt: new Date().toISOString(),
+                            bio: '',
+                            education: {
+                                institution: 'Christ University',
+                                course: 'Computer Science',
+                                startYear: '2021',
+                                endYear: '2025'
+                            },
+                            skills: ['DSA', 'C++'],
+                            socialLinks: [],
+                            roles: [
+                                {
+                                    name: 'Notes Creator',
+                                    icon: 'book',
+                                    color: 'sky'
+                                },
+                                {
+                                    name: 'DSA Learner',
+                                    icon: 'code',
+                                    color: 'purple'
+                                }
+                            ]
+                        });
+                        return await db.collection('users').doc(user.uid).get();
+                    }
+                    return userDoc;
+                } catch (error) {
+                    console.error('Error initializing profile:', error);
+                    showNotification('Failed to initialize profile', 'error');
+                }
+            }
+
+            // Load user profile data
+            async function loadUserProfile(user) {
+                try {
+                    const userDoc = await initializeUserProfile(user);
+                    const userData = userDoc.data();
+
+                    // Update bio
+                    const bioText = document.getElementById('bio-text');
+                    bioText.textContent = userData.bio || 'Add a bio to tell others about yourself...';
+
+                    // Update education
+                    const educationDetails = document.getElementById('education-details');
+                    if (userData.education) {
+                        educationDetails.innerHTML = `
+                            <p class="text-gray-600 dark:text-gray-400">${userData.education.institution}</p>
+                            <p class="text-sm text-gray-500">${userData.education.course} • ${userData.education.startYear}-${userData.education.endYear}</p>
+                        `;
+                    }
+
+                    // Update skills
+                    const skillsContainer = document.getElementById('skills-container');
+                    skillsContainer.innerHTML = '';
+                    if (userData.skills && userData.skills.length > 0) {
+                        userData.skills.forEach(skill => {
+                            const skillTag = document.createElement('span');
+                            skillTag.className = 'skill-tag px-3 py-1 rounded-full text-sm bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300';
+                            skillTag.innerHTML = `
+                                ${skill}
+                                <button class="ml-2 text-yellow-600 hover:text-yellow-700">&times;</button>
+                            `;
+                            skillsContainer.appendChild(skillTag);
+                        });
+                    }
+
+                    // Update social links
+                    const socialLinks = document.getElementById('social-links');
+                    socialLinks.innerHTML = '';
+                    if (userData.socialLinks && userData.socialLinks.length > 0) {
+                        userData.socialLinks.forEach(link => {
+                            const socialLink = document.createElement('a');
+                            socialLink.href = link.url;
+                            socialLink.className = 'flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition-colors';
+                            socialLink.innerHTML = `
+                                <i class="fab fa-${link.platform.toLowerCase()} text-xl"></i>
+                                <span>${link.platform}</span>
+                            `;
+                            socialLinks.appendChild(socialLink);
+                        });
+                    }
+
+                    // Update roles
+                    if (userData.roles) {
+                        updateRolesDisplay(userData.roles);
+                    }
+                } catch (error) {
+                    console.error('Error loading profile:', error);
+                    showNotification('Failed to load profile data', 'error');
+                }
+            }
+
+            // Update specific field in Firestore
+            async function updateField(field, value) {
+                try {
+                    const user = auth.currentUser;
+                    if (!user) throw new Error('No user logged in');
+
+                    await db.collection('users').doc(user.uid).update({
+                        [field]: value,
+                        lastUpdated: new Date().toISOString()
+                    });
+
+                    showNotification('Profile updated successfully!', 'success');
+                    return true;
+                } catch (error) {
+                    console.error('Error updating profile:', error);
+                    showNotification('Failed to update profile', 'error');
+                    return false;
+                }
+            }
+
+            // Field edit buttons
+            document.querySelectorAll('.edit-field-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const field = button.dataset.field;
+                    openFieldEditor(field);
+                });
+            });
+
+            function openFieldEditor(field) {
+                modalTitle.textContent = `Edit ${field.charAt(0).toUpperCase() + field.slice(1)}`;
+                
+                // Generate appropriate form content based on field type
+                switch(field) {
+                    case 'roles':
+                        const user = auth.currentUser;
+                        db.collection('users').doc(user.uid).get().then(doc => {
+                            const userData = doc.data();
+                            const roles = userData.roles || [];
+                            
+                            modalContent.innerHTML = `
+                                <div class="space-y-4">
+                                    <div id="roles-list" class="space-y-2">
+                                        ${roles.map((role, index) => `
+                                            <div class="flex items-center gap-2 p-2 border border-gray-200 dark:border-gray-700 rounded-lg">
+                                                <input type="text" value="${role.name}" 
+                                                       class="flex-1 px-3 py-1 rounded border-gray-300 dark:border-gray-600 
+                                                              bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                                                       placeholder="Role name">
+                                                <select class="icon-select px-3 py-1 rounded border-gray-300 dark:border-gray-600 
+                                                               bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                                                    <option value="book" ${role.icon === 'book' ? 'selected' : ''}>📚 Book</option>
+                                                    <option value="code" ${role.icon === 'code' ? 'selected' : ''}>💻 Code</option>
+                                                    <option value="pencil" ${role.icon === 'pencil' ? 'selected' : ''}>✏️ Pencil</option>
+                                                    <option value="star" ${role.icon === 'star' ? 'selected' : ''}>⭐ Star</option>
+                                                </select>
+                                                <select class="color-select px-3 py-1 rounded border-gray-300 dark:border-gray-600 
+                                                               bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                                                    <option value="sky" ${role.color === 'sky' ? 'selected' : ''}>Blue</option>
+                                                    <option value="purple" ${role.color === 'purple' ? 'selected' : ''}>Purple</option>
+                                                    <option value="yellow" ${role.color === 'yellow' ? 'selected' : ''}>Yellow</option>
+                                                    <option value="green" ${role.color === 'green' ? 'selected' : ''}>Green</option>
+                                                </select>
+                                                <button type="button" class="delete-role text-red-500 hover:text-red-600">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                    <button type="button" id="add-role" 
+                                            class="w-full px-4 py-2 text-center text-yellow-500 border border-yellow-500 
+                                                   rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/10">
+                                        <i class="fas fa-plus mr-2"></i>Add Role
+                                    </button>
+                                </div>
+                            `;
+
+                            // Add role button handler
+                            const addRoleBtn = modalContent.querySelector('#add-role');
+                            addRoleBtn.addEventListener('click', () => {
+                                const rolesList = modalContent.querySelector('#roles-list');
+                                const newRoleDiv = document.createElement('div');
+                                newRoleDiv.className = 'flex items-center gap-2 p-2 border border-gray-200 dark:border-gray-700 rounded-lg';
+                                newRoleDiv.innerHTML = `
+                                    <input type="text" placeholder="Role name" 
+                                           class="flex-1 px-3 py-1 rounded border-gray-300 dark:border-gray-600 
+                                                  bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                                    <select class="icon-select px-3 py-1 rounded border-gray-300 dark:border-gray-600 
+                                                   bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                                        <option value="book">📚 Book</option>
+                                        <option value="code">💻 Code</option>
+                                        <option value="pencil">✏️ Pencil</option>
+                                        <option value="star">⭐ Star</option>
+                                    </select>
+                                    <select class="color-select px-3 py-1 rounded border-gray-300 dark:border-gray-600 
+                                                   bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                                        <option value="sky">Blue</option>
+                                        <option value="purple">Purple</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="green">Green</option>
+                                    </select>
+                                    <button type="button" class="delete-role text-red-500 hover:text-red-600">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                `;
+                                rolesList.appendChild(newRoleDiv);
+                            });
+
+                            // Delete role button handler
+                            modalContent.addEventListener('click', (e) => {
+                                if (e.target.closest('.delete-role')) {
+                                    const roleDiv = e.target.closest('div');
+                                    roleDiv.remove();
+                                }
+                            });
+                        });
+                        break;
+                    case 'bio':
+                        modalContent.innerHTML = `
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Your Bio
+                                </label>
+                                <textarea
+                                    class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                           bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                           focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                    rows="4"
+                                    placeholder="Tell others about yourself..."
+                                ></textarea>
+                            </div>
+                        `;
+                        break;
+                    case 'education':
+                        modalContent.innerHTML = `
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                        Institution
+                                    </label>
+                                    <input type="text" 
+                                           class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                                  bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                                  focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                           placeholder="Enter institution name">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                        Course
+                                    </label>
+                                    <input type="text" 
+                                           class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                                  bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                                  focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                           placeholder="Enter course name">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                            Start Year
+                                        </label>
+                                        <input type="number" 
+                                               class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                                      bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                                      focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                               placeholder="YYYY">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                            End Year
+                                        </label>
+                                        <input type="number" 
+                                               class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                                      bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                                      focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                               placeholder="YYYY">
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                    case 'skills':
+                        modalContent.innerHTML = `
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                    Add Skill
+                                </label>
+                                <div class="flex gap-2">
+                                    <input type="text" 
+                                           class="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                                  bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                                  focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                           placeholder="Enter skill name">
+                                    <button type="button" 
+                                            class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Current Skills
+                                </label>
+                                <div class="flex flex-wrap gap-2">
+                                    <!-- Existing skills will be displayed here -->
+                                </div>
+                            </div>
+                        `;
+                        break;
+                    case 'social':
+                        modalContent.innerHTML = `
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                        Platform
+                                    </label>
+                                    <select class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                                   bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                                   focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                                        <option value="github">GitHub</option>
+                                        <option value="linkedin">LinkedIn</option>
+                                        <option value="twitter">Twitter</option>
+                                        <option value="portfolio">Portfolio</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                        URL
+                                    </label>
+                                    <input type="url" 
+                                           class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
+                                                  bg-white dark:bg-gray-700 text-gray-900 dark:text-white 
+                                                  focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                                           placeholder="Enter profile URL">
+                                </div>
+                            </div>
+                        `;
+                        break;
+                }
+
+                // Show modal with animation
+                editFieldModal.classList.remove('hidden');
+                setTimeout(() => {
+                    editFieldModal.querySelector('.transform').classList.remove('scale-95', 'opacity-0');
+                }, 10);
+            }
+
+            // Close modal handlers
+            function closeModal() {
+                const modalContent = editFieldModal.querySelector('.transform');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    editFieldModal.classList.add('hidden');
+                }, 300);
+            }
+
+            cancelEditField.addEventListener('click', closeModal);
+            editFieldModal.addEventListener('click', (e) => {
+                if (e.target === editFieldModal) closeModal();
+            });
+
+            // Form submission handler
+            editFieldForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const field = modalTitle.textContent.toLowerCase().replace('edit ', '');
+                
+                try {
+                    let value;
+                    switch (field) {
+                        case 'roles':
+                            const roleElements = modalContent.querySelectorAll('#roles-list > div');
+                            value = Array.from(roleElements).map(roleDiv => ({
+                                name: roleDiv.querySelector('input[type="text"]').value.trim(),
+                                icon: roleDiv.querySelector('.icon-select').value,
+                                color: roleDiv.querySelector('.color-select').value
+                            })).filter(role => role.name); // Filter out empty roles
+                            
+                            if (await updateField('roles', value)) {
+                                updateRolesDisplay(value);
+                            }
+                            break;
+                        case 'bio':
+                            value = modalContent.querySelector('textarea').value.trim();
+                            if (await updateField('bio', value)) {
+                                document.getElementById('bio-text').textContent = value || 'Add a bio to tell others about yourself...';
+                            }
+                            break;
+                        case 'education':
+                            value = {
+                                institution: modalContent.querySelector('input[placeholder="Enter institution name"]').value.trim(),
+                                course: modalContent.querySelector('input[placeholder="Enter course name"]').value.trim(),
+                                startYear: modalContent.querySelector('input[placeholder="YYYY"]:first-of-type').value.trim(),
+                                endYear: modalContent.querySelector('input[placeholder="YYYY"]:last-of-type').value.trim()
+                            };
+                            if (await updateField('education', value)) {
+                                const educationDetails = document.getElementById('education-details');
+                                educationDetails.innerHTML = `
+                                    <p class="text-gray-600 dark:text-gray-400">${value.institution}</p>
+                                    <p class="text-sm text-gray-500">${value.course} • ${value.startYear}-${value.endYear}</p>
+                                `;
+                            }
+                            break;
+                        case 'skills':
+                            const skillInput = modalContent.querySelector('input[type="text"]');
+                            const newSkill = skillInput.value.trim();
+                            if (newSkill) {
+                                const user = auth.currentUser;
+                                const userDoc = await db.collection('users').doc(user.uid).get();
+                                const currentSkills = userDoc.data().skills || [];
+                                if (!currentSkills.includes(newSkill)) {
+                                    const updatedSkills = [...currentSkills, newSkill];
+                                    if (await updateField('skills', updatedSkills)) {
+                                        const skillTag = document.createElement('span');
+                                        skillTag.className = 'skill-tag px-3 py-1 rounded-full text-sm bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300';
+                                        skillTag.innerHTML = `
+                                            ${newSkill}
+                                            <button class="ml-2 text-yellow-600 hover:text-yellow-700">&times;</button>
+                                        `;
+                                        document.getElementById('skills-container').appendChild(skillTag);
+                                        skillInput.value = '';
+                                    }
+                                }
+                            }
+                            return; // Don't close modal after adding skill
+                        case 'social':
+                            const platform = modalContent.querySelector('select').value;
+                            const url = modalContent.querySelector('input[type="url"]').value.trim();
+                            if (url) {
+                                const user = auth.currentUser;
+                                const userDoc = await db.collection('users').doc(user.uid).get();
+                                const currentLinks = userDoc.data().socialLinks || [];
+                                const updatedLinks = [...currentLinks, { platform, url }];
+                                if (await updateField('socialLinks', updatedLinks)) {
+                                    const socialLink = document.createElement('a');
+                                    socialLink.href = url;
+                                    socialLink.className = 'flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition-colors';
+                                    socialLink.innerHTML = `
+                                        <i class="fab fa-${platform.toLowerCase()} text-xl"></i>
+                                        <span>${platform}</span>
+                                    `;
+                                    document.getElementById('social-links').appendChild(socialLink);
+                                }
+                            }
+                            break;
+                    }
+                    closeModal();
+                } catch (error) {
+                    console.error('Error in form submission:', error);
+                    showNotification('Failed to update profile', 'error');
+                }
+            });
+
+            // Remove skill handler
+            document.addEventListener('click', async (e) => {
+                if (e.target.matches('.skill-tag button')) {
+                    e.preventDefault();
+                    const skillTag = e.target.parentElement;
+                    const skill = skillTag.textContent.trim().replace('×', '').trim();
+                    
+                    try {
+                        const user = auth.currentUser;
+                        const userDoc = await db.collection('users').doc(user.uid).get();
+                        const currentSkills = userDoc.data().skills || [];
+                        const updatedSkills = currentSkills.filter(s => s !== skill);
+                        
+                        if (await updateField('skills', updatedSkills)) {
+                            skillTag.remove();
+                        }
+                    } catch (error) {
+                        console.error('Error removing skill:', error);
+                        showNotification('Failed to remove skill', 'error');
+                    }
+                }
+            });
+
+            // Load profile when user is authenticated
+            auth.onAuthStateChanged(async (user) => {
+                if (user) {
+                    await loadUserProfile(user);
+                }
+            });
+        });
+    </script>
+
+    <!-- Dark Mode Toggle Script -->
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const htmlElement = document.documentElement;
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        // Dark mode toggle
+        darkModeToggle.addEventListener("click", () => {
+            htmlElement.classList.toggle("dark");
+            darkModeToggle.textContent = htmlElement.classList.contains("dark") ? "☀️" : "🌙";
+        });
+
+        // Mobile menu toggle
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        // Check system preference
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            htmlElement.classList.add("dark");
+            darkModeToggle.textContent = "☀️";
+        }
+    </script>
+</body>
+</html>
