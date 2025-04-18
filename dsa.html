@@ -1,0 +1,2386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-2125586648357270">
+    
+    <!-- Advanced SEO Meta Tags -->
+    <title>DSA Tutorial - Complete Data Structures and Algorithms Guide with C++ Examples</title>
+    <meta name="description" content="Comprehensive DSA tutorial with detailed C++ examples covering linked lists, stacks, queues, trees, graphs, sorting algorithms, searching techniques, and interview preparation tips. Best resource for computer science students and programmers.">
+    <meta name="keywords" content="DSA, data structures and algorithms, C++ DSA, DSA for beginners, linked list, singly linked list, doubly linked list, linked list operations, linked list insertion, linked list deletion, binary tree, stack, stack operations, stack push, stack pop, queue, queue operations, binary search, heap sort, quick sort, bubble sort, sorting algorithms, inorder traversal, postorder traversal, binary tree traversal, competitive programming, DSA interview, coding interview preparation, algorithm complexity, time complexity, space complexity, BigO notation, DSA problems, DSA solutions, coding challenges, programming tutorial, C++ programming, computer science fundamentals, DSA course, DSA tutorial">
+    <meta name="author" content="Notes Zone">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <link rel="canonical" href="https://noteszone.online/dsa.html">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="page-topic" content="Data Structures and Algorithms">
+    <meta name="category" content="Education">
+    <meta name="coverage" content="Worldwide">
+    <meta name="rating" content="General">
+    <meta name="abstract" content="A complete online tutorial for Data Structures and Algorithms with C++ implementations">
+    <meta name="designer" content="Notes Zone">
+    <meta name="apple-mobile-web-app-title" content="DSA Tutorial">
+    <meta name="application-name" content="DSA Tutorial">
+    <meta name="msapplication-TileImage" content="https://noteszone.online/logo.png">
+    <meta name="theme-color" content="#3b82f6">
+    
+    <!-- Performance & Technical SEO -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preload" href="https://noteszone.online/logo.png" as="image">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Cache-Control" content="max-age=86400">
+    
+    <!-- Open Graph Tags for Better Social Sharing -->
+    <meta property="og:title" content="DSA Tutorial - Complete Guide to Data Structures and Algorithms">
+    <meta property="og:description" content="Comprehensive DSA tutorial with practical C++ implementations of linked lists, stacks, trees, and all essential algorithms. Perfect resource for beginners, students, and interview preparation.">
+    <meta property="og:url" content="https://noteszone.online/dsa.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Notes Zone">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://noteszone.online/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Data Structures and Algorithms Tutorial">
+    <meta property="og:updated_time" content="2023-08-15T12:00:00+00:00">
+    <meta property="og:rich_attachment" content="true">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DSA Tutorial - Mastering Data Structures and Algorithms">
+    <meta name="twitter:description" content="Learn essential DSA concepts with practical C++ implementations. Master algorithms and coding interviews with our comprehensive guide.">
+    <meta name="twitter:image" content="https://noteszone.online/logo.png">
+    <meta name="twitter:image:alt" content="DSA Tutorial Image">
+    <meta name="twitter:creator" content="@noteszone">
+    <meta name="twitter:site" content="@noteszone">
+    <meta name="twitter:domain" content="noteszone.online">
+    
+    <!-- Additional SEO Tags -->
+    <meta name="rating" content="General">
+    <meta name="copyright" content="Copyright © 2023 Notes Zone">
+    <meta name="topic" content="Data Structures and Algorithms">
+    <meta name="subject" content="Computer Science Tutorials">
+    <meta name="classification" content="Education">
+    
+    <!-- Mobile Specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DSA Tutorial">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Topic-specific SEO Meta Tags -->
+    <meta name="keywords" content="DSA, data structures and algorithms, C++ DSA, DSA for beginners, linked list, singly linked list, doubly linked list, linked list operations, linked list insertion, linked list deletion, binary tree, stack, stack operations, stack push, stack pop, queue, queue operations, binary search, heap sort, quick sort, bubble sort, sorting algorithms, inorder traversal, postorder traversal, binary tree traversal, competitive programming, DSA interview, coding interview preparation, algorithm complexity, time complexity, space complexity, BigO notation, DSA problems, DSA solutions, coding challenges, programming tutorial, C++ programming, computer science fundamentals, DSA course, DSA tutorial">
+    
+    <!-- Breadcrumb Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://noteszone.online/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tutorials",
+          "item": "https://noteszone.online/tutorials"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Data Structures and Algorithms",
+          "item": "https://noteszone.online/dsa.html"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Website Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://noteszone.online/",
+      "name": "Notes Zone",
+      "description": "Educational resources for computer science students and programmers",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://noteszone.online/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- Topic-Specific SEO Enhancement -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Linked List and how to implement it in C++?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A linked list is a linear data structure where elements are stored in nodes, with each node containing data and a reference to the next node. In C++, linked lists are implemented using classes with insertion methods like insertAtFront() and deletion methods for removing nodes. Singly linked lists have references to only the next node, while doubly linked lists have references to both next and previous nodes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do Stack operations work in Data Structures?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A stack is a LIFO (Last In First Out) data structure with two main operations: push and pop. The push operation adds an element to the top of the stack, while pop removes the element from the top. Stacks can be implemented using arrays or linked lists, and are commonly used in function call management, expression evaluation, and backtracking algorithms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Binary Search and what is its time complexity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Binary search is an efficient searching algorithm that works on sorted arrays by repeatedly dividing the search space in half. It compares the target value to the middle element of the array, then eliminates half the remaining elements in each step. Binary search has a time complexity of O(log n), making it much faster than linear search for large datasets. It's implemented by tracking start and end indices and updating them based on comparisons."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does tree traversal work in Binary Trees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Binary tree traversal is the process of visiting each node in a binary tree exactly once. There are three common traversal methods: Inorder (left-root-right), Preorder (root-left-right), and Postorder (left-right-root). Inorder traversal of a Binary Search Tree yields nodes in sorted order. Tree traversals are typically implemented using recursion, though iterative approaches using stacks are also possible for all three methods."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the differences between Heap Sort, Quick Sort, and Bubble Sort?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Heap Sort, Quick Sort, and Bubble Sort are sorting algorithms with different characteristics. Heap Sort builds a max heap and repeatedly extracts the maximum element, with O(n log n) time complexity. Quick Sort uses a divide-and-conquer approach by selecting a pivot element, with average O(n log n) complexity but worst-case O(n²). Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if needed, with O(n²) complexity, making it inefficient for large datasets."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Individual Data Structure Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "TechArticle",
+            "headline": "Singly Linked List Implementation in C++",
+            "description": "Learn how to implement a singly linked list with insertion and deletion operations in C++",
+            "articleSection": "Linked Lists",
+            "articleBody": "A singly linked list is a data structure where each node contains data and a pointer to the next node. Methods include insertAtFront, display, and deleteFront.",
+            "keywords": "singly linked list, linked list implementation, C++ linked list, linked list insertion, linked list deletion",
+            "url": "https://noteszone.online/dsa.html#singly-insertion"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "TechArticle",
+            "headline": "Doubly Linked List Implementation in C++",
+            "description": "Complete tutorial on doubly linked lists with C++ implementation and examples",
+            "articleSection": "Linked Lists",
+            "articleBody": "A doubly linked list is a data structure where each node contains data and two pointers: one to the next node and one to the previous node.",
+            "keywords": "doubly linked list, doubly linked list C++, linked list with previous pointer, bidirectional linked list",
+            "url": "https://noteszone.online/dsa.html#doubly-insertion"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "TechArticle",
+            "headline": "Stack Implementation in C++",
+            "description": "Learn how to implement a stack data structure with push and pop operations in C++",
+            "articleSection": "Stack & Queue",
+            "articleBody": "A stack is a linear data structure that follows the Last In First Out (LIFO) principle with push, pop, and isEmpty operations.",
+            "keywords": "stack implementation, stack in C++, LIFO data structure, stack push operation, stack pop operation",
+            "url": "https://noteszone.online/dsa.html#stack"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "TechArticle",
+            "headline": "Queue Implementation in C++",
+            "description": "Step-by-step guide to implementing queue data structure with enqueue and dequeue operations",
+            "articleSection": "Stack & Queue",
+            "articleBody": "A queue is a linear data structure that follows the First In First Out (FIFO) principle with enqueue, dequeue, and display operations.",
+            "keywords": "queue implementation, queue in C++, FIFO data structure, enqueue operation, dequeue operation",
+            "url": "https://noteszone.online/dsa.html#queue"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "TechArticle",
+            "headline": "Binary Search Algorithm in C++",
+            "description": "Efficient searching algorithm for sorted arrays with O(log n) time complexity",
+            "articleSection": "Sorting & Searching",
+            "articleBody": "Binary search is an efficient algorithm for searching a sorted array by repeatedly dividing the search interval in half.",
+            "keywords": "binary search, binary search algorithm, searching sorted arrays, O(log n) search, efficient searching",
+            "url": "https://noteszone.online/dsa.html#binary-search"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "TechArticle",
+            "headline": "Sorting Algorithms: Heap Sort, Quick Sort, and Bubble Sort",
+            "description": "Comparison and implementation of popular sorting algorithms in C++",
+            "articleSection": "Sorting & Searching",
+            "articleBody": "Detailed implementations of Heap Sort (O(n log n)), Quick Sort (average O(n log n)), and Bubble Sort (O(n²)) with examples and analysis.",
+            "keywords": "sorting algorithms, heap sort, quick sort, bubble sort, comparison sorting, efficient sorting, C++ sorting",
+            "url": "https://noteszone.online/dsa.html#heap-sort"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "TechArticle",
+            "headline": "Binary Tree Traversals: Inorder and Postorder",
+            "description": "Complete guide to traversing binary trees with C++ implementations",
+            "articleSection": "Binary Trees",
+            "articleBody": "Binary tree traversal methods including Inorder (left-root-right) and Postorder (left-right-root) with recursive implementations.",
+            "keywords": "binary tree traversal, inorder traversal, postorder traversal, tree algorithms, binary tree C++, recursive tree traversal",
+            "url": "https://noteszone.online/dsa.html#inorder-traversal"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data for Topic-Specific SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "DSA Tutorial - Complete Guide to Data Structures and Algorithms",
+      "description": "Comprehensive DSA tutorial with detailed C++ examples covering all key topics and techniques",
+      "image": "https://noteszone.online/logo.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Notes Zone",
+        "url": "https://noteszone.online",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://noteszone.online/logo.png",
+          "width": "112",
+          "height": "112"
+        },
+        "sameAs": [
+          "https://twitter.com/noteszone",
+          "https://github.com/noteszone",
+          "https://www.linkedin.com/company/noteszone"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Notes Zone",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://noteszone.online/logo.png"
+        }
+      },
+      "datePublished": "2023-01-01T09:00:00+00:00",
+      "dateModified": "2023-08-15T12:00:00+00:00",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://noteszone.online/dsa.html"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Data Structures and Algorithms"
+      },
+      "keywords": "DSA, data structures, algorithms, linked list, stack, queue, binary search, heap sort, quick sort, binary tree, tree traversal",
+      "wordCount": "5000",
+      "isAccessibleForFree": "True",
+      "hasPart": [
+        {
+          "@type": "WebPageElement",
+          "name": "Linked Lists",
+          "description": "Comprehensive guide to singly and doubly linked lists with insertion and deletion operations",
+          "position": 1,
+          "isPartOf": {
+            "@type": "WebPage",
+            "@id": "https://noteszone.online/dsa.html#linked-lists"
+          }
+        },
+        {
+          "@type": "WebPageElement",
+          "name": "Stack and Queue",
+          "description": "Implementation of stack push/pop operations and queue operations using C++",
+          "position": 2,
+          "isPartOf": {
+            "@type": "WebPage",
+            "@id": "https://noteszone.online/dsa.html#stack-queue"
+          }
+        },
+        {
+          "@type": "WebPageElement",
+          "name": "Sorting Algorithms",
+          "description": "Detailed explanation of binary search, heap sort, quick sort, and bubble sort",
+          "position": 3,
+          "isPartOf": {
+            "@type": "WebPage",
+            "@id": "https://noteszone.online/dsa.html#sorting-searching"
+          }
+        },
+        {
+          "@type": "WebPageElement",
+          "name": "Binary Trees",
+          "description": "Complete guide to binary tree operations including inorder and postorder traversal",
+          "position": 4,
+          "isPartOf": {
+            "@type": "WebPage",
+            "@id": "https://noteszone.online/dsa.html#binary-trees"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Education Course Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Data Structures and Algorithms (DSA) - Complete C++ Tutorial",
+      "description": "Master Data Structures and Algorithms with our comprehensive C++ tutorial. Learn linked lists, stacks, queues, trees, and sorting algorithms with practical implementations.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Notes Zone",
+        "sameAs": "https://noteszone.online"
+      },
+      "courseCode": "CS101-DSA",
+      "coursePrerequisites": "Basic C++ programming knowledge",
+      "educationalCredentialAwarded": "Certificate of Completion",
+      "competencyRequired": "Beginner to Intermediate programming skills",
+      "timeRequired": "PT30H",
+      "occupationalCredentialAwarded": "Data Structures and Algorithms Proficiency",
+      "educationalLevel": "Beginner to Advanced",
+      "teaches": [
+        "Linked Lists",
+        "Stacks and Queues",
+        "Sorting Algorithms",
+        "Binary Trees",
+        "Search Algorithms",
+        "Time and Space Complexity Analysis"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2023-01-01"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "name": "Self-paced Online DSA Tutorial",
+        "courseMode": "online",
+        "courseWorkload": "PT10H",
+        "inLanguage": "en"
+      }
+    }
+    </script>
+    
+    <!-- HowTo Schema for Implementation Examples -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Implement Data Structures in C++",
+      "description": "Step-by-step guide to implementing fundamental data structures in C++",
+      "totalTime": "PT5H",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "C++ Compiler (g++, Visual Studio, etc.)"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Text Editor or IDE"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Implement Linked List",
+          "url": "https://noteszone.online/dsa.html#singly-insertion",
+          "itemListElement": {
+            "@type": "HowToDirection",
+            "text": "Create a Node class with data and next pointer. Then implement LinkedList class with insertAtFront and other operations."
+          }
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Implement Stack",
+          "url": "https://noteszone.online/dsa.html#stack",
+          "itemListElement": {
+            "@type": "HowToDirection",
+            "text": "Create a Stack class with push, pop, and isEmpty operations using an array or linked list."
+          }
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Implement Binary Search",
+          "url": "https://noteszone.online/dsa.html#binary-search",
+          "itemListElement": {
+            "@type": "HowToDirection",
+            "text": "Write a binary search function that takes a sorted array and target value, then returns the index of the target or -1 if not found."
+          }
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Implement Binary Tree",
+          "url": "https://noteszone.online/dsa.html#inorder-traversal",
+          "itemListElement": {
+            "@type": "HowToDirection",
+            "text": "Create a Node class with data, left, and right pointers. Then implement BinaryTree class with traversal methods."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="logo.ico.ico" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    
+    <!-- Structured Data / Schema.org for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Data Structures and Algorithms Tutorial",
+      "description": "Comprehensive tutorial covering key data structures and algorithms concepts with C++ implementations including linked lists, stacks, queues, trees, and various sorting and searching algorithms.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Notes Zone",
+        "sameAs": "https://notes-zone.com"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT10H",
+        "educationalLevel": "Beginner to Advanced"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Computer Science Students, Software Engineers, Programming Enthusiasts"
+      },
+      "teaches": "Data Structures, Algorithms, C++ Programming, Computer Science Fundamentals",
+      "learningResourceType": "Tutorial"
+    }
+    </script>
+    
+    <style>
+        /* Smooth transitions */
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            transition: background-color 0.3s;
+        }
+
+        /* Custom styling for the navigation links */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #facc15;
+            transition: width 0.3s, left 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Code block styles */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 12px;
+            margin: 1rem 0;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .code-block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .code-block .header {
+            background: #252525;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .code-block .title {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .code-block pre {
+            margin: 0;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+
+        /* Mobile responsiveness for code blocks */
+        @media (max-width: 640px) {
+            .code-block pre {
+                font-size: 0.85rem;
+                padding: 0.75rem;
+                line-height: 1.5;
+            }
+            
+            .code-block .header {
+                padding: 0.5rem 0.75rem;
+            }
+            
+            .code-block .title {
+                font-size: 0.8rem;
+            }
+            
+            .code-block .copy-btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        .code-block .copy-btn {
+            background: transparent;
+            color: #888;
+            border: 1px solid #444;
+            border-radius: 6px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .code-block .copy-btn:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Enhanced syntax highlighting */
+        .keyword { color: #569cd6; }
+        .string { color: #9cdcfe; }
+        .number { color: #b5cea8; }
+        .comment { color: #6a9955; font-style: italic; }
+        .function { color: #dcdcaa; }
+        .type { color: #4ec9b0; }
+        .variable { color: #9cdcfe; }
+        .operator { color: #d4d4d4; }
+        .punctuation { color: #d4d4d4; }
+        .class-name { color: #4ec9b0; }
+        .parameter { color: #9cdcfe; }
+        .control { color: #c586c0; }
+        .namespace { color: #4ec9b0; }
+        .include { color: #569cd6; }
+        .null { color: #569cd6; }
+
+        /* Grid overlay styles */
+        .hero-grid {
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px);
+            background-size: 80px 80px;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .hero-grid-secondary {
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        /* Dark mode adjustments */
+        .dark .hero-grid {
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px);
+        }
+
+        .dark .hero-grid-secondary {
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+        }
+
+        /* Button styles */
+        .button-group a {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .button-group a:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .button-group a {
+                width: 100%;
+                text-align: center;
+                padding: 0.65rem 1rem;
+            }
+        }
+
+        /* Custom Scrollbar Styling */
+        .scrollbar-thin::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+            background-color: #94a3b8;
+            border-radius: 3px;
+        }
+
+        .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+            background-color: #475569;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+            background-color: #64748b;
+        }
+
+        .dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+            background-color: #334155;
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Active Link Styling */
+        .sidebar-link.active {
+            background-color: #e5e7eb;
+            color: #1d4ed8;
+        }
+
+        .dark .sidebar-link.active {
+            background-color: rgba(55, 65, 81, 0.5);
+            color: #60a5fa;
+        }
+        
+        /* Mobile menu overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+        }
+        
+        .mobile-menu-active .mobile-menu-overlay {
+            display: block;
+        }
+        
+        /* Mobile menu positioning */
+        @media (max-width: 768px) {
+            #sidebar {
+                position: fixed;
+                top: 56px;
+                left: 0;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 56px);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            #sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .code-block {
+                margin: 0.5rem 0;
+            }
+            
+            pre {
+                max-width: 100%;
+                overflow-x: auto;
+            }
+            
+            .topic-section {
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2125586648357270"
+    crossorigin="anonymous"></script>
+   <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+   
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6V7LPEC5P4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6V7LPEC5P4');
+</script>
+<body class="bg-gradient-to-b from-sky-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 relative">
+    <amp-auto-ads type="adsense"
+    data-ad-client="ca-pub-2125586648357270">
+</amp-auto-ads>
+    <!-- Enhanced Grid Overlay -->
+    <div class="fixed inset-0 pointer-events-none">
+        <div class="hero-grid absolute inset-0 opacity-30 dark:opacity-20"></div>
+        <div class="hero-grid-secondary absolute inset-0 opacity-15 dark:opacity-10"></div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-14">
+                <div class="flex items-center gap-2">
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <a href="index.html" class="flex items-center group">
+                        <div class="relative">
+                            <img src="logo.png" alt="Data Structures and Algorithms Tutorial Logo" class="h-10 w-10 rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-blue-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <span class="ml-3 text-xl font-bold bg-gradient-to-r from-blue-600 via-sky-500 to-indigo-400 bg-clip-text text-transparent hover:from-blue-500 hover:via-sky-400 hover:to-indigo-300 transition-all duration-300">Tutorial</span>
+                    </a>
+                </div>
+                <div class="flex items-center">
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" aria-label="Toggle dark mode">
+                        🌙
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+    <header class="bg-gradient-to-r from-blue-600/10 to-indigo-600/10 dark:from-blue-900/30 dark:to-indigo-900/30 py-12 px-4 mb-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Data Structures and Algorithms</h1>
+            <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6">A comprehensive guide to mastering DSA concepts with C++ implementations</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#singly-insertion" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-all transform hover:-translate-y-1 shadow-md hover:shadow-lg">Start Learning</a>
+                <a href="#binary-trees" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg transition-all transform hover:-translate-y-1 shadow-md hover:shadow-lg">Binary Trees</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-full md:w-64 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg hidden md:block h-[calc(100vh-4rem)] md:sticky top-14 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
+            <nav class="p-4" aria-label="Table of contents">
+                <div class="space-y-8">
+                    <!-- Linked Lists Section -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">Linked Lists</h2>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#singly-insertion" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Singly List Insertion
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#singly-deletion" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Singly List Deletion
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#doubly-insertion" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Doubly List Insertion
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#doubly-deletion" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Doubly List Deletion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Stack & Queue Section -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">Stack & Queue</h2>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#stack" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Stack Operations
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#stack-push" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Stack Push
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#stack-pop" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Stack Pop
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#queue" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Queue Operations
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Sorting & Searching Section -->
+                    <div class="mb-6">
+                        <h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">Sorting & Searching</h2>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#binary-search" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Binary Search
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#heap-sort" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Heap Sort
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#quick-sort" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Quick Sort
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#bubble-sort" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Bubble Sort
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Binary Trees Section -->
+                    <div class="mb-6" id="binary-trees">
+                        <h2 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">Binary Trees</h2>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#inorder-traversal" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Inorder Traversal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#postorder-traversal" class="block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors">
+                                    Postorder Traversal
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-4 sm:p-6 relative">
+            <div class="max-w-4xl mx-auto">
+                <!-- 
+                <section class="mb-12">
+                    <h2 class="text-3xl font-bold mb-4">What are Data Structures and Algorithms?</h2>
+                    <p class="mb-4 text-gray-700 dark:text-gray-300">Data Structures and Algorithms (DSA) form the foundation of computer science and software development. Data structures are specialized formats for organizing and storing data, while algorithms are step-by-step procedures for solving specific problems.</p>
+                    
+                    <p class="mb-4 text-gray-700 dark:text-gray-300">This comprehensive tutorial covers essential DSA concepts with clear C++ implementations, helping you understand both the theory and practical applications. Whether you're preparing for coding interviews, academic studies, or improving your programming skills, this guide provides a solid foundation.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-200 mb-2">Why Learn DSA?</h3>
+                        <ul class="list-disc pl-5 text-blue-800 dark:text-blue-200">
+                            <li>Improve problem-solving skills</li>
+                            <li>Write more efficient and optimized code</li>
+                            <li>Essential knowledge for technical interviews</li>
+                            <li>Better understanding of computer science fundamentals</li>
+                            <li>Foundation for advanced programming concepts</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Topic sections with display control -->
+                <section id="singly-insertion" class="topic-section mb-8" itemscope itemtype="https://schema.org/TechArticle">
+                    <meta itemprop="headline" content="Singly Linked List Insertion in C++ - Implementation and Examples">
+                    <meta itemprop="keywords" content="singly linked list, linked list insertion, C++ linked list, node insertion, front insertion, linked list implementation">
+                    <meta itemprop="description" content="Learn how to implement insertion operations in a singly linked list with C++ code examples, step-by-step explanations, and time complexity analysis.">
+                    <h2 class="text-2xl font-bold mb-4" itemprop="name">Singly Linked List Insertion</h2>
+                    <p class="mb-4" itemprop="articleBody">A singly linked list is a data structure where each node contains data and a pointer to the next node. Here's an implementation of inserting a node at the front of a singly linked list.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+                    
+                    <div class="code-block" itemprop="codeRepository">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Node</span> {
+<span class="keyword">public</span>:
+    <span class="type">int</span> data;
+    <span class="type">Node</span>* next;
+
+    <span class="function">Node</span>(<span class="type">int</span> <span class="parameter">value</span>) {
+        data = value;
+        next = <span class="null">nullptr</span>;
+    }
+};
+
+<span class="keyword">class</span> <span class="class-name">SinglyLinkedList</span> {
+<span class="keyword">private</span>:
+    <span class="type">Node</span>* head;
+
+<span class="keyword">public</span>:
+    <span class="function">SinglyLinkedList</span>() { head = <span class="null">nullptr</span>; }
+
+    <span class="keyword">void</span> <span class="function">insertAtFront</span>(<span class="type">int</span> <span class="parameter">value</span>) {
+        <span class="type">Node</span>* newNode = <span class="keyword">new</span> <span class="class-name">Node</span>(value);
+        newNode->next = head;
+        head = newNode;
+    }
+
+    <span class="keyword">void</span> <span class="function">display</span>() {
+        <span class="type">Node</span>* temp = head;
+        <span class="keyword">while</span> (temp != <span class="null">nullptr</span>) {
+            cout << temp->data << <span class="string">" "</span>;
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">SinglyLinkedList</span> list;
+
+    list.insertAtFront(4);
+    list.insertAtFront(3);
+    list.insertAtFront(2);
+
+    cout << <span class="string">"Original linked list: "</span>;
+    list.display();
+
+    list.insertAtFront(1);
+
+    cout << <span class="string">"After inserting node at the front: "</span>;
+    list.display();
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Original linked list: 2 3 4
+After inserting node at the front: 1 2 3 4</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/online-compiler/7ap9NhvgOej0O" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="singly-deletion" class="topic-section mb-8 hidden" itemscope itemtype="https://schema.org/TechArticle">
+                    <meta itemprop="headline" content="Singly Linked List Deletion in C++ - Implementation and Examples">
+                    <meta itemprop="keywords" content="singly linked list deletion, linked list node removal, delete from linked list, C++ linked list, delete front node">
+                    <meta itemprop="description" content="Complete guide to deleting nodes from a singly linked list in C++ with code examples and step-by-step explanations.">
+                    <h2 class="text-2xl font-bold mb-4" itemprop="name">Singly Linked List Deletion</h2>
+                    <p class="mb-4" itemprop="articleBody">Implementation of deleting a node from a singly linked list. This includes deletion from the front of the list.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Node</span> {
+<span class="keyword">public</span>:
+    <span class="type">int</span> data;
+    <span class="type">Node</span>* next;
+
+    <span class="function">Node</span>(<span class="type">int</span> <span class="parameter">value</span>) {
+        data = value;
+        next = <span class="null">nullptr</span>;
+    }
+};
+
+<span class="keyword">class</span> <span class="class-name">SinglyLinkedList</span> {
+<span class="keyword">private</span>:
+    <span class="type">Node</span>* head;
+
+<span class="keyword">public</span>:
+    <span class="function">SinglyLinkedList</span>() { head = <span class="null">nullptr</span>; }
+
+    <span class="keyword">void</span> <span class="function">insertAtFront</span>(<span class="type">int</span> <span class="parameter">value</span>) {
+        <span class="type">Node</span>* newNode = <span class="keyword">new</span> <span class="class-name">Node</span>(value);
+        newNode->next = head;
+        head = newNode;
+    }
+
+    <span class="keyword">void</span> <span class="function">deleteFront</span>() {
+        <span class="keyword">if</span> (head == <span class="null">nullptr</span>) {
+            cout << <span class="string">"List is empty. Cannot delete."</span> << endl;
+            <span class="keyword">return</span>;
+        }
+        <span class="type">Node</span>* temp = head;
+        head = head->next;
+        <span class="keyword">delete</span> temp;
+    }
+
+    <span class="keyword">void</span> <span class="function">display</span>() {
+        <span class="type">Node</span>* temp = head;
+        <span class="keyword">while</span> (temp != <span class="null">nullptr</span>) {
+            cout << temp->data << <span class="string">" "</span>;
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">SinglyLinkedList</span> list;
+
+    list.insertAtFront(4);
+    list.insertAtFront(3);
+    list.insertAtFront(2);
+
+    cout << <span class="string">"Original linked list: "</span>;
+    list.display();
+
+    list.deleteFront();
+
+    cout << <span class="string">"Linked list after deleting an element: "</span>;
+    list.display();
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Original linked list: 2 3 4
+Linked list after deleting an element: 3 4</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/online-compiler/4XKGqffR2QhTP" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="doubly-insertion" class="topic-section mb-8 hidden" itemscope itemtype="https://schema.org/TechArticle">
+                    <meta itemprop="headline" content="Doubly Linked List Insertion in C++ - Implementation Tutorial">
+                    <meta itemprop="keywords" content="doubly linked list, bidirectional linked list, linked list with previous pointer, C++ doubly linked list, insert in doubly linked list">
+                    <meta itemprop="description" content="Learn how to implement a doubly linked list with insertion operations in C++, including detailed code examples and explanations.">
+                    <h2 class="text-2xl font-bold mb-4" itemprop="name">Doubly Linked List Insertion</h2>
+                    <p class="mb-4" itemprop="articleBody">A doubly linked list is a data structure where each node contains data and two pointers: one to the next node and one to the previous node. This implementation shows how to insert a node at the front of a doubly linked list.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Node</span> {
+<span class="keyword">public</span>:
+    <span class="type">int</span> data;
+    <span class="type">Node</span>* prev;
+    <span class="type">Node</span>* next;
+
+    <span class="function">Node</span>(<span class="type">int</span> <span class="parameter">value</span>) {
+        data = value;
+        prev = <span class="null">nullptr</span>;
+        next = <span class="null">nullptr</span>;
+    }
+};
+
+<span class="keyword">class</span> <span class="class-name">DoublyLinkedList</span> {
+<span class="keyword">private</span>:
+    <span class="type">Node</span>* head;
+
+<span class="keyword">public</span>:
+    <span class="function">DoublyLinkedList</span>() { head = <span class="null">nullptr</span>; }
+
+    <span class="keyword">void</span> <span class="function">insertAtFront</span>(<span class="type">int</span> <span class="parameter">value</span>) {
+        <span class="type">Node</span>* newNode = <span class="keyword">new</span> <span class="class-name">Node</span>(value);
+        <span class="keyword">if</span> (head != <span class="null">nullptr</span>) {
+            newNode->next = head;
+            head->prev = newNode;
+        }
+        head = newNode;
+    }
+
+    <span class="keyword">void</span> <span class="function">display</span>() {
+        <span class="type">Node</span>* temp = head;
+        <span class="keyword">while</span> (temp != <span class="null">nullptr</span>) {
+            cout << temp->data << <span class="string">" "</span>;
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">DoublyLinkedList</span> list;
+
+    list.insertAtFront(4);
+    list.insertAtFront(3);
+    list.insertAtFront(2);
+
+    cout << <span class="string">"Original linked list: "</span>;
+    list.display();
+
+    list.insertAtFront(1);
+
+    cout << <span class="string">"After inserting node at the front: "</span>;
+    list.display();
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Original linked list: 2 3 4
+After inserting node at the front: 1 2 3 4</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/online-compiler/0Hd8vXAqULBIF" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="doubly-deletion" class="topic-section mb-8 hidden">
+                    <h2 class="text-2xl font-bold mb-4">Doubly Linked List Deletion</h2>
+                    <p class="mb-4">Implementation of deleting a node from the front of a doubly linked list. This operation removes the head node and updates both next and previous pointers.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Node</span> {
+<span class="keyword">public</span>:
+    <span class="type">int</span> data;
+    <span class="type">Node</span>* prev;
+    <span class="type">Node</span>* next;
+
+    <span class="function">Node</span>(<span class="type">int</span> <span class="parameter">value</span>) {
+        data = value;
+        prev = <span class="null">nullptr</span>;
+        next = <span class="null">nullptr</span>;
+    }
+};
+
+<span class="keyword">class</span> <span class="class-name">DoublyLinkedList</span> {
+<span class="keyword">private</span>:
+    <span class="type">Node</span>* head;
+
+<span class="keyword">public</span>:
+    <span class="function">DoublyLinkedList</span>() { head = <span class="null">nullptr</span>; }
+
+    <span class="keyword">void</span> <span class="function">insertAtFront</span>(<span class="type">int</span> <span class="parameter">value</span>) {
+        <span class="type">Node</span>* newNode = <span class="keyword">new</span> <span class="class-name">Node</span>(value);
+        <span class="keyword">if</span> (head != <span class="null">nullptr</span>) {
+            newNode->next = head;
+            head->prev = newNode;
+        }
+        head = newNode;
+    }
+
+    <span class="keyword">void</span> <span class="function">deleteFront</span>() {
+        <span class="keyword">if</span> (head == <span class="null">nullptr</span>) {
+            cout << <span class="string">"List is empty. Cannot delete."</span> << endl;
+            <span class="keyword">return</span>;
+        }
+        <span class="type">Node</span>* temp = head;
+        head = head->next;
+        <span class="keyword">if</span> (head != <span class="null">nullptr</span>) {
+            head->prev = <span class="null">nullptr</span>;
+        }
+        <span class="keyword">delete</span> temp;
+    }
+
+    <span class="keyword">void</span> <span class="function">display</span>() {
+        <span class="type">Node</span>* temp = head;
+        <span class="keyword">while</span> (temp != <span class="null">nullptr</span>) {
+            cout << temp->data << <span class="string">" "</span>;
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">DoublyLinkedList</span> list;
+
+    list.insertAtFront(4);
+    list.insertAtFront(3);
+    list.insertAtFront(2);
+
+    cout << <span class="string">"Original linked list: "</span>;
+    list.display();
+
+    list.deleteFront();
+
+    cout << <span class="string">"Linked list after deleting an element: "</span>;
+    list.display();
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Original linked list: 2 3 4
+Linked list after deleting an element: 3 4</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/online-compiler/1ABuZD1los4S7" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="stack" class="topic-section mb-8 hidden" itemscope itemtype="https://schema.org/TechArticle">
+                    <meta itemprop="headline" content="Stack Operations in C++ - Implementation and Examples">
+                    <meta itemprop="keywords" content="stack data structure, stack implementation, C++ stack, LIFO, stack push operation, stack pop operation, stack isEmpty">
+                    <meta itemprop="description" content="Complete guide to implementing a stack data structure in C++ with push, pop, and isEmpty operations, code examples, and applications.">
+                    <h2 class="text-2xl font-bold mb-4" itemprop="name">Stack Operations</h2>
+                    <p class="mb-4" itemprop="articleBody">A stack is a linear data structure that follows the Last In First Out (LIFO) principle. Here's an implementation of basic stack operations including push, pop, and isEmpty.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Stack</span> {
+<span class="keyword">private</span>:
+    <span class="type">int</span> top;
+    <span class="type">int</span> arr[100];
+
+<span class="keyword">public</span>:
+    <span class="function">Stack</span>() {
+        top = -1;
+    }
+
+    <span class="keyword">void</span> <span class="function">push</span>(<span class="type">int</span> x) {
+        <span class="keyword">if</span> (top >= 99) {
+            cout << <span class="string">"Stack overflow"</span> << endl;
+            <span class="keyword">return</span>;
+        }
+        arr[++top] = x;
+        cout << <span class="string">"Pushed "</span> << x << <span class="string">" to stack\n"</span>;
+    }
+
+    <span class="type">int</span> <span class="function">pop</span>() {
+        <span class="keyword">if</span> (top < 0) {
+            cout << <span class="string">"Stack underflow"</span> << endl;
+            <span class="keyword">return</span> 0;
+        }
+        <span class="keyword">return</span> arr[top--];
+    }
+
+    <span class="type">bool</span> <span class="function">isEmpty</span>() {
+        <span class="keyword">return</span> (top < 0);
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">Stack</span> s;
+    s.push(10);
+    s.push(20);
+    s.push(30);
+
+    cout << <span class="string">"Elements present in stack: "</span>;
+
+    <span class="keyword">while</span> (!s.isEmpty()) {
+        cout << s.pop() << <span class="string">" "</span>;
+    }
+    
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Pushed 10 to stack
+Pushed 20 to stack
+Pushed 30 to stack
+Elements present in stack: 30 20 10</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="stack-push" class="topic-section mb-8 hidden">
+                    <h2 class="text-2xl font-bold mb-4">Stack Push Operation</h2>
+                    <p class="mb-4">The push operation in a stack adds an element to the top of the stack. If the stack is full, it results in stack overflow.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Stack</span> {
+<span class="keyword">private</span>:
+    <span class="type">int</span> top;
+    <span class="type">int</span> arr[100];
+
+<span class="keyword">public</span>:
+    <span class="function">Stack</span>() { top = -1; }
+
+    <span class="keyword">void</span> <span class="function">push</span>(<span class="type">int</span> x) {
+        <span class="keyword">if</span> (top >= 99) {
+            cout << <span class="string">"Stack Overflow!"</span> << endl;
+            <span class="keyword">return</span>;
+        }
+        arr[++top] = x;
+        cout << <span class="string">"Pushed "</span> << x << <span class="string">" to stack"</span> << endl;
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">Stack</span> s;
+    s.push(10);
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Pushed 10 to stack</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="stack-pop" class="topic-section mb-8 hidden">
+                    <h2 class="text-2xl font-bold mb-4">Stack Pop Operation</h2>
+                    <p class="mb-4">The pop operation in a stack removes and returns the top element from the stack. If the stack is empty, it results in stack underflow.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Stack</span> {
+<span class="keyword">private</span>:
+    <span class="type">int</span> top;
+    <span class="type">int</span> arr[100];
+
+<span class="keyword">public</span>:
+    <span class="function">Stack</span>() { 
+        top = -1; 
+    }
+
+    <span class="keyword">void</span> <span class="function">push</span>(<span class="type">int</span> x) { 
+        <span class="keyword">if</span> (top >= 99) {
+            cout << <span class="string">"Stack Overflow!"</span> << endl;
+            <span class="keyword">return</span>;
+        }
+        arr[++top] = x;
+    }
+
+    <span class="keyword">void</span> <span class="function">pop</span>() {
+        <span class="keyword">if</span> (top < 0) {
+            cout << <span class="string">"Stack Underflow!"</span> << endl; 
+            <span class="keyword">return</span>;
+        }
+        cout << <span class="string">"Popped: "</span> << arr[top--] << endl;
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">Stack</span> s;
+    s.push(10); 
+    s.pop();    
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Popped: 10</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="queue" class="topic-section mb-8 hidden">
+                    <h2 class="text-2xl font-bold mb-4">Queue Operations</h2>
+                    <p class="mb-4">A queue is a linear data structure that follows the First In First Out (FIFO) principle. Here's an implementation of basic queue operations including enqueue, dequeue, and display.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Queue</span> {
+<span class="keyword">private</span>:
+    <span class="type">int</span>* arr;
+    <span class="type">int</span> front, rear, size, capacity;
+
+<span class="keyword">public</span>:
+    <span class="function">Queue</span>(<span class="type">int</span> size) {
+        capacity = size;
+        arr = <span class="keyword">new</span> <span class="type">int</span>[capacity];
+        front = rear = -1;
+    }
+
+    <span class="type">bool</span> <span class="function">isEmpty</span>() {
+        <span class="keyword">return</span> rear == -1;  
+    }
+
+    <span class="type">bool</span> <span class="function">isFull</span>() {
+        <span class="keyword">return</span> rear == capacity - 1;
+    }
+
+    <span class="keyword">void</span> <span class="function">enqueue</span>(<span class="type">int</span> item) {
+        <span class="keyword">if</span> (isFull()) { 
+            cout << <span class="string">"Queue Overflow! cannot enqueue\n"</span>; 
+            <span class="keyword">return</span>;
+        }
+        <span class="keyword">if</span> (isEmpty()) {
+            front = 0;
+        }
+        rear++;
+        arr[rear] = item;
+        cout << <span class="string">"Enqueued: "</span> << item << endl;
+    }
+
+    <span class="keyword">void</span> <span class="function">dequeue</span>() {
+        <span class="keyword">if</span> (isEmpty()) {
+            cout << <span class="string">"Queue Underflow! cannot dequeue\n"</span>; 
+            <span class="keyword">return</span>;
+        }
+        cout << <span class="string">"Dequeued: "</span> << arr[front] << endl;
+        <span class="keyword">if</span> (front == rear) { 
+            front = rear = -1;
+        } <span class="keyword">else</span> {
+            front++;
+        }
+    }
+
+    <span class="keyword">void</span> <span class="function">display</span>() {
+        <span class="keyword">if</span> (isEmpty()) {
+            cout << <span class="string">"Queue is Empty\n"</span>;
+            <span class="keyword">return</span>;
+        }
+        cout << <span class="string">"Queue elements: "</span>;
+        <span class="keyword">for</span> (<span class="type">int</span> i = front; i <= rear; i++) { 
+            cout << arr[i] << <span class="string">" "</span>;
+        }
+        cout << endl;
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">Queue</span> q(5);
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    q.display();
+    q.dequeue();
+    q.display();
+    q.enqueue(40);
+    q.enqueue(50);
+    q.enqueue(60);
+    q.display();
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Enqueued: 10
+Enqueued: 20
+Enqueued: 30
+Queue elements: 10 20 30
+Dequeued: 10
+Queue elements: 20 30
+Enqueued: 40
+Enqueued: 50
+Queue Overflow! cannot enqueue
+Queue elements: 20 30 40 50</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="binary-search" class="topic-section mb-8 hidden" itemscope itemtype="https://schema.org/TechArticle">
+                    <meta itemprop="headline" content="Binary Search Algorithm in C++ - Implementation and Time Complexity">
+                    <meta itemprop="keywords" content="binary search algorithm, binary search implementation, C++ binary search, efficient searching, O(log n) algorithm, searching sorted arrays">
+                    <meta itemprop="description" content="Learn how to implement the efficient binary search algorithm in C++ with code examples, time complexity analysis, and step-by-step explanation.">
+                    <h2 class="text-2xl font-bold mb-4" itemprop="name">Binary Search</h2>
+                    <p class="mb-4" itemprop="articleBody">Binary search is an efficient algorithm for searching a sorted array by repeatedly dividing the search interval in half. It has a time complexity of O(log n).</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span><span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="type">int</span> i, arr[10], num, first, last, middle;
+    cout << <span class="string">"Enter 10 elements (in ascending order): "</span>;
+    <span class="keyword">for</span>(i = 0; i < 10; i++)
+        cin >> arr[i];
+    cout << <span class="string">"\n Enter element to be search: "</span>;
+    cin >> num;
+    first = 0;
+    last = 9;
+    middle = (first + last)/2;
+    <span class="keyword">while</span>(first <= last)
+    {
+        <span class="keyword">if</span>(arr[middle] < num)
+            first = middle + 1;
+        <span class="keyword">else if</span>(arr[middle] == num)
+        {
+            cout << <span class="string">"\n Element found at position "</span> << middle + 1;
+            <span class="keyword">break</span>;
+        }
+        <span class="keyword">else</span>
+            last = middle - 1;
+        middle = (first + last)/2;
+    }
+    <span class="keyword">if</span>(first > last)
+        cout << <span class="string">"\n Element not found!"</span>;
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Sample Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Enter 10 elements (in ascending order): 1 2 3 4 5 6 7 8 9 10
+
+Enter element to be search: 7
+
+Element found at position 7</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="heap-sort" class="topic-section mb-8 hidden" itemscope itemtype="https://schema.org/TechArticle">
+                    <meta itemprop="headline" content="Heap Sort Algorithm in C++ - Implementation and Analysis">
+                    <meta itemprop="keywords" content="heap sort, heap sort algorithm, C++ heap sort, binary heap, efficient sorting, O(n log n) sort">
+                    <meta itemprop="description" content="Comprehensive tutorial on the Heap Sort algorithm with C++ implementation, time complexity analysis, and step-by-step examples.">
+                    <h2 class="text-2xl font-bold mb-4" itemprop="name">Heap Sort</h2>
+                    <p class="mb-4" itemprop="articleBody">Heap sort is a comparison-based sorting algorithm that uses a binary heap data structure. It has a time complexity of O(n log n) for all cases.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">void</span> <span class="function">heapify</span>(<span class="type">int</span> arr[], <span class="type">int</span> n, <span class="type">int</span> i) {
+    <span class="type">int</span> largest = i; 
+    <span class="type">int</span> left = 2 * i + 1; 
+    <span class="type">int</span> right = 2 * i + 2; 
+
+    <span class="comment">// If left child is larger than root</span>
+    <span class="keyword">if</span> (left < n && arr[left] > arr[largest]) {
+        largest = left;
+    }
+
+    <span class="comment">// If right child is larger than largest so far</span>
+    <span class="keyword">if</span> (right < n && arr[right] > arr[largest]) {
+        largest = right;
+    }
+
+    <span class="comment">// If largest is not root</span>
+    <span class="keyword">if</span> (largest != i) {
+        swap(arr[i], arr[largest]);
+
+        <span class="comment">// Recursively heapify the affected sub-tree</span>
+        heapify(arr, n, largest);
+    }
+}
+
+<span class="keyword">void</span> <span class="function">heapSort</span>(<span class="type">int</span> arr[], <span class="type">int</span> n) {
+    <span class="comment">// Build heap (rearrange array)</span>
+    <span class="keyword">for</span> (<span class="type">int</span> i = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+
+    <span class="comment">// One by one extract an element from heap</span>
+    <span class="keyword">for</span> (<span class="type">int</span> i = n - 1; i > 0; i--) {
+        <span class="comment">// Move current root to end</span>
+        swap(arr[0], arr[i]);
+
+        <span class="comment">// Call max heapify on the reduced heap</span>
+        heapify(arr, i, 0);
+    }
+}
+
+<span class="keyword">void</span> <span class="function">printArray</span>(<span class="type">int</span> arr[], <span class="type">int</span> n) {
+    <span class="keyword">for</span> (<span class="type">int</span> i = 0; i < n; i++) {
+        cout << arr[i] << <span class="string">" "</span>;
+    }
+    cout << endl;
+}
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="type">int</span> arr[] = {12, 11, 13, 5, 6, 7};
+    <span class="type">int</span> n = <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[0]);
+
+    cout << <span class="string">"Unsorted array: "</span>;
+    printArray(arr, n);
+
+    heapSort(arr, n);
+
+    cout << <span class="string">"Sorted array: "</span>;
+    printArray(arr, n);
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Unsorted array: 12 11 13 5 6 7
+Sorted array: 5 6 7 11 12 13</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="quick-sort" class="topic-section mb-8 hidden">
+                    <h2 class="text-2xl font-bold mb-4">Quick Sort</h2>
+                    <p class="mb-4">Quick sort is a divide-and-conquer algorithm that works by selecting a 'pivot' element and partitioning the array around the pivot. It has an average time complexity of O(n log n).</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">void</span> <span class="function">swap</span>(<span class="type">int</span> *a, <span class="type">int</span> *b) {
+    <span class="type">int</span> t = *a;
+    *a = *b;
+    *b = t;
+}
+
+<span class="keyword">void</span> <span class="function">printArray</span>(<span class="type">int</span> array[], <span class="type">int</span> size) {
+    <span class="type">int</span> i;
+    <span class="keyword">for</span> (i = 0; i < size; i++)
+        cout << array[i] << <span class="string">" "</span>;
+    cout << endl;
+}
+
+<span class="type">int</span> <span class="function">partition</span>(<span class="type">int</span> array[], <span class="type">int</span> low, <span class="type">int</span> high) {
+    <span class="type">int</span> pivot = array[high];
+    <span class="type">int</span> i = (low - 1);
+
+    <span class="keyword">for</span> (<span class="type">int</span> j = low; j < high; j++) {
+        <span class="keyword">if</span> (array[j] <= pivot) {
+            i++;
+            swap(&array[i], &array[j]);
+        }
+    }
+    
+    swap(&array[i + 1], &array[high]);
+    <span class="keyword">return</span> (i + 1);
+}
+
+<span class="keyword">void</span> <span class="function">quickSort</span>(<span class="type">int</span> array[], <span class="type">int</span> low, <span class="type">int</span> high) {
+    <span class="keyword">if</span> (low < high) {
+        <span class="type">int</span> pi = partition(array, low, high);
+        quickSort(array, low, pi - 1);
+        quickSort(array, pi + 1, high);
+    }
+}
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="type">int</span> data[] = {8, 7, 6, 1, 0, 9, 2};
+    <span class="type">int</span> n = <span class="keyword">sizeof</span>(data) / <span class="keyword">sizeof</span>(data[0]);
+    
+    cout << <span class="string">"Unsorted Array: \n"</span>;
+    printArray(data, n);
+    
+    quickSort(data, 0, n - 1);
+    cout << <span class="string">"Sorted array in ascending order: \n"</span>;
+    printArray(data, n);
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Unsorted Array: 
+8 7 6 1 0 9 2
+Sorted array in ascending order: 
+0 1 2 6 7 8 9</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="bubble-sort" class="topic-section mb-8 hidden">
+                    <h2 class="text-2xl font-bold mb-4">Bubble Sort</h2>
+                    <p class="mb-4">Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. It has a time complexity of O(n²).</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span> <span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">void</span> <span class="function">bubbleSort</span>(<span class="type">int</span> arr[], <span class="type">int</span> n) {
+    <span class="keyword">for</span> (<span class="type">int</span> i = 0; i < n - 1; i++) {
+        <span class="keyword">for</span> (<span class="type">int</span> j = 0; j < n - i - 1; j++) {
+            <span class="keyword">if</span> (arr[j] > arr[j + 1]) {
+                <span class="type">int</span> temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+<span class="keyword">void</span> <span class="function">printArray</span>(<span class="type">int</span> arr[], <span class="type">int</span> n) {
+    <span class="keyword">for</span> (<span class="type">int</span> i = 0; i < n; i++) {
+        cout << arr[i] << <span class="string">" "</span>;
+    }
+    cout << endl;
+}
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="type">int</span> arr[] = {64, 34, 25, 12, 22, 11, 90};
+    <span class="type">int</span> n = <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[0]);
+
+    cout << <span class="string">"Unsorted array: "</span>;
+    printArray(arr, n);
+
+    bubbleSort(arr, n);
+
+    cout << <span class="string">"Sorted array: "</span>;
+    printArray(arr, n);
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Unsorted array: 64 34 25 12 22 11 90
+Sorted array: 11 12 22 25 34 64 90</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/cpp-programming/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="inorder-traversal" class="topic-section mb-8 hidden" itemscope itemtype="https://schema.org/TechArticle">
+                    <meta itemprop="headline" content="Binary Tree Inorder Traversal in C++ - Implementation and Examples">
+                    <meta itemprop="keywords" content="inorder traversal, binary tree traversal, tree traversal algorithms, C++ tree traversal, left-root-right, binary search tree traversal">
+                    <meta itemprop="description" content="Learn how to implement inorder traversal for binary trees in C++ with recursive approach, code examples, and applications in binary search trees.">
+                    <h2 class="text-2xl font-bold mb-4" itemprop="name">Inorder Traversal</h2>
+                    <p class="mb-4" itemprop="articleBody">Inorder traversal is a way of traversing a binary tree where we visit the left subtree, then the root, and finally the right subtree (Left → Root → Right). This traversal gives nodes in non-decreasing order for a Binary Search Tree.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span><span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Node</span> {
+    <span class="keyword">public</span>:
+    <span class="type">int</span> data;
+    <span class="type">Node</span>* left;
+    <span class="type">Node</span>* right;
+
+    <span class="function">Node</span>(<span class="type">int</span> data) {
+        <span class="keyword">this</span>->data = data;
+        <span class="keyword">this</span>->left = <span class="null">NULL</span>;  
+        <span class="keyword">this</span>->right = <span class="null">NULL</span>;
+    }
+};
+
+<span class="keyword">class</span> <span class="class-name">BinaryTree</span> {
+    <span class="keyword">public</span>:
+    <span class="type">Node</span>* root;
+
+    <span class="function">BinaryTree</span>() { root = <span class="null">NULL</span>; }
+
+    <span class="keyword">void</span> <span class="function">inorderTraversal</span>(<span class="type">Node</span>* node) {
+        <span class="keyword">if</span> (node != <span class="null">nullptr</span>) {
+            inorderTraversal(node->left);
+            cout << node->data << <span class="string">" "</span>;
+            inorderTraversal(node->right);
+        }
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">BinaryTree</span> btree;
+    btree.root = <span class="keyword">new</span> <span class="class-name">Node</span>(1);
+    btree.root->left = <span class="keyword">new</span> <span class="class-name">Node</span>(2);
+    btree.root->right = <span class="keyword">new</span> <span class="class-name">Node</span>(3);
+    btree.root->left->left = <span class="keyword">new</span> <span class="class-name">Node</span>(4);
+    btree.root->left->right = <span class="keyword">new</span> <span class="class-name">Node</span>(5);
+
+    cout << <span class="string">"Inorder traversal of binary tree is: \n"</span> << endl;
+
+    btree.inorderTraversal(btree.root);
+    cout << endl;
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Inorder traversal of binary tree is: 
+
+4 2 5 1 3</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <section id="postorder-traversal" class="topic-section mb-8 hidden">
+                    <h2 class="text-2xl font-bold mb-4">Postorder Traversal</h2>
+                    <p class="mb-4">Postorder traversal is a way of traversing a binary tree where we visit the left subtree, then the right subtree, and finally the root (Left → Right → Root). This traversal is commonly used when we want to delete the tree.</p>
+                    
+                    <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg mb-4">
+                        <p class="text-blue-800 dark:text-blue-200">
+                            <span class="font-semibold">Important Note:</span> This implementation is directly provided by the faculty as part of the official course material. These codes are authentic course content and are <span class="font-bold text-red-600 dark:text-red-400">not generated using ChatGPT or any other AI tools</span>. All code examples and implementations are verified and approved by the course instructors.
+                        </p>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="header">
+                            <span class="title">C++ Implementation</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code><span class="include">#include</span><span class="string">&lt;iostream&gt;</span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="namespace">std</span>;
+
+<span class="keyword">class</span> <span class="class-name">Node</span> {
+    <span class="keyword">public</span>:
+    <span class="type">int</span> data;
+    <span class="type">Node</span>* left;
+    <span class="type">Node</span>* right;
+
+    <span class="function">Node</span>(<span class="type">int</span> data) {
+        <span class="keyword">this</span>->data = data;
+        <span class="keyword">this</span>->left = <span class="null">NULL</span>;
+        <span class="keyword">this</span>->right = <span class="null">NULL</span>;
+    }
+};
+
+<span class="keyword">class</span> <span class="class-name">BinaryTree</span> {
+    <span class="keyword">public</span>:
+    <span class="type">Node</span>* root;
+
+    <span class="function">BinaryTree</span>() { root = <span class="null">NULL</span>; }
+
+    <span class="keyword">void</span> <span class="function">postorderTraversal</span>(<span class="type">Node</span>* node) {
+        <span class="keyword">if</span> (node != <span class="null">nullptr</span>) {
+            postorderTraversal(node->left);   
+            postorderTraversal(node->right);  
+            cout << node->data << <span class="string">" "</span>;        
+        }
+    }
+};
+
+<span class="type">int</span> <span class="function">main</span>() {
+    <span class="class-name">BinaryTree</span> btree;
+    btree.root = <span class="keyword">new</span> <span class="class-name">Node</span>(1);
+    btree.root->left = <span class="keyword">new</span> <span class="class-name">Node</span>(2);
+    btree.root->right = <span class="keyword">new</span> <span class="class-name">Node</span>(3);
+    btree.root->left->left = <span class="keyword">new</span> <span class="class-name">Node</span>(4);
+    btree.root->left->right = <span class="keyword">new</span> <span class="class-name">Node</span>(5);
+
+    cout << <span class="string">"Postorder traversal of binary tree is: \n"</span> << endl;
+  
+    btree.postorderTraversal(btree.root);
+    cout << endl;
+
+    <span class="keyword">return</span> 0;
+}</code></pre>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <p class="text-gray-700 dark:text-gray-300">Output:</p>
+                        <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-2">Postorder traversal of binary tree is: 
+
+4 5 2 3 1</pre>
+                    </div>
+
+                    <div class="mt-6 button-group">
+                        <a href="https://www.programiz.com/online-compiler/" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 transition-colors">
+                            Run Code
+                        </a>
+                    </div>
+                </section>
+
+                <!-- FAQ Section for SEO -->
+                <section class="mt-16 border-t border-gray-200 dark:border-gray-700 pt-8">
+                    <h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">What are the most important data structures to learn?</h3>
+                            <p class="text-gray-700 dark:text-gray-300">The most essential data structures include arrays, linked lists, stacks, queues, trees (especially binary trees), graphs, and hash tables. These form the foundation of most programming solutions and algorithms.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Which sorting algorithm is the most efficient?</h3>
+                            <p class="text-gray-700 dark:text-gray-300">The efficiency of sorting algorithms depends on the specific use case. Quick Sort and Merge Sort are generally the most efficient with average time complexity of O(n log n). However, for small datasets, simpler algorithms like Insertion Sort might perform better due to lower overhead.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">How do I prepare for DSA interviews?</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Focus on understanding the fundamentals of each data structure and algorithm rather than memorizing implementations. Practice solving problems on platforms like LeetCode, HackerRank, and CodeForces. Explain your thought process while solving problems, as interviewers value your approach as much as the final solution.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">What's the difference between inorder, preorder, and postorder traversal?</h3>
+                            <p class="text-gray-700 dark:text-gray-300">These are different ways to traverse a binary tree. Inorder traversal visits the left subtree, then the root, then the right subtree (Left-Root-Right). Preorder traversal visits the root first, then the left and right subtrees (Root-Left-Right). Postorder traversal visits the left and right subtrees before the root (Left-Right-Root).</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">When should I use a linked list instead of an array?</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Use linked lists when you need frequent insertions and deletions, especially at the beginning or middle of the list. Linked lists provide O(1) insertion and deletion at known positions. Arrays are better when you need random access to elements or when memory efficiency is crucial.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Related Resources Section for SEO -->
+                <section class="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8">
+                    <h2 class="text-3xl font-bold mb-6">Related Resources</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <a href="#" class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all">
+                            <h3 class="text-xl font-semibold mb-2">Advanced Data Structures</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Explore advanced concepts like AVL trees, red-black trees, and B-trees for more complex applications.</p>
+                        </a>
+                        
+                        <a href="#" class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all">
+                            <h3 class="text-xl font-semibold mb-2">Algorithm Analysis</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Learn how to analyze time and space complexity to compare and optimize algorithms.</p>
+                        </a>
+                        
+                        <a href="#" class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all">
+                            <h3 class="text-xl font-semibold mb-2">Dynamic Programming</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Master techniques for solving complex problems by breaking them down into simpler subproblems.</p>
+                        </a>
+                        
+                        <a href="#" class="block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all">
+                            <h3 class="text-xl font-semibold mb-2">Graph Algorithms</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Discover algorithms for traversing, searching, and analyzing graphs and networks.</p>
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- CTA Section at the bottom -->
+            <div class="mt-16 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 dark:from-blue-900/30 dark:to-indigo-900/30 p-8 rounded-xl text-center">
+                <h2 class="text-3xl font-bold mb-4">Master Data Structures and Algorithms</h2>
+                <p class="text-lg mb-6 max-w-2xl mx-auto">Ready to take your programming skills to the next level? Explore our comprehensive DSA resources and practice problems.</p>
+                <a href="#singly-insertion" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition-all transform hover:-translate-y-1 shadow-md hover:shadow-lg">Get Started Today</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Theme Management
+        function setTheme(isDark) {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                darkModeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                darkModeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Initialize theme
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const savedTheme = localStorage.getItem('theme');
+        
+        // Default to dark mode if no theme is saved
+        if (!savedTheme) {
+            setTheme(true);
+        } else {
+            setTheme(savedTheme === 'dark');
+        }
+
+        // Theme toggle handler
+        darkModeToggle.addEventListener('click', () => {
+            const isDark = !document.documentElement.classList.contains('dark');
+            setTheme(isDark);
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.getElementById('sidebar');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        
+        function toggleMobileMenu() {
+            sidebar.classList.toggle('hidden');
+            sidebar.classList.toggle('active');
+            document.body.classList.toggle('mobile-menu-active');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        
+        // Close menu when clicking overlay
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                sidebar.classList.remove('active');
+                document.body.classList.remove('mobile-menu-active');
+                if (sidebar.classList.contains('hidden')) {
+                    sidebar.classList.remove('hidden');
+                }
+            } else {
+                if (!sidebar.classList.contains('active') && !sidebar.classList.contains('hidden')) {
+                    sidebar.classList.add('hidden');
+                }
+            }
+        });
+
+        // Copy code functionality
+        function copyCode(button) {
+            const pre = button.closest('.code-block').querySelector('pre');
+            navigator.clipboard.writeText(pre.textContent.trim());
+            
+            button.textContent = 'Copied!';
+            button.style.backgroundColor = '#059669';
+            button.style.color = 'white';
+            
+            setTimeout(() => {
+                button.textContent = 'Copy';
+                button.style.backgroundColor = '';
+                button.style.color = '';
+            }, 2000);
+        }
+
+        // Topic switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all topic links
+            const topicLinks = document.querySelectorAll('a[href^="#"]');
+            
+            // Get all topic sections
+            const topicSections = document.querySelectorAll('.topic-section');
+            
+            // Function to show selected topic and hide others
+            function showTopic(topicId) {
+                // Hide all sections
+                topicSections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Show selected section
+                const selectedSection = document.querySelector(topicId);
+                if (selectedSection) {
+                    selectedSection.classList.remove('hidden');
+                    
+                    // Smooth scroll to the section
+                    selectedSection.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Update active state in sidebar
+                topicLinks.forEach(link => {
+                    const isActive = link.getAttribute('href') === topicId;
+                    link.classList.toggle('active', isActive);
+                    if (isActive) {
+                        link.classList.add('bg-gray-100', 'dark:bg-gray-700/50', 'text-blue-600', 'dark:text-blue-400');
+                    } else {
+                        link.classList.remove('bg-gray-100', 'dark:bg-gray-700/50', 'text-blue-600', 'dark:text-blue-400');
+                    }
+                });
+                
+                // Close mobile menu when a topic is selected
+                if (window.innerWidth < 768 && sidebar.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            }
+            
+            // Add click handlers to topic links
+            topicLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const topicId = link.getAttribute('href');
+                    showTopic(topicId);
+                });
+            });
+            
+            // Show first topic by default
+            const firstTopicId = topicLinks[0]?.getAttribute('href');
+            if (firstTopicId) {
+                showTopic(firstTopicId);
+            }
+        });
+
+        // Add transition styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .topic-section {
+                transition: opacity 0.3s ease-in-out;
+            }
+            .topic-section.hidden {
+                display: none;
+                opacity: 0;
+            }
+            .topic-section:not(.hidden) {
+                display: block;
+                opacity: 1;
+            }
+            
+            /* Active link styling */
+            .active {
+                position: relative;
+            }
+            .active::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 3px;
+                height: 60%;
+                background: #3b82f6;
+                border-radius: 0 2px 2px 0;
+            }
+            
+            @media (max-width: 640px) {
+                .code-block pre {
+                    white-space: pre-wrap;
+                    word-break: break-word;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
