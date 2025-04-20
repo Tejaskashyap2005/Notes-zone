@@ -4,7 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-2125586648357270">
-  <title>Meet the Developer</title>
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Meet the Developer - Tejas Kashyap, Founder of Notes Zone | Official Portfolio</title>
+  <meta name="description" content="Meet Tejas Kashyap, the visionary founder and developer of Notes Zone. Learn about his journey creating the #1 platform for educational notes and study materials.">
+  <meta name="keywords" content="Tejas Kashyap, Notes Zone founder, Notes Zone developer, who created Notes Zone, Tejas Kashyap BCA, Tejas Kashyap developer, Tejas Kashyap Christ University, Notes Zone creator, educational platform developer, Tejas Kashyap profile, Tejas Kashyap portfolio">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="author" content="Tejas Kashyap">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="rating" content="general">
+  <meta name="revisit-after" content="3 days">
+  <meta name="language" content="English">
+  <meta name="geo.region" content="IN">
+  <meta name="geo.placename" content="Delhi NCR">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="logo.ico.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="logo.ico.ico" type="image/x-icon">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://noteszone.online/developer.html">
+  
+  <!-- Open Graph Meta Tags for Social Sharing -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Tejas Kashyap - Founder & Developer of Notes Zone">
+  <meta property="og:description" content="Meet Tejas Kashyap, the visionary founder and developer behind Notes Zone, the revolutionary platform for educational notes and study materials.">
+  <meta property="og:image" content="https://noteszone.online/developern.jpg">
+  <meta property="og:url" content="https://noteszone.online/developer.html">
+  <meta property="og:site_name" content="Notes Zone">
+  <meta property="og:locale" content="en_US">
+  <meta property="profile:first_name" content="Tejas">
+  <meta property="profile:last_name" content="Kashyap">
+  <meta property="profile:username" content="tejaskashyap2005">
+  <meta property="profile:gender" content="male">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tejas Kashyap - Founder & Developer of Notes Zone">
+  <meta name="twitter:description" content="Meet Tejas Kashyap, the visionary founder and developer of Notes Zone, revolutionizing educational content accessibility.">
+  <meta name="twitter:image" content="https://noteszone.online/developern.jpg">
+  
+  <!-- Google Scholar Tags -->
+  <meta name="citation_author" content="Tejas Kashyap">
+  <meta name="citation_title" content="Notes Zone: Revolutionizing Educational Content Access">
+  <meta name="citation_date" content="2024">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -48,12 +93,250 @@
             min-height: 70vh;
         }
     }
+    
+    /* Primary Grid - Larger Lines */
+    .hero-grid {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.3) 1.5px, transparent 1.5px);
+        background-size: 80px 80px;
+        background-attachment: fixed;
+        z-index: -1;
+    }
+
+    /* Secondary Grid - Smaller Lines */
+    .hero-grid-secondary {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.2) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.2) 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-attachment: fixed;
+        z-index: -1;
+    }
+
+    /* Dark mode adjustments */
+    .dark .hero-grid {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.1) 1.5px, transparent 1.5px);
+    }
+
+    .dark .hero-grid-secondary {
+        background-image: 
+            linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    }
+
+    /* Ensure content stays above grid */
+    header, main {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .hero-grid {
+            background-size: 40px 40px;
+        }
+        
+        .hero-grid-secondary {
+            background-size: 10px 10px;
+        }
+        
+        .floating-icon {
+            font-size: 2rem;
+        }
+        
+        .math-symbol {
+            font-size: 2.5rem;
+        }
+        
+        .floating-dot {
+            width: 6px;
+            height: 6px;
+        }
+    }
+
+    /* Enhanced Floating Elements */
+    .floating-icon {
+        font-size: 2.5rem;
+        color: rgba(56, 189, 248, 0.3);
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+        transition: color 0.3s ease;
+    }
+
+    .floating-icon:hover {
+        color: rgba(56, 189, 248, 0.6);
+    }
+
+    .math-symbol {
+        font-size: 3rem;
+        font-family: 'Times New Roman', serif;
+        color: rgba(56, 189, 248, 0.3);
+        position: absolute;
+        animation: mathFloat 8s ease-in-out infinite;
+    }
+
+    /* Decorative Dots */
+    .floating-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: rgba(56, 189, 248, 0.4);
+        border-radius: 50%;
+        animation: dotFloat 7s ease-in-out infinite;
+    }
+
+    /* Multiple Animation Variations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @keyframes mathFloat {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-15px) scale(1.1); }
+    }
+
+    @keyframes dotFloat {
+        0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+        50% { transform: translate(10px, -10px); opacity: 0.8; }
+    }
+
+    /* Animation Delays */
+    .floating-icon:nth-child(2n) { animation-delay: 1s; }
+    .floating-icon:nth-child(3n) { animation-delay: 2s; }
+    .math-symbol:nth-child(2n) { animation-delay: 1.5s; }
+    .floating-dot:nth-child(2n) { animation-delay: 0.5s; }
+    .floating-dot:nth-child(3n) { animation-delay: 1.5s; }
+
+    /* Dark Mode Adjustments */
+    .dark .floating-icon,
+    .dark .math-symbol {
+        color: rgba(56, 189, 248, 0.2);
+    }
+
+    .dark .floating-dot {
+        background: rgba(56, 189, 248, 0.3);
+    }
+
+    /* Custom Animation */
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Applying the animation */
+    .fade-in {
+        animation: fadeInUp 1s ease-in-out forwards;
+    }
+    
+    /* Profile card hover effect */
+    .profile-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
 </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2125586648357270"
      crossorigin="anonymous"></script>
   <script async custom-element="amp-auto-ads"
         src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
 </script>
+
+  <!-- Structured Data for Person -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tejas Kashyap",
+      "givenName": "Tejas",
+      "familyName": "Kashyap",
+      "jobTitle": "Founder & Developer",
+      "description": "Founder and developer of Notes Zone, a platform for educational study materials",
+      "url": "https://noteszone.online/developer.html",
+      "image": "https://noteszone.online/developern.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/tejas-kashyap/",
+        "https://github.com/Tejaskashyap2005"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Christ University Delhi NCR",
+        "sameAs": "https://christuniversity.in/"
+      },
+      "knowsAbout": ["Web Development", "Educational Technology", "BCA", "Programming", "Student Resources"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Notes Zone",
+        "url": "https://noteszone.online",
+        "logo": "https://noteszone.online/logo.png"
+      }
+    }
+  </script>
+
+  <!-- Structured Data for Article -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Meet Tejas Kashyap: The Visionary Founder of Notes Zone",
+      "description": "Learn about Tejas Kashyap, the creator and developer behind Notes Zone, the premier platform for educational notes and study materials.",
+      "image": "https://noteszone.online/developern.jpg",
+      "datePublished": "2024-07-01T08:00:00+05:30",
+      "dateModified": "2024-07-01T08:00:00+05:30",
+      "author": {
+        "@type": "Person",
+        "name": "Tejas Kashyap",
+        "url": "https://noteszone.online/developer.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Notes Zone",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://noteszone.online/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://noteszone.online/developer.html"
+      }
+    }
+  </script>
+
+  <!-- Structured Data for BreadcrumbList -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://noteszone.online"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Meet the Developer",
+          "item": "https://noteszone.online/developer.html"
+        }
+      ]
+    }
+  </script>
 </head>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6V7LPEC5P4"></script>
@@ -65,10 +348,18 @@
   gtag('config', 'G-6V7LPEC5P4');
 </script>
 
-<body class="bg-gray-200 text-blue-900 min-h-screen dark:bg-gray-900 dark:text-gray-200">
+<body class="bg-gradient-to-b from-sky-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 relative">
   <amp-auto-ads type="adsense"
         data-ad-client="ca-pub-2125586648357270">
 </amp-auto-ads>
+  <!-- Enhanced Grid Overlay -->
+  <div class="fixed inset-0 pointer-events-none">
+      <!-- Primary Grid -->
+      <div class="hero-grid absolute inset-0 opacity-30 dark:opacity-20"></div>
+      <!-- Secondary Grid -->
+      <div class="hero-grid-secondary absolute inset-0 opacity-15 dark:opacity-10"></div>
+  </div>
+
   <!-- Loading Logo -->
 <div id="loadingScreen" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50 hidden">
     <video autoplay loop muted playsinline class="h-32 w-32">
@@ -78,11 +369,33 @@
         Your browser does not support the video tag.
     </video>
 </div>
+
+<!-- Floating Elements Background -->
+<div class="floating-elements fixed inset-0 pointer-events-none z-0">
+    <!-- Educational Icons -->
+    <i class="fas fa-book floating-icon" style="top: 8%; left: 15%;"></i>
+    <i class="fas fa-lightbulb floating-icon" style="top: 12%; left: 75%;"></i>
+    <i class="fas fa-graduation-cap floating-icon" style="top: 35%; left: 28%;"></i>
+    <i class="fas fa-atom floating-icon" style="top: 20%; right: 25%;"></i>
+    <i class="fas fa-flask floating-icon" style="bottom: 25%; left: 40%;"></i>
+    <i class="fas fa-microscope floating-icon" style="top: 45%; right: 15%;"></i>
+    
+    <!-- Mathematical Symbols -->
+    <span class="math-symbol" style="top: 30%; left: 65%;">π</span>
+    <span class="math-symbol" style="bottom: 40%; right: 35%;">∑</span>
+    <span class="math-symbol" style="top: 60%; left: 20%;">∞</span>
+    
+    <!-- Decorative Dots -->
+    <div class="floating-dot" style="top: 15%; left: 45%;"></div>
+    <div class="floating-dot" style="top: 55%; right: 25%;"></div>
+    <div class="floating-dot" style="bottom: 35%; left: 30%;"></div>
+</div>
+
 <!-- Navigation Bar -->
 <header class="py-1 px-8 sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg dark:bg-gray-800/80 dark:text-gray-100 transition-all">
   <div class="container mx-auto flex justify-between items-center">
       <!-- Logo -->
-      <a href="index.html">
+      <a href="index.html" aria-label="Notes Zone Home">
           <img src="logo.png" alt="Notes Zone Logo" class="h-12 w-auto">
       </a>
       <!-- Navigation Links -->
@@ -99,11 +412,11 @@
           </a>
       </nav>
       <!-- Mobile Menu Icon -->
-      <button id="menuToggle" class="sm:hidden text-2xl text-gray-800 dark:text-gray-200 focus:outline-none">
+      <button id="menuToggle" class="sm:hidden text-2xl text-gray-800 dark:text-gray-200 focus:outline-none" aria-label="Toggle mobile menu">
           ☰
       </button>
       <!-- Dark Mode Toggle -->
-      <button id="darkModeToggle" class="ml-6 text-xl sm:text-2xl focus:outline-none">
+      <button id="darkModeToggle" class="ml-6 text-xl sm:text-2xl focus:outline-none" aria-label="Toggle dark mode">
           🌙
       </button>
   </div>
@@ -117,48 +430,93 @@
   </nav>
 </header>
 
-  <section class="py-20 px-4">
-    <div class="container mx-auto text-center bg-white shadow-lg rounded-lg p-10 max-w-3xl dark:bg-gray-800">
-      <!-- Section Title -->
-      <h1 class="text-4xl font-bold mb-6 text-blue-800 dark:text-yellow-300">Meet the Developer</h1>
-      
-      <!-- Developer Photo -->
-      <div class="flex justify-center">
-        <img src="developern.jpg" alt="Developer Photo" 
-              class="rounded-full w-60 h-60  transform hover:scale-105 transition duration-300">
-      </div>
-      
-      <!-- Developer Info -->
-      <div class="mt-6">
-        <h2 class="text-2xl font-semibold text-blue-700 dark:text-yellow-400">Tejas Kashyap</h2>
-        <p class="text-lg text-blue-600 dark:text-gray-300">BCA 1st YEAR</p>
-        <p class="mt-4 text-gray-700 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
-          "I am passionate about creating tools to help students excel in their academics. 
-          Notes Zone is my vision to make education accessible."
-        </p>
-      </div>
+  <main itemscope itemtype="http://schema.org/ProfilePage">
+    <section class="py-20 px-4">
+      <div class="container mx-auto text-center bg-white/90 backdrop-blur-md shadow-xl rounded-2xl p-10 max-w-3xl dark:bg-gray-800/90 hover:shadow-2xl transition-all duration-300 transform relative overflow-hidden profile-card fade-in">
+        <div class="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-blue-500/10 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative z-10">
+          <!-- Section Title -->
+          <h1 class="text-4xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400" itemprop="headline">Meet the Developer</h1>
+          
+          <!-- Developer Photo -->
+          <div class="flex justify-center">
+            <img src="developern.jpg" alt="Tejas Kashyap - Founder and Developer of Notes Zone" 
+                  class="rounded-full w-60 h-60 transform hover:scale-105 transition duration-300 shadow-lg border-4 border-sky-100 dark:border-sky-900"
+                  itemprop="image" loading="eager" width="240" height="240">
+          </div>
+          
+          <!-- Developer Info -->
+          <div class="mt-6" itemprop="mainContentOfPage">
+            <h2 class="text-2xl font-semibold text-blue-700 dark:text-yellow-400" itemprop="name">Tejas Kashyap</h2>
+            <p class="text-lg text-blue-600 dark:text-gray-300" itemprop="jobTitle">Founder & Lead Developer | BCA Student</p>
+            <p class="mt-2 text-blue-600 dark:text-gray-300" itemprop="affiliation">Christ University Delhi NCR</p>
+            <div class="mt-4 text-gray-700 dark:text-gray-400 max-w-md mx-auto leading-relaxed" itemprop="description">
+              <p class="text-xl italic text-pink-600 dark:text-green-400">The biggest risk is not taking any risk... </p>
+            </div>
+          </div>
 
-      <!-- Social Links -->
-      <div class="flex justify-center space-x-6 mt-6">
-        <a href="https://www.linkedin.com/in/tejas-kashyap/"
-           class="text-blue-600 hover:text-blue-800 transition duration-300 flex items-center dark:text-yellow-400 dark:hover:text-yellow-500">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M22.225 0H1.771C.792 0 0 .774 0 1.727v20.546C0 23.226.792 24 1.771 24h20.451C23.204 24 24 23.226 24 22.273V1.727C24 .774 23.204 0 22.225 0zM7.118 20.452H3.556V9.035h3.562v11.417zm-1.781-13.04c-1.14 0-2.062-.91-2.062-2.031C3.275 4.362 4.197 3.5 5.337 3.5c1.14 0 2.062.862 2.062 1.989 0 1.122-.922 2.031-2.062 2.031zm15.415 13.04h-3.563v-5.763c0-1.383-.032-3.168-1.933-3.168-1.937 0-2.232 1.513-2.232 3.073v5.858h-3.562V9.035h3.419v1.556h.05c.476-.896 1.637-1.84 3.369-1.84 3.601 0 4.269 2.38 4.269 5.471v6.23h-.002z" />
-          </svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/Tejaskashyap2005" 
-           class="text-gray-800 hover:text-gray-900 transition duration-300 flex items-center dark:text-yellow-400 dark:hover:text-yellow-500">
-           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.41 2.865 8.166 6.839 9.49.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.705-2.782.605-3.369-1.343-3.369-1.343-.454-1.153-1.11-1.46-1.11-1.46-.907-.62.068-.607.068-.607 1.004.07 1.531 1.033 1.531 1.033.891 1.528 2.341 1.087 2.91.831.092-.646.349-1.087.635-1.337-2.22-.253-4.555-1.111-4.555-4.945 0-1.092.39-1.985 1.031-2.683-.104-.254-.447-1.277.097-2.66 0 0 .84-.27 2.75 1.026A9.552 9.552 0 0 1 12 6.804c.852.004 1.709.115 2.511.338 1.91-1.296 2.75-1.026 2.75-1.026.545 1.383.202 2.406.099 2.66.643.698 1.031 1.591 1.031 2.683 0 3.844-2.337 4.687-4.566 4.935.359.31.678.922.678 1.855 0 1.338-.012 2.419-.012 2.746 0 .268.181.58.688.482A10.005 10.005 0 0 0 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
-          </svg>
-          GitHub
-        </a>
+          <!-- Achievements -->
+          <div class="mt-8 p-4 bg-white/80 backdrop-blur-md dark:bg-gray-700/80 rounded-xl shadow-lg">
+            <h3 class="text-xl font-semibold text-blue-700 dark:text-yellow-400 mb-3 bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400">Achievements & Skills</h3>
+            <ul class="text-left list-disc list-inside text-gray-700 dark:text-gray-300">
+              <li>Founded Notes Zone in 2023</li>
+              <li>Developed comprehensive educational resources platform</li>
+              <li>Experienced in video editing and graphic design</li>
+              <li>Passionate advocate for accessible education</li>
+            </ul>
+            
+            <!-- Analytics Metrics in a single block -->
+            <div class="mt-6 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80 p-4 sm:p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-center">
+                <div class="stat-block p-2">
+                  <p class="text-gray-500 dark:text-gray-300 text-xs sm:text-sm">New Users</p>
+                  <p class="counter text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400 text-xl sm:text-2xl font-bold" data-target="860">0</p>
+                </div>
+                <div class="stat-block p-2">
+                  <p class="text-gray-500 dark:text-gray-300 text-xs sm:text-sm">Event Count</p>
+                  <p class="counter text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400 text-xl sm:text-2xl font-bold" data-target="41000">0</p>
+                </div>
+                <div class="stat-block p-2">
+                  <p class="text-gray-500 dark:text-gray-300 text-xs sm:text-sm">Active Users</p>
+                  <p class="counter text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400 text-xl sm:text-2xl font-bold" data-target="800">0</p>
+                </div>
+                <div class="stat-block p-2">
+                  <p class="text-gray-500 dark:text-gray-300 text-xs sm:text-sm">Views</p>
+                  <p class="counter text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400 text-xl sm:text-2xl font-bold" data-target="15000">0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex justify-center space-x-6 mt-6">
+            <a href="https://www.linkedin.com/in/tejas-kashyap/"
+               class="px-4 py-2 bg-white/80 backdrop-blur-sm dark:bg-gray-700/80 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-blue-600 flex items-center dark:text-blue-400"
+               itemprop="sameAs" rel="noopener" aria-label="Tejas Kashyap LinkedIn Profile">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.225 0H1.771C.792 0 0 .774 0 1.727v20.546C0 23.226.792 24 1.771 24h20.451C23.204 24 24 23.226 24 22.273V1.727C24 .774 23.204 0 22.225 0zM7.118 20.452H3.556V9.035h3.562v11.417zm-1.781-13.04c-1.14 0-2.062-.91-2.062-2.031C3.275 4.362 4.197 3.5 5.337 3.5c1.14 0 2.062.862 2.062 1.989 0 1.122-.922 2.031-2.062 2.031zm15.415 13.04h-3.563v-5.763c0-1.383-.032-3.168-1.933-3.168-1.937 0-2.232 1.513-2.232 3.073v5.858h-3.562V9.035h3.419v1.556h.05c.476-.896 1.637-1.84 3.369-1.84 3.601 0 4.269 2.38 4.269 5.471v6.23h-.002z" />
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/Tejaskashyap2005" 
+               class="px-4 py-2 bg-white/80 backdrop-blur-sm dark:bg-gray-700/80 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-gray-800 flex items-center dark:text-gray-300"
+               itemprop="sameAs" rel="noopener" aria-label="Tejas Kashyap GitHub Profile">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.41 2.865 8.166 6.839 9.49.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.705-2.782.605-3.369-1.343-3.369-1.343-.454-1.153-1.11-1.46-1.11-1.46-.907-.62.068-.607.068-.607 1.004.07 1.531 1.033 1.531 1.033.891 1.528 2.341 1.087 2.91.831.092-.646.349-1.087.635-1.337-2.22-.253-4.555-1.111-4.555-4.945 0-1.092.39-1.985 1.031-2.683-.104-.254-.447-1.277.097-2.66 0 0 .84-.27 2.75 1.026A9.552 9.552 0 0 1 12 6.804c.852.004 1.709.115 2.511.338 1.91-1.296 2.75-1.026 2.75-1.026.545 1.383.202 2.406.099 2.66.643.698 1.031 1.591 1.031 2.683 0 3.844-2.337 4.687-4.566 4.935.359.31.678.922.678 1.855 0 1.338-.012 2.419-.012 2.746 0 .268.181.58.688.482A10.005 10.005 0 0 0 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
       </div>
+    </section>
+  </main>
+
+  <footer class="mt-10 py-6 bg-white/60 backdrop-blur-md dark:bg-gray-800/60 text-center text-gray-600 dark:text-gray-300 rounded-t-xl shadow-inner">
+    <div class="container mx-auto">
+      <p>© 2024 Notes Zone. All rights reserved.</p>
     </div>
-  </section>
-
-  
+  </footer>
    
   <!-- JavaScript -->
   <script>
@@ -235,6 +593,75 @@ links.forEach(link => {
     });
 });
 
+</script>
+
+<!-- Counter Animation Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Only run the animation if this is the first visit or refreshed page
+    if (performance.navigation.type !== performance.navigation.TYPE_BACK_FORWARD) {
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200; // Animation speed - lower is faster
+      
+      counters.forEach(counter => {
+        const targetValue = +counter.getAttribute('data-target');
+        const increment = Math.ceil(targetValue / speed);
+        let currentValue = 0;
+        
+        const updateCount = () => {
+          if (currentValue < targetValue) {
+            // For values like 41K and 15K, format appropriately
+            if (targetValue >= 1000) {
+              if (targetValue >= 10000) {
+                // Format as 15K, 41K etc
+                const formatted = Math.round(currentValue / 1000) + 'K';
+                counter.innerText = formatted;
+              } else {
+                // Keep full numbers for lower thousands
+                counter.innerText = currentValue;
+              }
+            } else {
+              counter.innerText = currentValue;
+            }
+            
+            currentValue += increment;
+            
+            // Make sure we don't exceed the target
+            if (currentValue > targetValue) {
+              currentValue = targetValue;
+            }
+            
+            // Call function again
+            setTimeout(updateCount, 30);
+          } else {
+            // Format final value
+            if (targetValue >= 10000) {
+              const formatted = Math.round(targetValue / 1000) + 'K';
+              counter.innerText = formatted;
+            } else {
+              counter.innerText = targetValue;
+            }
+          }
+        };
+        
+        // Start animation
+        updateCount();
+      });
+    } else {
+      // If user navigated back to this page, show final values immediately
+      const counters = document.querySelectorAll('.counter');
+      
+      counters.forEach(counter => {
+        const targetValue = +counter.getAttribute('data-target');
+        if (targetValue >= 10000) {
+          const formatted = Math.round(targetValue / 1000) + 'K';
+          counter.innerText = formatted;
+        } else {
+          counter.innerText = targetValue;
+        }
+      });
+    }
+  });
 </script>
 </body>
 </html>
