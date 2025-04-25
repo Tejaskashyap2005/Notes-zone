@@ -11,6 +11,31 @@
       background: linear-gradient(135deg, #1e3a8a, #38bdf8);
       color: white;
     }
+
+    .home-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    .home-button:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
     .countdown {
       display: flex;
       justify-content: center;
@@ -34,6 +59,12 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center p-4">
+  <!-- Home Button -->
+  <a href="index.html" class="home-button">
+    <i class="fas fa-home"></i>
+    Back to Home
+  </a>
+
   <!-- Logo -->
   <img src="logo.png" alt="Notes Zone Logo" class="h-16 w-auto mb-8">
 
@@ -47,7 +78,7 @@
     We're working hard to bring you an amazing experience. Stay tuned for updates and be the first to know when we launch!
   </p>
 
-  <!-- Countdown Timer -->
+  <!-- 
   <div class="countdown mb-8">
     <div class="countdown-item">
       <span id="days">00</span>
@@ -67,7 +98,7 @@
     </div>
   </div>
 
-  <!-- Subscription Form -->
+  <!-- 
   <form class="w-full max-w-md mb-8">
     <div class="flex flex-col sm:flex-row gap-2">
       <input
