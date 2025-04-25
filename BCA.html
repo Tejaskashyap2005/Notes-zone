@@ -294,15 +294,21 @@
         const semesterSelect = document.getElementById("semesterSelect");
         const subjectsContainer = document.getElementById("subjectsContainer");
 
-        // Subjects data
+       // Subjects data
         const subjectsData = {
             semester1: [
-                { name: "Foundational Mathematics", link: "https://drive.google.com/file/d/1a-oubPTsHTH3Qe7NbYj1pc06a1e99huT/view?usp=drivesdk" },
+                { name: "Foundational Mathematics", link: "https://drive.google.com/folder1" },
                 { name: "Object Oriented Programming Using C++", link: "https://drive.google.com/folder2" },
-                { name: "DBMS (Database Management System)", link: "https://drive.google.com/file/d/1RtLNEC_4kxGJoKXyGeQp5OK0WjGM7SP7/view?usp=drivesdk" },
-                { name: "Software Engineering", link: "https://drive.google.com/file/d/1pdwzNA4pqeZ1iVQoXVXbnwg0TvsLkblT/view?usp=drivesdk" },
-                { name: "Academic Writing", link: "https://drive.google.com/file/d/1OB79jx_h7tohVgvTF0YB213iNhW3Dyt5/view?usp=drivesdk" },
-                { name: "Introduction To Web Technology", link: "https://drive.google.com/folder2" },
+                { name: "DBMS (Database Management System)", link: "https://drive.google.com/folder2" },
+                { name: "Software Engineering", link: "https://drive.google.com/folder2" },
+                { name: "Academic Writing", link: "https://drive.google.com/folder2" },
+                {
+                    name: "Introduction To Web Technology",
+                    options: {
+                        theory: "https://drive.google.com/drive/folders/15JoBjxO_tIPO0mjrc2hpXexeyI8RBuLx",
+                        practicals: "https://drive.google.com/drive/folders/1sPvL24QGpZf10lSWxRAMLvBzVYIeg3Xb"
+                    }
+                },
             ],
             semester2: [
                 {
@@ -372,7 +378,7 @@
             ],
         };
 
-        semesterSelect.addEventListener("change", () => {
+           semesterSelect.addEventListener("change", () => {
             const selectedSemester = semesterSelect.value;
             subjectsContainer.innerHTML = "";
 
@@ -383,7 +389,7 @@
                     const subjectCard = document.createElement("div");
                     subjectCard.className = "group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2";
 
-                    if (selectedSemester === "semester2") {
+                    if (subject.options) {
                         subjectCard.innerHTML = `
                             <div class="absolute inset-0 bg-gradient-to-r from-sky-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                             <div class="p-6 relative">
@@ -393,8 +399,9 @@
                                 </div>
                                 <select class="w-full px-4 py-2 border border-gray-400 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 subject-dropdown mb-4">
                                     <option value="">Select Option</option>
-                                    <option value="classroom">GC Assignments</option>
-                                    <option value="notes">Class Notes</option>
+                                    ${Object.keys(subject.options).map(key => 
+                                        `<option value="${key}">${key.charAt(0).toUpperCase() + key.slice(1)}</option>`
+                                    ).join('')}
                                 </select>
                                 <a href="#" target="_blank" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all group view-link hidden">
                                     <span>View Content</span>
@@ -503,3 +510,4 @@
     </script>
 </body>
 </html>
+
