@@ -202,114 +202,64 @@
       ]
     }
     </script>
-    <!-- SiteLinks Search Box Schema -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://noteszone.online/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://noteszone.online/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-  
-  <!-- SiteLinks Schema for Rich Search Results -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Notes Zone",
-    "url": "https://noteszone.online/",
-    "description": "Best handwritten notes for CBSE, college, and competitive exams",
-    "potentialAction": [
-      {
+    <!-- Sitelinks Search Box Schema (for Google sitelinks) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Notes Zone",
+      "url": "https://noteszone.online/",
+      "potentialAction": {
         "@type": "SearchAction",
         "target": "https://noteszone.online/?s={search_term_string}",
         "query-input": "required name=search_term_string"
       }
-    ],
-    "hasPart": [
-      {
-        "@type": "WebPage",
-        "name": "Our Merch",
-        "description": "Show your Notes Zone pride with our exclusive badges and merchandise",
-        "url": "https://noteszone.online/Shop.html"
-      },
-      {
-        "@type": "WebPage",
-        "name": "Notes Zone AI",
-        "description": "Powerful AI-powered study assistant for students",
-        "url": "https://noteszone.online/ai.html"
-      },
-      {
-        "@type": "WebPage",
-        "name": "Christ University Delhi NCR",
-        "description": "Resources for Christ University Delhi NCR students",
-        "url": "https://noteszone.online/christ-university.html"
-      },
-      {
-        "@type": "WebPage",
-        "name": "CBSE Notes",
-        "description": "Handwritten notes for CBSE students",
-        "url": "https://noteszone.online/cbse notes.html"
-      },
-      {
-        "@type": "WebPage", 
-        "name": "College Notes",
-        "description": "Premium notes for college students",
-        "url": "https://noteszone.online/college-notes.html"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Site Navigation Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": [
-      {
-        "@type": "SiteNavigationElement",
-        "position": 1,
-        "name": "CBSE Notes",
-        "description": "Handwritten notes for CBSE students",
-        "url": "https://noteszone.online/cbse notes.html"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "position": 2,
-        "name": "College Notes",
-        "description": "Handwritten notes for college students",
-        "url": "https://noteszone.online/college-notes.html"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "position": 3,
-        "name": "Christ University",
-        "description": "Notes for Christ University Delhi NCR",
-        "url": "https://noteszone.online/christ-university.html"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "position": 4,
-        "name": "Our Merch",
-        "description": "Exclusive Notes Zone merchandise",
-        "url": "https://noteszone.online/Shop.html"
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "position": 5,
-        "name": "Notes Zone AI",
-        "description": "AI-powered study assistant",
-        "url": "https://noteszone.online/ai.html"
-      }
-    ]
-  }
-  </script>
+    }
+    </script>
+    <!-- SiteNavigation Sitelinks Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "CBSE Notes",
+          "description": "Handwritten notes for CBSE students",
+          "url": "https://noteszone.online/cbse%20notes.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "College Notes",
+          "description": "Handwritten notes for college students",
+          "url": "https://noteszone.online/college-notes.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "Christ University",
+          "description": "Notes for Christ University Delhi NCR",
+          "url": "https://noteszone.online/christ-university.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Our Merch",
+          "description": "Exclusive Notes Zone merchandise",
+          "url": "https://noteszone.online/Shop.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "Notes Zone AI",
+          "description": "AI-powered study assistant",
+          "url": "https://noteszone.online/ai.html"
+        }
+      ]
+    }
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
