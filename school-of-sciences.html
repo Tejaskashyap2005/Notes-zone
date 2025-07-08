@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,7 +61,7 @@
   gtag('config', 'G-6V7LPEC5P4');
 </script>
 
-<body class="bg-gray-200 text-blue-900 min-h-screen dark:bg-gray-900 dark:text-gray-200">
+<body class="bg-gradient-to-br from-blue-50 to-blue-200 dark:from-gray-900 dark:to-gray-800 text-blue-900 min-h-screen dark:text-gray-200">
     
     <amp-auto-ads type="adsense"
         data-ad-client="ca-pub-2125586648357270">
@@ -118,121 +118,53 @@
         </nav>
     </header>
 
-    <!-- Colleges Section with Search -->
-    <section class="py-16 bg-white dark:bg-gray-800">
-        <div class="container mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <!-- Section Title -->
-            <h2 class="text-3xl font-bold text-blue-800 dark:text-yellow-300 mb-8">
-                Select Your Programme
-            </h2>
-
-            <!-- Search Bar -->
-            <div class="mb-10">
-                <input
-                    id="searchBar"
-                    type="text"
-                    placeholder="Search Programme..."
-                    class="w-full max-w-md px-4 py-2 border border-gray-400 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-yellow-400"
-                />
-            </div>
-
-           <!-- Card Grid -->
-<div
-id="universityGrid"
-class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8"
->
-<!-- Programme Card 1 -->
-<div
-    class="university-card bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 p-4 sm:p-6"
-    data-name="BCA (Bachelor of Computer Applications)"
->
-    <div class="p-4 sm:p-6">
-        <h3 class="text-lg sm:text-2xl font-bold mb-2 text-blue-800 dark:text-yellow-300">
-           BCA (Bachelor of Computer Applications)
-        </h3>
-        <a
-            href="BCA.html"
-            class="inline-block bg-blue-600 text-white py-1 px-3 sm:py-2 sm:px-4 rounded-md shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500"
-        >
-            View Notes
-        </a>
-    </div>
-</div>
-<!-- Programme Card 2-->
-<div
-    class="university-card bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 p-4 sm:p-6"
-    data-name="BDA"
->
-    <div class="p-4 sm:p-6">
-        <h3 class="text-lg sm:text-2xl font-bold mb-2 text-blue-800 dark:text-yellow-300">
-            BDA (Data Science and Artificial Intelligence)
-        </h3>
-        <a
-            href="index.html"
-            class="inline-block bg-blue-600 text-white py-1 px-3 sm:py-2 sm:px-4 rounded-md shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500"
-        >
-            Coming Soon!
-        </a>
-    </div>
-</div>
-<!-- Programme Card 3-->
-<div
-    class="university-card bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 p-4 sm:p-6"
-    data-name="EDA (Economics, Data Analytics)"
->
-    <div class="p-4 sm:p-6">
-        <h3 class="text-lg sm:text-2xl font-bold mb-2 text-blue-800 dark:text-yellow-300">
-            EDA (Economics, Data Analytics)
-        </h3>
-        <a
-            href="index.html"
-            class="inline-block bg-blue-600 text-white py-1 px-3 sm:py-2 sm:px-4 rounded-md shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500"
-        >
-            Coming Soon!
-        </a>
-    </div>
-</div>
-<!-- Programme Card 4 -->
-<div
-    class="university-card bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 p-4 sm:p-6"
-    data-name="EM (Economics, Mathematics)"
->
-    <div class="p-4 sm:p-6">
-        <h3 class="text-lg sm:text-2xl font-bold mb-2 text-blue-800 dark:text-yellow-300">
-            EM (Economics, Mathematics)
-        </h3>
-        <a
-            href="index.html"
-            class="inline-block bg-blue-600 text-white py-1 px-3 sm:py-2 sm:px-4 rounded-md shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500"
-        >
-            Coming Soon!
-        </a>
-    </div>
-</div>
-<!-- Programme Card 5 -->
-<div
-    class="university-card bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 p-4 sm:p-6"
-    data-name=" MCA (Master of Computer Applications)"
->
-    <div class="p-4 sm:p-6">
-        <h3 class="text-lg sm:text-2xl font-bold mb-2 text-blue-800 dark:text-yellow-300">
-            MCA (Master of Computer Applications)
-
-        </h3>
-        <a
-            href="index.html"
-            class="inline-block bg-blue-600 text-white py-1 px-3 sm:py-2 sm:px-4 rounded-md shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500"
-        >
-            Coming Soon!
-        </a>
-    </div>
-</div>
- </div>
-        </div>
+    <!-- Hero Banner Section -->
+    <section class="relative w-full h-64 sm:h-80 flex items-center justify-center mb-12">
+      <img src="SOS_BANNER.jpg" alt="School of Sciences Banner" class="absolute inset-0 w-full h-full object-cover object-center z-0">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-400/40 dark:from-gray-900/80 dark:to-gray-700/60 z-10"></div>
+      <div class="relative z-20 flex flex-col items-center justify-center w-full h-full text-center">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-white drop-shadow-lg mb-2">School of Sciences</h1>
+        <p class="text-lg sm:text-2xl text-blue-100 font-medium drop-shadow">Empowering Future Innovators</p>
+      </div>
     </section>
-
-
-
+    <!-- Main Content Section -->
+    <section class="py-12">
+      <div class="container mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-blue-800 dark:text-yellow-300 mb-8">Select Your Programme</h2>
+        <!-- Search Bar -->
+        <div class="mb-10 flex justify-center">
+          <input id="searchBar" type="text" placeholder="Search Programme..." class="w-full max-w-md px-4 py-2 border border-gray-400 rounded-lg shadow focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-yellow-400">
+        </div>
+        <!-- Card Grid -->
+        <div id="universityGrid" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Programme Card 1 -->
+          <div class="university-card bg-white/70 dark:bg-gray-700/80 rounded-2xl shadow-xl backdrop-blur-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl p-6 border border-blue-100 dark:border-gray-600" data-name="BCA (Bachelor of Computer Applications)">
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 text-blue-800 dark:text-yellow-300">BCA (Bachelor of Computer Applications)</h3>
+            <a href="BCA.html" class="inline-block bg-blue-600 text-white py-2 px-5 rounded-full shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500 font-semibold">View Notes</a>
+          </div>
+          <!-- Programme Card 2 -->
+          <div class="university-card bg-white/70 dark:bg-gray-700/80 rounded-2xl shadow-xl backdrop-blur-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl p-6 border border-blue-100 dark:border-gray-600" data-name="BDA">
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 text-blue-800 dark:text-yellow-300">BDA (Data Science and Artificial Intelligence)</h3>
+            <a href="index.html" class="inline-block bg-blue-600 text-white py-2 px-5 rounded-full shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500 font-semibold">Coming Soon!</a>
+          </div>
+          <!-- Programme Card 3 -->
+          <div class="university-card bg-white/70 dark:bg-gray-700/80 rounded-2xl shadow-xl backdrop-blur-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl p-6 border border-blue-100 dark:border-gray-600" data-name="EDA (Economics, Data Analytics)">
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 text-blue-800 dark:text-yellow-300">EDA (Economics, Data Analytics)</h3>
+            <a href="index.html" class="inline-block bg-blue-600 text-white py-2 px-5 rounded-full shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500 font-semibold">Coming Soon!</a>
+          </div>
+          <!-- Programme Card 4 -->
+          <div class="university-card bg-white/70 dark:bg-gray-700/80 rounded-2xl shadow-xl backdrop-blur-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl p-6 border border-blue-100 dark:border-gray-600" data-name="EM (Economics, Mathematics)">
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 text-blue-800 dark:text-yellow-300">EM (Economics, Mathematics)</h3>
+            <a href="index.html" class="inline-block bg-blue-600 text-white py-2 px-5 rounded-full shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500 font-semibold">Coming Soon!</a>
+          </div>
+          <!-- Programme Card 5 -->
+          <div class="university-card bg-white/70 dark:bg-gray-700/80 rounded-2xl shadow-xl backdrop-blur-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl p-6 border border-blue-100 dark:border-gray-600" data-name="MCA (Master of Computer Applications)">
+            <h3 class="text-xl sm:text-2xl font-bold mb-3 text-blue-800 dark:text-yellow-300">MCA (Master of Computer Applications)</h3>
+            <a href="index.html" class="inline-block bg-blue-600 text-white py-2 px-5 rounded-full shadow-md hover:bg-blue-700 transition-all dark:bg-yellow-400 dark:text-blue-900 dark:hover:bg-yellow-500 font-semibold">Coming Soon!</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
      <!-- JavaScript -->
   <script>
@@ -244,17 +176,28 @@ class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8"
       mobileMenu.classList.toggle("hidden");
     });
 
-    // Dark Mode Toggle
+    // Dark Mode Toggle with localStorage
     const darkModeToggle = document.getElementById("darkModeToggle");
     const htmlElement = document.documentElement;
+
+    // On page load, check localStorage for theme preference
+    if (localStorage.getItem("theme") === "light") {
+      htmlElement.classList.remove("dark");
+      darkModeToggle.textContent = "🌙";
+    } else {
+      htmlElement.classList.add("dark");
+      darkModeToggle.textContent = "☀️";
+    }
 
     darkModeToggle.addEventListener("click", () => {
       if (htmlElement.classList.contains("dark")) {
         htmlElement.classList.remove("dark");
-        darkModeToggle.textContent = "🌙"; // Light mode icon
+        darkModeToggle.textContent = "🌙";
+        localStorage.setItem("theme", "light");
       } else {
         htmlElement.classList.add("dark");
-        darkModeToggle.textContent = "☀️"; // Dark mode icon
+        darkModeToggle.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
       }
     });
     
