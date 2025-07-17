@@ -407,6 +407,8 @@
       ]
     }
   </script>
+  <!-- Font Awesome CDN for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6V7LPEC5P4"></script>
@@ -452,15 +454,18 @@
       <p class="text-base text-gray-600 dark:text-gray-400 mb-4">Christ University Delhi NCR</p>
       <p class="text-base text-gray-700 dark:text-gray-300 mb-6">I love editing videos, designing cool stuff, and picking up freelance projects just for fun. Bas kuch na kuch creative karte rehna hai! 😄✨</p>
       <!-- Social Links -->
-      <div class="flex justify-center gap-4 mt-2">
-        <a href="https://tejas-kashyap-portfolio.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 rounded-full bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 font-semibold shadow hover:bg-yellow-200 dark:hover:bg-yellow-800 transition">
-          <i class="fas fa-globe mr-2"></i> Portfolio
+      <div class="flex gap-8 justify-center mt-4">
+        <a href="https://www.linkedin.com/in/tejas-kashyap/" target="_blank" rel="noopener" class="text-blue-500 hover:text-blue-600 text-4xl transition" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://www.linkedin.com/in/tejas-kashyap/" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-semibold shadow hover:bg-blue-200 dark:hover:bg-blue-800 transition">
-          <i class="fab fa-linkedin mr-2"></i> LinkedIn
+        <a href="https://tejas-kashyap-portfolio.vercel.app/" target="_blank" rel="noopener" class="text-yellow-400 hover:text-yellow-500 text-4xl transition" aria-label="Portfolio">
+          <i class="fas fa-globe"></i>
         </a>
-        <a href="https://github.com/Tejaskashyap2005" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold shadow hover:bg-gray-200 dark:hover:bg-gray-600 transition">
-          <i class="fab fa-github mr-2"></i> GitHub
+        <a href="https://github.com/Tejaskashyap2005" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white text-4xl transition" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" id="instagramIcon" class="text-pink-400 hover:text-pink-500 text-4xl transition" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
         </a>
       </div>
     </div>
@@ -498,6 +503,7 @@
 
   <footer class="mt-10 py-6 bg-white/60 backdrop-blur-md dark:bg-gray-800/60 text-center text-gray-600 dark:text-gray-300 rounded-t-xl shadow-inner">
     <div class="container mx-auto">
+    
       <p>© 2024 Notes Zone. All rights reserved.</p>
     </div>
   </footer>
@@ -536,57 +542,7 @@
     });
   </script>
 
-  <script>
-    
-    // Select all navigation links and the loading screen
-    const links = document.querySelectorAll('a');
-    const loadingScreen = document.getElementById('loadingScreen');
-
-    // Show the loader when any link is clicked
-    links.forEach(link => {
-        link.addEventListener('click', (event) => {
-            const href = link.getAttribute('href');
-            
-            // Ensure the link is internal
-            if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-                event.preventDefault(); // Prevent immediate navigation
-                loadingScreen.style.display = 'flex'; // Show the loading screen
-
-                // Simulate a delay, then navigate (remove the setTimeout for real navigation)
-                setTimeout(() => {
-                    window.location.href = href; // Navigate to the clicked link
-                }, 1000); // Simulate a 1-second delay
-            }
-        });
-    });
-
-   // Optional: Hide loader on page load and handle back/forward navigation
-window.addEventListener('pageshow', (event) => {
-    // Check if the navigation type is "back_forward" (i.e., browser's back/forward button)
-    if (event.persisted) {
-        loadingScreen.style.display = 'none'; // Ensure the loading screen is hidden
-    }
-});
-
-// Show the loader when any link is clicked
-links.forEach(link => {
-    link.addEventListener('click', (event) => {
-        const href = link.getAttribute('href');
-        
-        // Ensure the link is internal
-        if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-            event.preventDefault(); // Prevent immediate navigation
-            loadingScreen.style.display = 'flex'; // Show the loading screen
-
-            // Simulate a delay, then navigate (remove the setTimeout for real navigation)
-            setTimeout(() => {
-                window.location.href = href; // Navigate to the clicked link
-            }, 1000); // Simulate a 1-second delay
-        }
-    });
-});
-
-</script>
+<!-- Remove all loader and link interception scripts -->
 
 <!-- Counter Animation Script -->
 <script>
@@ -732,6 +688,18 @@ links.forEach(link => {
         faqSection.style.opacity = 0;
         faqToggleBtn.querySelector('span').textContent = 'Show FAQ';
         faqArrow.style.transform = 'rotate(0deg)';
+      }
+    });
+  </script>
+  <script>
+    // Instagram icon popup
+    document.addEventListener('DOMContentLoaded', function() {
+      var insta = document.getElementById('instagramIcon');
+      if (insta) {
+        insta.addEventListener('click', function(e) {
+          e.preventDefault();
+          alert("Oops! I am not on Instagram 😅");
+        });
       }
     });
   </script>
