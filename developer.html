@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-adsense-account" content="ca-pub-2125586648357270">
   
   <!-- Primary SEO Meta Tags -->
-  <title>Meet the Developer - Tejas Kashyap, Founder of Notes Zone | Official Portfolio</title>
-  <meta name="description" content="Meet Tejas Kashyap, the visionary founder and developer of Notes Zone. Learn about his journey creating the #1 platform for educational notes and study materials.">
+  <title>Tejas Kashyap - Founder of Notes Zone | Developer, Portfolio, Bio, Achievements</title>
+  <meta name="description" content="Tejas Kashyap is the founder and lead developer of Notes Zone, a top platform for educational notes. Learn about his journey, achievements, and connect with him online.">
   <meta name="keywords" content="Tejas Kashyap, Notes Zone founder, Notes Zone developer, who created Notes Zone, Tejas Kashyap BCA, Tejas Kashyap developer, Tejas Kashyap Christ University, Notes Zone creator, educational platform developer, Tejas Kashyap profile, Tejas Kashyap portfolio">
   
   <!-- Additional SEO Meta Tags -->
@@ -25,6 +25,7 @@
   
   <!-- Canonical URL -->
   <link rel="canonical" href="https://noteszone.online/developer.html">
+  
   
   <!-- Open Graph Meta Tags for Social Sharing -->
   <meta property="og:type" content="profile">
@@ -248,7 +249,75 @@
         transform: translateY(-5px);
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
-</style>
+    .analytics-tab {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 0.5rem 1.2rem;
+      border-radius: 0.75rem 0.75rem 0 0;
+      color: #0369a1;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+      margin-bottom: -2px;
+      border-bottom: 2px solid transparent;
+    }
+    .analytics-tab.active, .analytics-tab:focus {
+      background: linear-gradient(to top, #bae6fd 60%, transparent 100%);
+      color: #0ea5e9;
+      border-bottom: 2px solid #facc15;
+    }
+    .dark .analytics-tab {
+      color: #facc15;
+    }
+    .dark .analytics-tab.active, .dark .analytics-tab:focus {
+      background: linear-gradient(to top, #1e293b 60%, transparent 100%);
+      color: #fde68a;
+      border-bottom: 2px solid #facc15;
+    }
+    /* --- Analytics Card Mobile Enhancements --- */
+    @media (max-width: 640px) {
+      .analytics-card {
+        padding: 1.2rem 0.5rem !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 6px 32px 0 rgba(56,189,248,0.10), 0 1.5px 6px 0 rgba(250,204,21,0.10);
+        background: linear-gradient(135deg, #0ea5e9 0%, #1e293b 100%);
+      }
+      .analytics-tabs-mobile {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem 0.8rem;
+        width: 100%;
+        margin-bottom: 1.2rem;
+      }
+      .analytics-tab {
+        width: 100%;
+        min-width: 0;
+        font-size: 1.1rem;
+        padding: 0.9rem 0.2rem;
+        border-radius: 1.2rem;
+        margin-bottom: 0 !important;
+      }
+      .analytics-tab span.text-2xl {
+        font-size: 1.5rem !important;
+      }
+    }
+    /* Highlight active stat on mobile */
+    .analytics-tab.active {
+      box-shadow: 0 0 0 3px #facc15, 0 2px 8px 0 rgba(56,189,248,0.10);
+      z-index: 1;
+    }
+    /* Card gradient and shadow for all screens */
+    .analytics-card {
+      background: #fff;
+      box-shadow: 0 6px 32px 0 rgba(56,189,248,0.10), 0 1.5px 6px 0 rgba(250,204,21,0.10);
+      border-radius: 1.5rem;
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+    .dark .analytics-card {
+      background: #1e293b;
+    }
+  </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2125586648357270"
      crossorigin="anonymous"></script>
   <script async custom-element="amp-auto-ads"
@@ -306,6 +375,7 @@
         "name": "Notes Zone",
         "logo": {
           "@type": "ImageObject",
+          "@id": "https://noteszone.online/logo.png",
           "url": "https://noteszone.online/logo.png"
         }
       },
@@ -349,167 +419,81 @@
 </script>
 
 <body class="bg-gradient-to-b from-sky-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-100 relative">
-  <amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-2125586648357270">
-</amp-auto-ads>
-  <!-- Enhanced Grid Overlay -->
-  <div class="fixed inset-0 pointer-events-none">
-      <!-- Primary Grid -->
-      <div class="hero-grid absolute inset-0 opacity-30 dark:opacity-20"></div>
-      <!-- Secondary Grid -->
-      <div class="hero-grid-secondary absolute inset-0 opacity-15 dark:opacity-10"></div>
-  </div>
-
-  <!-- Loading Logo -->
-<div id="loadingScreen" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50 hidden">
-    <video autoplay loop muted playsinline class="h-32 w-32">
-        <source src="logowebm.webm" type="video/webm">
-        <source src="logogif.gif" type="video/mp4">
-        <img src="logo.png" alt="Loading..." class="h-32 w-32">
-        Your browser does not support the video tag.
-    </video>
-</div>
-
-<!-- Floating Elements Background -->
-<div class="floating-elements fixed inset-0 pointer-events-none z-0">
-    <!-- Educational Icons -->
-    <i class="fas fa-book floating-icon" style="top: 8%; left: 15%;"></i>
-    <i class="fas fa-lightbulb floating-icon" style="top: 12%; left: 75%;"></i>
-    <i class="fas fa-graduation-cap floating-icon" style="top: 35%; left: 28%;"></i>
-    <i class="fas fa-atom floating-icon" style="top: 20%; right: 25%;"></i>
-    <i class="fas fa-flask floating-icon" style="bottom: 25%; left: 40%;"></i>
-    <i class="fas fa-microscope floating-icon" style="top: 45%; right: 15%;"></i>
-    
-    <!-- Mathematical Symbols -->
-    <span class="math-symbol" style="top: 30%; left: 65%;">π</span>
-    <span class="math-symbol" style="bottom: 40%; right: 35%;">∑</span>
-    <span class="math-symbol" style="top: 60%; left: 20%;">∞</span>
-    
-    <!-- Decorative Dots -->
-    <div class="floating-dot" style="top: 15%; left: 45%;"></div>
-    <div class="floating-dot" style="top: 55%; right: 25%;"></div>
-    <div class="floating-dot" style="bottom: 35%; left: 30%;"></div>
-</div>
-
-<!-- Navigation Bar -->
-<header class="py-1 px-8 sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg dark:bg-gray-800/80 dark:text-gray-100 transition-all">
-  <div class="container mx-auto flex justify-between items-center">
-      <!-- Logo -->
+  <amp-auto-ads type="adsense" data-ad-client="ca-pub-2125586648357270"></amp-auto-ads>
+  <!-- Navigation Bar -->
+  <header class="py-1 px-8 sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-lg dark:bg-gray-800/80 dark:text-gray-100 transition-all">
+    <div class="container mx-auto flex justify-between items-center">
       <a href="index.html" aria-label="Notes Zone Home">
-          <img src="logo.png" alt="Notes Zone Logo" class="h-12 w-auto">
+        <img src="logo.png" alt="Notes Zone Logo" class="h-12 w-auto">
       </a>
-      <!-- Navigation Links -->
       <nav id="navLinks" class="hidden sm:flex space-x-8 text-lg font-medium">
-          <a href="index.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
-              Home
-          </a>
-          <a href="contact.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
-              Contact
-          </a>
-        
-          <a href="contribute.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">
-              Contribute
-          </a>
+        <a href="index.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">Home</a>
+        <a href="contact.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">Contact</a>
+        <a href="contribute.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-yellow-500 transition">Contribute</a>
       </nav>
-      <!-- Mobile Menu Icon -->
-      <button id="menuToggle" class="sm:hidden text-2xl text-gray-800 dark:text-gray-200 focus:outline-none" aria-label="Toggle mobile menu">
-          ☰
-      </button>
-      <!-- Dark Mode Toggle -->
-      <button id="darkModeToggle" class="ml-6 text-xl sm:text-2xl focus:outline-none" aria-label="Toggle dark mode">
-          🌙
-      </button>
-  </div>
-  <!-- Mobile Dropdown Menu -->
-  <nav id="mobileMenu" class="hidden sm:hidden absolute left-0 top-16 w-full bg-white/80 backdrop-blur-md dark:bg-gray-800/80 text-gray-800 dark:text-gray-200 shadow-lg rounded-lg transition-all">
+      <button id="menuToggle" class="sm:hidden text-2xl text-gray-800 dark:text-gray-200 focus:outline-none" aria-label="Toggle mobile menu">☰</button>
+      <button id="darkModeToggle" class="ml-6 text-xl sm:text-2xl focus:outline-none" aria-label="Toggle dark mode">🌙</button>
+    </div>
+    <nav id="mobileMenu" class="hidden sm:hidden absolute left-0 top-16 w-full bg-white/80 backdrop-blur-md dark:bg-gray-800/80 text-gray-800 dark:text-gray-200 shadow-lg rounded-lg transition-all">
       <ul class="flex flex-col space-y-4 p-6">
-          <li><a href="index.html" class="block nav-link hover:text-yellow-500 transition">Home</a></li>
-          <li><a href="contact.html" class="block nav-link hover:text-yellow-500 transition">Contact</a></li>
-          <li><a href="contribute.html" class="block nav-link hover:text-yellow-500 transition">Contribute</a></li>
+        <li><a href="index.html" class="block nav-link hover:text-yellow-500 transition">Home</a></li>
+        <li><a href="contact.html" class="block nav-link hover:text-yellow-500 transition">Contact</a></li>
+        <li><a href="contribute.html" class="block nav-link hover:text-yellow-500 transition">Contribute</a></li>
       </ul>
-  </nav>
-</header>
+    </nav>
+  </header>
 
-  <main itemscope itemtype="http://schema.org/ProfilePage">
-    <section class="py-20 px-4">
-      <div class="container mx-auto text-center bg-white/90 backdrop-blur-md shadow-xl rounded-2xl p-10 max-w-3xl dark:bg-gray-800/90 hover:shadow-2xl transition-all duration-300 transform relative overflow-hidden profile-card fade-in">
-        <div class="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-blue-500/10 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-        <div class="relative z-10">
-          <!-- Section Title -->
-          <h1 class="text-4xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400" itemprop="headline">Meet the Developer</h1>
-          
-          <!-- Developer Photo -->
-          <div class="flex justify-center">
-            <img src="Tejas 1.jpg" alt="Tejas Kashyap - Founder and Developer of Notes Zone" 
-                  class="rounded-full w-60 h-60 transform hover:scale-105 transition duration-300 shadow-lg border-4 border-sky-100 dark:border-sky-900"
-                  itemprop="image" loading="eager" width="240" height="240">
-          </div>
-          
-          <!-- Developer Info -->
-          <div class="mt-6" itemprop="mainContentOfPage">
-            <h2 class="text-2xl font-semibold text-blue-700 dark:text-yellow-400" itemprop="name">Tejas Kashyap</h2>
-            <p class="text-lg text-blue-600 dark:text-gray-300" itemprop="jobTitle">Founder & Lead Developer | BCA Student</p>
-            <p class="mt-2 text-blue-600 dark:text-gray-300" itemprop="affiliation">Christ University Delhi NCR</p>
-            <div class="mt-4 text-gray-700 dark:text-gray-400 max-w-md mx-auto leading-relaxed" itemprop="description">
-              <p class="text-xl italic text-pink-600 dark:text-green-400">The biggest risk is not taking any risk... </p>
-            </div>
-          </div>
-
-          <!-- Achievements -->
-          <div class="mt-8 p-4 bg-white/80 backdrop-blur-md dark:bg-gray-700/80 rounded-xl shadow-lg">
-            <h3 class="text-xl font-semibold text-blue-700 dark:text-yellow-400 mb-3 bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400">Achievements & Skills</h3>
-            <ul class="text-left list-disc list-inside text-gray-700 dark:text-gray-300">
-              <li>Founded Notes Zone in 2023</li>
-              <li>Developed comprehensive educational resources platform</li>
-              <li>Experienced in video editing and graphic design</li>
-              <li>Passionate advocate for accessible education</li>
-            </ul>
-            
-            <!-- Analytics Metrics in a single block -->
-            <div class="mt-6 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80 p-4 sm:p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-center">
-                <div class="stat-block p-2">
-                  <p class="text-gray-500 dark:text-gray-300 text-xs sm:text-sm">New Users</p>
-                  <p class="counter text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400 text-xl sm:text-2xl font-bold" data-target="1289">0</p>
-                </div>
-                <div class="stat-block p-2">
-                  <p class="text-gray-500 dark:text-gray-300 text-xs sm:text-sm">Event Count</p>
-                  <p class="counter text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400 text-xl sm:text-2xl font-bold" data-target="54201">0</p>
-                </div>
-                <div class="stat-block p-2">
-                  <p class="text-gray-500 dark:text-gray-300 text-xs sm:text-sm">Active Users</p>
-                  <p class="counter text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400 text-xl sm:text-2xl font-bold" data-target="1171">0</p>
-                </div>
-                <div class="stat-block p-2">
-                  <p class="text-gray-500 dark:text-gray-300 text-xs sm:text-sm">Views</p>
-                  <p class="counter text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-blue-400 text-xl sm:text-2xl font-bold" data-target="20554">0</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Social Links -->
-          <div class="flex justify-center space-x-6 mt-6">
-            <a href="https://www.linkedin.com/in/tejas-kashyap/"
-               class="px-4 py-2 bg-white/80 backdrop-blur-sm dark:bg-gray-700/80 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-blue-600 flex items-center dark:text-blue-400"
-               itemprop="sameAs" rel="noopener" aria-label="Tejas Kashyap LinkedIn Profile">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22.225 0H1.771C.792 0 0 .774 0 1.727v20.546C0 23.226.792 24 1.771 24h20.451C23.204 24 24 23.226 24 22.273V1.727C24 .774 23.204 0 22.225 0zM7.118 20.452H3.556V9.035h3.562v11.417zm-1.781-13.04c-1.14 0-2.062-.91-2.062-2.031C3.275 4.362 4.197 3.5 5.337 3.5c1.14 0 2.062.862 2.062 1.989 0 1.122-.922 2.031-2.062 2.031zm15.415 13.04h-3.563v-5.763c0-1.383-.032-3.168-1.933-3.168-1.937 0-2.232 1.513-2.232 3.073v5.858h-3.562V9.035h3.419v1.556h.05c.476-.896 1.637-1.84 3.369-1.84 3.601 0 4.269 2.38 4.269 5.471v6.23h-.002z" />
-              </svg>
-              LinkedIn
-            </a>
-            <a href="https://github.com/Tejaskashyap2005" 
-               class="px-4 py-2 bg-white/80 backdrop-blur-sm dark:bg-gray-700/80 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-gray-800 flex items-center dark:text-gray-300"
-               itemprop="sameAs" rel="noopener" aria-label="Tejas Kashyap GitHub Profile">
-               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.41 2.865 8.166 6.839 9.49.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.705-2.782.605-3.369-1.343-3.369-1.343-.454-1.153-1.11-1.46-1.11-1.46-.907-.62.068-.607.068-.607 1.004.07 1.531 1.033 1.531 1.033.891 1.528 2.341 1.087 2.91.831.092-.646.349-1.087.635-1.337-2.22-.253-4.555-1.111-4.555-4.945 0-1.092.39-1.985 1.031-2.683-.104-.254-.447-1.277.097-2.66 0 0 .84-.27 2.75 1.026A9.552 9.552 0 0 1 12 6.804c.852.004 1.709.115 2.511.338 1.91-1.296 2.75-1.026 2.75-1.026.545 1.383.202 2.406.099 2.66.643.698 1.031 1.591 1.031 2.683 0 3.844-2.337 4.687-4.566 4.935.359.31.678.922.678 1.855 0 1.338-.012 2.419-.012 2.746 0 .268.181.58.688.482A10.005 10.005 0 0 0 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
-              </svg>
-              GitHub
-            </a>
-          </div>
-        </div>
+  <!-- Hero/Profile Section -->
+  <main class="flex flex-col items-center justify-center min-h-[80vh] px-4 py-12 fade-in">
+    <div class="w-full max-w-md bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center mb-8">
+      <img src="Tejas 1.jpg" alt="Tejas Kashyap - Founder and Developer of Notes Zone" class="rounded-full w-36 h-36 mb-4 border-4 border-sky-200 dark:border-sky-700 shadow-md">
+      <h1 class="text-3xl font-bold text-blue-700 dark:text-yellow-400 mb-1">Tejas Kashyap</h1>
+      <p class="text-lg text-blue-600 dark:text-gray-300 mb-2">Founder & Lead Developer | BCA Student</p>
+      <p class="text-base text-gray-600 dark:text-gray-400 mb-4">Christ University Delhi NCR</p>
+      <p class="text-base text-gray-700 dark:text-gray-300 mb-6">I love editing videos, designing cool stuff, and picking up freelance projects just for fun. Bas kuch na kuch creative karte rehna hai! 😄✨</p>
+      <!-- Social Links -->
+      <div class="flex justify-center gap-4 mt-2">
+        <a href="https://tejas-kashyap-portfolio.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 rounded-full bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 font-semibold shadow hover:bg-yellow-200 dark:hover:bg-yellow-800 transition">
+          <i class="fas fa-globe mr-2"></i> Portfolio
+        </a>
+        <a href="https://www.linkedin.com/in/tejas-kashyap/" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-semibold shadow hover:bg-blue-200 dark:hover:bg-blue-800 transition">
+          <i class="fab fa-linkedin mr-2"></i> LinkedIn
+        </a>
+        <a href="https://github.com/Tejaskashyap2005" target="_blank" rel="noopener" class="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold shadow hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+          <i class="fab fa-github mr-2"></i> GitHub
+        </a>
       </div>
-    </section>
+    </div>
+    <!-- Analytics Card with integrated tabs and Chart.js -->
+    <div class="analytics-card w-full max-w-2xl bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center mt-2">
+      <h2 class="text-xl font-bold text-blue-700 dark:text-yellow-300 mb-4">Notes Zone Analytics</h2>
+      <!-- Tabs/Numbers Row -->
+      <div id="analyticsTabs" class="analytics-tabs-mobile flex justify-center gap-6 mb-6 w-full">
+        <button class="analytics-tab" data-metric="newUsers"><span class="text-2xl font-bold">1.3K</span><br><span class="text-xs">New users</span></button>
+        <button class="analytics-tab active" data-metric="eventCount"><span class="text-2xl font-bold">54K</span><br><span class="text-xs">Event count</span></button>
+        <button class="analytics-tab" data-metric="views"><span class="text-2xl font-bold">20K</span><br><span class="text-xs">Views</span></button>
+        <button class="analytics-tab" data-metric="activeUsers"><span class="text-2xl font-bold">1.2K</span><br><span class="text-xs">Active users</span></button>
+      </div>
+      <canvas id="analyticsChart" height="120"></canvas>
+    </div>
+    <!-- FAQ Dropdown Section (hidden by default, at end of main) -->
+    <div class="w-full max-w-2xl mx-auto mt-8 mb-4">
+      <button id="faqToggleBtn" class="w-full flex items-center justify-between px-6 py-4 rounded-xl bg-blue-100 dark:bg-gray-700 text-blue-700 dark:text-yellow-300 font-bold text-lg shadow transition hover:bg-blue-200 dark:hover:bg-gray-600 focus:outline-none">
+        <span>Show FAQ</span>
+        <svg id="faqArrow" class="w-6 h-6 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <section id="faqSection" class="overflow-hidden max-h-0 opacity-0 transition-all duration-400 bg-white/80 dark:bg-gray-800/80 rounded-xl shadow p-6 mt-2">
+        <h2 class="text-lg font-bold mb-4 text-blue-700 dark:text-yellow-300">Frequently Asked Questions</h2>
+        <dl>
+          <dt class="font-semibold text-blue-700 dark:text-yellow-300 mt-2">Who is Tejas Kashyap?</dt>
+          <dd class="mb-2 text-gray-700 dark:text-gray-200">Tejas Kashyap is the founder and lead developer of Notes Zone, a popular platform for educational notes and study materials.</dd>
+          <dt class="font-semibold text-blue-700 dark:text-yellow-300 mt-2">What is Notes Zone?</dt>
+          <dd class="mb-2 text-gray-700 dark:text-gray-200">Notes Zone is an online platform created by Tejas Kashyap to help students access high-quality notes and resources for various subjects.</dd>
+          <dt class="font-semibold text-blue-700 dark:text-yellow-300 mt-2">Where can I find more about Tejas Kashyap?</dt>
+          <dd class="mb-2 text-gray-700 dark:text-gray-200">You can find more about Tejas Kashyap on his <a href="https://tejas-kashyap-portfolio.vercel.app/" class="text-blue-600 underline" target="_blank">portfolio</a>, <a href="https://www.linkedin.com/in/tejas-kashyap/" class="text-blue-600 underline" target="_blank">LinkedIn</a>, and <a href="https://github.com/Tejaskashyap2005" class="text-blue-600 underline" target="_blank">GitHub</a>.</dd>
+        </dl>
+      </section>
+    </div>
   </main>
 
   <footer class="mt-10 py-6 bg-white/60 backdrop-blur-md dark:bg-gray-800/60 text-center text-gray-600 dark:text-gray-300 rounded-t-xl shadow-inner">
@@ -523,25 +507,34 @@
     // Mobile Navigation Toggle
     const menuToggle = document.getElementById("menuToggle");
     const mobileMenu = document.getElementById("mobileMenu");
-
     menuToggle.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
     });
-
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById("darkModeToggle");
     const htmlElement = document.documentElement;
 
+    // On page load, check localStorage for theme preference
+    if (localStorage.getItem("theme") === "light") {
+      htmlElement.classList.remove("dark");
+      darkModeToggle.textContent = "🌙";
+    } else {
+      htmlElement.classList.add("dark");
+      darkModeToggle.textContent = "☀️";
+    }
+
     darkModeToggle.addEventListener("click", () => {
       if (htmlElement.classList.contains("dark")) {
         htmlElement.classList.remove("dark");
-        darkModeToggle.textContent = "🌙"; // Light mode icon
+        darkModeToggle.textContent = "🌙";
+        localStorage.setItem("theme", "light");
       } else {
         htmlElement.classList.add("dark");
-        darkModeToggle.textContent = "☀️"; // Dark mode icon
+        darkModeToggle.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
       }
     });
-    </script>
+  </script>
 
   <script>
     
@@ -663,5 +656,84 @@ links.forEach(link => {
     }
   });
 </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Chart data for each metric
+    const analyticsData = {
+      newUsers: [0, 0, 0, 400, 200, 300, 100, 150, 80, 70],
+      eventCount: [0, 0, 0, 2000, 0, 8000, 4000, 6000, 2000, 1500],
+      views: [0, 0, 0, 1000, 500, 3000, 2000, 2500, 1200, 800],
+      activeUsers: [0, 0, 0, 300, 100, 400, 200, 350, 150, 120]
+    };
+    const analyticsLabels = ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+    let currentMetric = 'eventCount';
+    // Chart.js Line Graph
+    const ctx = document.getElementById('analyticsChart').getContext('2d');
+    let analyticsChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: analyticsLabels,
+        datasets: [{
+          label: '',
+          data: analyticsData[currentMetric],
+          borderColor: '#38bdf8',
+          backgroundColor: 'rgba(56, 189, 248, 0.1)',
+          tension: 0.4,
+          pointBackgroundColor: '#facc15',
+          pointBorderColor: '#facc15',
+          pointRadius: 5,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: 'rgba(56,189,248,0.1)' },
+            ticks: { color: '#64748b' }
+          },
+          x: {
+            grid: { color: 'rgba(56,189,248,0.05)' },
+            ticks: { color: '#64748b' }
+          }
+        }
+      }
+    });
+    // Tab click handler
+    document.querySelectorAll('.analytics-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.analytics-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        const metric = this.getAttribute('data-metric');
+        analyticsChart.data.datasets[0].data = analyticsData[metric];
+        analyticsChart.update();
+      });
+    });
+  </script>
+  <script>
+    // FAQ Dropdown Toggle
+    const faqToggleBtn = document.getElementById('faqToggleBtn');
+    const faqSection = document.getElementById('faqSection');
+    const faqArrow = document.getElementById('faqArrow');
+    let faqOpen = false;
+    faqToggleBtn.addEventListener('click', () => {
+      faqOpen = !faqOpen;
+      if (faqOpen) {
+        faqSection.style.maxHeight = faqSection.scrollHeight + 'px';
+        faqSection.style.opacity = 1;
+        faqToggleBtn.querySelector('span').textContent = 'Hide FAQ';
+        faqArrow.style.transform = 'rotate(180deg)';
+      } else {
+        faqSection.style.maxHeight = '0';
+        faqSection.style.opacity = 0;
+        faqToggleBtn.querySelector('span').textContent = 'Show FAQ';
+        faqArrow.style.transform = 'rotate(0deg)';
+      }
+    });
+  </script>
 </body>
 </html>
