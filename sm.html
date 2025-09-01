@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tezon - AI Brain Chip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated background with brain and chip elements */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-brain {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.1;
+            animation: floatBrain 15s linear infinite;
+            font-size: 60px;
+        }
+
+        .floating-chip {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            opacity: 0.05;
+            border-radius: 4px;
+            animation: floatChip 20s linear infinite;
+        }
+
+        .floating-chip::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: #000;
+            border-radius: 2px;
+        }
+
+        @keyframes floatBrain {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes floatChip {
+            0% {
+                transform: translateY(100vh) rotateX(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.05;
+            }
+            90% {
+                opacity: 0.05;
+            }
+            100% {
+                transform: translateY(-100px) rotateX(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 8vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            animation: titlePulse 3s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes titlePulse {
+            0% { 
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+                transform: scale(1);
+            }
+            100% { 
+                text-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+                transform: scale(1.02);
+            }
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            color: #cccccc;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 1s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            background: #f0f0f0;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Enhanced Central brain-chip visualization */
+        .brain-chip-visual {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            z-index: 1;
+        }
+
+        /* Outer glow ring */
+        .outer-ring {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            top: 25px;
+            left: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: outerRingRotate 20s linear infinite;
+        }
+
+        .outer-ring::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ffffff;
+            border-radius: 50%;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes outerRingRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Enhanced brain outline */
+        .brain-outline {
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            top: 80px;
+            left: 80px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 120px 120px 100px 100px;
+            animation: brainPulse 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+        }
+
+        .brain-outline::before {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 90px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 35px 35px 25px 25px;
+            top: 30px;
+            left: -36px;
+            animation: brainLobesPulse 4s ease-in-out infinite 0.5s;
+        }
+
+        .brain-outline::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 90px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 35px 35px 25px 25px;
+            top: 30px;
+            right: -36px;
+            animation: brainLobesPulse 4s ease-in-out infinite 0.5s;
+        }
+
+        /* Neural pathways inside brain */
+        .neural-pathway {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 1px;
+            animation: neuralFlow 3s ease-in-out infinite;
+        }
+
+        .pathway1 {
+            width: 100px;
+            height: 1px;
+            top: 120px;
+            left: 70px;
+            transform: rotate(15deg);
+            animation-delay: 0s;
+        }
+
+        .pathway2 {
+            width: 80px;
+            height: 1px;
+            top: 140px;
+            left: 95px;
+            transform: rotate(-20deg);
+            animation-delay: 0.5s;
+        }
+
+        .pathway3 {
+            width: 90px;
+            height: 1px;
+            top: 160px;
+            left: 75px;
+            transform: rotate(30deg);
+            animation-delay: 1s;
+        }
+
+        .pathway4 {
+            width: 70px;
+            height: 1px;
+            top: 180px;
+            left: 115px;
+            transform: rotate(-10deg);
+            animation-delay: 1.5s;
+        }
+
+        /* Enhanced semiconductor chip */
+        .chip-center {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            animation: chipGlow 2s ease-in-out infinite alternate;
+            backdrop-filter: blur(5px);
+        }
+
+        .chip-center::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 4px;
+            opacity: 0.6;
+            animation: chipCoreFlicker 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Chip pins/connectors */
+        .chip-pin {
+            position: absolute;
+            width: 3px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .pin-top1 { top: -12px; left: 20px; }
+        .pin-top2 { top: -12px; left: 30px; }
+        .pin-top3 { top: -12px; left: 40px; }
+        .pin-top4 { top: -12px; left: 50px; }
+
+        .pin-bottom1 { bottom: -12px; left: 20px; }
+        .pin-bottom2 { bottom: -12px; left: 30px; }
+        .pin-bottom3 { bottom: -12px; left: 40px; }
+        .pin-bottom4 { bottom: -12px; left: 50px; }
+
+        .pin-left1 { left: -12px; top: 20px; width: 12px; height: 3px; }
+        .pin-left2 { left: -12px; top: 30px; width: 12px; height: 3px; }
+        .pin-left3 { left: -12px; top: 40px; width: 12px; height: 3px; }
+        .pin-left4 { left: -12px; top: 50px; width: 12px; height: 3px; }
+
+        .pin-right1 { right: -12px; top: 20px; width: 12px; height: 3px; }
+        .pin-right2 { right: -12px; top: 30px; width: 12px; height: 3px; }
+        .pin-right3 { right: -12px; top: 40px; width: 12px; height: 3px; }
+        .pin-right4 { right: -12px; top: 50px; width: 12px; height: 3px; }
+
+        /* Enhanced circuit connections */
+        .circuit-connection {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: connectionPulse 2s ease-in-out infinite;
+        }
+
+        .connection1 {
+            width: 60px;
+            height: 60px;
+            top: 100px;
+            left: 100px;
+            border-radius: 50%;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(45deg);
+            animation-delay: 0s;
+        }
+
+        .connection2 {
+            width: 60px;
+            height: 60px;
+            top: 100px;
+            right: 100px;
+            border-radius: 50%;
+            border-right: none;
+            border-bottom: none;
+            transform: rotate(-45deg);
+            animation-delay: 0.3s;
+        }
+
+        .connection3 {
+            width: 60px;
+            height: 60px;
+            bottom: 100px;
+            left: 100px;
+            border-radius: 50%;
+            border-left: none;
+            border-top: none;
+            transform: rotate(-45deg);
+            animation-delay: 0.6s;
+        }
+
+        .connection4 {
+            width: 60px;
+            height: 60px;
+            bottom: 100px;
+            right: 100px;
+            border-radius: 50%;
+            border-right: none;
+            border-top: none;
+            transform: rotate(45deg);
+            animation-delay: 0.9s;
+        }
+
+        /* Data nodes */
+        .data-node {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: dataNodePulse 1.5s ease-in-out infinite;
+        }
+
+        .node1 { top: 80px; left: 140px; animation-delay: 0s; }
+        .node2 { top: 80px; right: 140px; animation-delay: 0.2s; }
+        .node3 { bottom: 80px; left: 140px; animation-delay: 0.4s; }
+        .node4 { bottom: 80px; right: 140px; animation-delay: 0.6s; }
+        .node5 { top: 50%; left: 60px; transform: translateY(-50%); animation-delay: 0.8s; }
+        .node6 { top: 50%; right: 60px; transform: translateY(-50%); animation-delay: 1s; }
+
+        @keyframes brainPulse {
+            0%, 100% { 
+                border-color: rgba(255, 255, 255, 0.4);
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+            }
+            50% { 
+                border-color: rgba(255, 255, 255, 0.8);
+                transform: scale(1.03);
+                filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.5));
+            }
+        }
+
+        @keyframes brainLobesPulse {
+            0%, 100% { 
+                border-color: rgba(255, 255, 255, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                border-color: rgba(255, 255, 255, 0.7);
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes chipGlow {
+            0% { 
+                border-color: #ffffff;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% { 
+                border-color: #ffffff;
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        @keyframes chipCoreFlicker {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes neuralFlow {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scaleX(1);
+            }
+            50% { 
+                opacity: 0.9;
+                transform: scaleX(1.1);
+            }
+        }
+
+        @keyframes connectionPulse {
+            0%, 100% { 
+                border-color: rgba(255, 255, 255, 0.5);
+                opacity: 0.7;
+            }
+            50% { 
+                border-color: rgba(255, 255, 255, 0.9);
+                opacity: 1;
+            }
+        }
+
+        @keyframes dataNodePulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.7;
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            }
+            50% { 
+                transform: scale(1.5);
+                opacity: 1;
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.02);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            position: relative;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background: #000000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888888;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            .hero {
+                padding: 1rem;
+            }
+            
+            .features {
+                padding: 3rem 1rem;
+            }
+            
+            .cta-section {
+                padding: 3rem 1rem;
+            }
+            
+            .brain-chip-visual {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .brain-outline {
+                width: 120px;
+                height: 120px;
+                top: 40px;
+                left: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg" id="animatedBg"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Tezon</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="brain-chip-visual">
+            <!-- Outer rotating ring -->
+            <div class="outer-ring"></div>
+            
+            <!-- Enhanced brain outline -->
+            <div class="brain-outline">
+                <!-- Neural pathways inside brain -->
+                <div class="neural-pathway pathway1"></div>
+                <div class="neural-pathway pathway2"></div>
+                <div class="neural-pathway pathway3"></div>
+                <div class="neural-pathway pathway4"></div>
+            </div>
+            
+            <!-- Enhanced semiconductor chip -->
+            <div class="chip-center">
+                <!-- Chip pins -->
+                <div class="chip-pin pin-top1"></div>
+                <div class="chip-pin pin-top2"></div>
+                <div class="chip-pin pin-top3"></div>
+                <div class="chip-pin pin-top4"></div>
+                <div class="chip-pin pin-bottom1"></div>
+                <div class="chip-pin pin-bottom2"></div>
+                <div class="chip-pin pin-bottom3"></div>
+                <div class="chip-pin pin-bottom4"></div>
+                <div class="chip-pin pin-left1"></div>
+                <div class="chip-pin pin-left2"></div>
+                <div class="chip-pin pin-left3"></div>
+                <div class="chip-pin pin-left4"></div>
+                <div class="chip-pin pin-right1"></div>
+                <div class="chip-pin pin-right2"></div>
+                <div class="chip-pin pin-right3"></div>
+                <div class="chip-pin pin-right4"></div>
+            </div>
+            
+            <!-- Circuit connections -->
+            <div class="circuit-connection connection1"></div>
+            <div class="circuit-connection connection2"></div>
+            <div class="circuit-connection connection3"></div>
+            <div class="circuit-connection connection4"></div>
+            
+            <!-- Data nodes -->
+            <div class="data-node node1"></div>
+            <div class="data-node node2"></div>
+            <div class="data-node node3"></div>
+            <div class="data-node node4"></div>
+            <div class="data-node node5"></div>
+            <div class="data-node node6"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Tezon</h1>
+            <p>ChatGPT in your brain. The world's first AI-powered brain chip.</p>
+            <a href="#" class="cta-button" onclick="joinWaitlist()">Join the Waitlist</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>The Future is Now</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <span class="feature-icon">🧠</span>
+                <h3>AI in Your Brain</h3>
+                <p>A semiconductor chip that connects with your neurons to enhance cognition and give real-time AI intelligence.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">⚡</span>
+                <h3>Instant Knowledge</h3>
+                <p>Answer any question instantly, powered by ChatGPT-level processing, directly inside your thoughts.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <span class="feature-icon">🌍</span>
+                <h3>Beyond Human Limits</h3>
+                <p>Learn faster, recall everything, and communicate effortlessly — a true fusion of human and AI.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>The Future of Intelligence Starts Here</h2>
+        <p>Be among the first to experience AI directly in your mind.</p>
+        <a href="#" class="cta-button" onclick="getEarlyAccess()">Get Early Access</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Tezon. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Create floating brain and chip elements
+        function createFloatingElements() {
+            const bg = document.getElementById('animatedBg');
+            
+            // Create floating brains
+            for (let i = 0; i < 8; i++) {
+                const brain = document.createElement('div');
+                brain.className = 'floating-brain';
+                brain.innerHTML = '🧠';
+                brain.style.left = Math.random() * 100 + '%';
+                brain.style.animationDelay = Math.random() * 15 + 's';
+                brain.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                bg.appendChild(brain);
+            }
+            
+            // Create floating chips
+            for (let i = 0; i < 12; i++) {
+                const chip = document.createElement('div');
+                chip.className = 'floating-chip';
+                chip.style.left = Math.random() * 100 + '%';
+                chip.style.animationDelay = Math.random() * 20 + 's';
+                chip.style.animationDuration = (Math.random() * 10 + 20) + 's';
+                bg.appendChild(chip);
+            }
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out both';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Button click handlers
+        function joinWaitlist() {
+            alert('Welcome to the future! You\'ve been added to our exclusive waitlist. Prepare for the neural revolution! 🧠✨');
+        }
+
+        function getEarlyAccess() {
+            alert('Congratulations! You\'re now in line for early access to Tezon\'s revolutionary AI brain chip technology! 🚀');
+        }
+
+        // Initialize elements when page loads
+        window.addEventListener('load', () => {
+            createFloatingElements();
+            
+            // Add stagger effect to feature cards
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+
+        // Parallax effect for central brain-chip visual
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.3;
+            const brainChip = document.querySelector('.brain-chip-visual');
+            if (brainChip) {
+                brainChip.style.transform = `translate(-50%, -50%) translateY(${rate}px)`;
+            }
+        });
+
+        // Mouse movement effect
+        document.addEventListener('mousemove', (e) => {
+            const hero = document.querySelector('.hero');
+            const rect = hero.getBoundingClientRect();
+            
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                
+                const brainChip = document.querySelector('.brain-chip-visual');
+                const moveX = (x - 0.5) * 15;
+                const moveY = (y - 0.5) * 15;
+                brainChip.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+            }
+        });
+
+        // Continuous creation of floating elements
+        setInterval(() => {
+            if (Math.random() < 0.1) { // 10% chance every interval
+                const bg = document.getElementById('animatedBg');
+                
+                if (Math.random() < 0.5) {
+                    // Add a brain
+                    const brain = document.createElement('div');
+                    brain.className = 'floating-brain';
+                    brain.innerHTML = '🧠';
+                    brain.style.left = Math.random() * 100 + '%';
+                    brain.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                    bg.appendChild(brain);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        if (brain.parentNode) brain.parentNode.removeChild(brain);
+                    }, 25000);
+                } else {
+                    // Add a chip
+                    const chip = document.createElement('div');
+                    chip.className = 'floating-chip';
+                    chip.style.left = Math.random() * 100 + '%';
+                    chip.style.animationDuration = (Math.random() * 10 + 20) + 's';
+                    bg.appendChild(chip);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        if (chip.parentNode) chip.parentNode.removeChild(chip);
+                    }, 30000);
+                }
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
